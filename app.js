@@ -5,20 +5,16 @@ var io          = require('socket.io')(http);
 var router      = express.Router();
 var fs          = require('fs');
 
-
 var RACES = {},  RUNNERS = {};
 
 
-/* SERVER */
-app.set('port', (process.env.PORT || 5000))
+// SERVER
+var port = process.env.PORT || 8880;
+var ip   = process.env.IP || '192.168.2.188';
 
-
-/* STATIC ASSETS */
-app.use('/assets',              express.static(__dirname + '/assets'));
-app.use('/src',                 express.static(__dirname + '/src'));
-app.use('/views',               express.static(__dirname + '/views'));
-app.use('/website',             express.static(__dirname + '/website'));
-app.use('/bower_components',    express.static(__dirname + '/bower_components'));
+http.listen(port, function(){
+  console.log('here we go');
+});
 
 
 /* ROUTES */
@@ -42,10 +38,6 @@ router.get('/allrunners', function(req, res) {
 router.get('/runner/:name', function(req, res) {
     res.send(JSON.stringify(RUNNERS[req.params.name]), {}, function (err) {});
 });
-
-app.listen(app.get('port'), function() {
-  console.log("Here we go on " + app.get('port'))
-})
 
 app.use('/', router);
 
