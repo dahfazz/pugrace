@@ -4,6 +4,9 @@
     "description": "Gentlemen start your pugs",
     "author": "Pug raiser <fabien.zibi@gmail.com>",
     "dependencies": {
+        "express": "^4.9.0",
+        "socket.io": "^1.1.0",
+        "polymer": "^0.4.0"
     },
     "engines": {
         "node":"0.10.x",
