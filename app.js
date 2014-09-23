@@ -17,6 +17,14 @@ http.listen(port, function(){
 });
 
 
+/* STATIC ASSETS */
+app.use('/assets',              express.static(__dirname + '/assets'));
+app.use('/src',                 express.static(__dirname + '/src'));
+app.use('/views',               express.static(__dirname + '/views'));
+app.use('/website',             express.static(__dirname + '/website'));
+app.use('/bower_components',    express.static(__dirname + '/bower_components'));
+
+
 /* ROUTES */
 var routingOptions = {root: __dirname + '/views/'};
 router.get('/', function(req, res) {
@@ -39,9 +47,8 @@ router.get('/runner/:name', function(req, res) {
     res.send(JSON.stringify(RUNNERS[req.params.name]), {}, function (err) {});
 });
 
+
 app.use('/', router);
-
-
 
 
 /* GENERATE WEB COMPONENTS CORE-STYLE */
