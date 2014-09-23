@@ -47,6 +47,22 @@ router.get('/runner/:name', function(req, res) {
     res.send(JSON.stringify(RUNNERS[req.params.name]), {}, function (err) {});
 });
 
+router.get('/stats', function(req, res) {
+    var stats = {
+        'races': Object.size(RACES),
+        'runners': Object.size(RUNNERS)
+    }
+    res.send(stats, {}, function (err) {});
+});
+
+Object.size = function(obj) {
+    var size = 0, key;
+    for (key in obj) {
+        if (obj.hasOwnProperty(key)) size++;
+    }
+    return size;
+};
+
 
 app.use('/', router);
 
