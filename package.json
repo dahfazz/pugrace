@@ -5,7 +5,7 @@
     "author": "Pug raiser <fabien.zibi@gmail.com>",
     "dependencies": {
         "express": "^4.9.0",
-        "socket.io": "^1.1.0",
+        "socket.io": "^0.9.14",
         "polymer": "^0.4.0"
     },
     "engine": "node 0.10.26"
