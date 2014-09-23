@@ -1,15 +1,13 @@
 {
-    "name": "Pugrace",
-    "version": "0.0.1",
-    "description": "Gentlemen start your pugs",
-    "author": "Pug raiser <fabien.zibi@gmail.com>",
-    "dependencies": {
-        "express": "^4.9.0",
-        "socket.io": "^1.1.0",
-        "polymer": "^0.4.0"
-    },
-    "engines": {
-        "node":"0.10.x",
-        "npm": "1.2.x"
-    }
+  "name": "socket-engine",
+  "version": "0.0.1",
+  "description": "Gentlemen start your pugs",
+  "dependencies": {
+    "express": "^4.9.0",
+    "socket.io": "^1.1.0",
+    "polymer": "^0.4.0"
+  },
+  "engines":{
+    "node":"0.10.x"
+  }
 }
