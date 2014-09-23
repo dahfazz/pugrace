@@ -11,14 +11,15 @@ var RACES = {},  RUNNERS = {};
 
 /* SERVER */
 app.set('port', (process.env.PORT || 5000))
-app.use(express.static(__dirname + '/assets'))
-app.use(express.static(__dirname + '/src'))
-app.use(express.static(__dirname + '/views'))
-app.use(express.static(__dirname + '/bower_components'))
 
-app.get('/', function(request, response) {
-  response.send('Hello World!')
-})
+
+/* STATIC ASSETS */
+app.use('/assets',              express.static(__dirname + '/assets'));
+app.use('/src',                 express.static(__dirname + '/src'));
+app.use('/views',               express.static(__dirname + '/views'));
+app.use('/website',             express.static(__dirname + '/website'));
+app.use('/bower_components',    express.static(__dirname + '/bower_components'));
+
 
 /* ROUTES */
 var routingOptions = {root: __dirname + '/views/'};
