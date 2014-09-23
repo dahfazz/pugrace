@@ -6,7 +6,8 @@
     "dependencies": {
         "express": "^4.9.0",
         "socket.io": "^0.9.14",
-        "polymer": "^0.4.0"
+        "polymer": "^0.4.0",
+        "indexof": "latest"
     },
     "engine": "node 0.10.26"
 }
