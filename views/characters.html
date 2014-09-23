@@ -1,0 +1,11 @@
+<div class="characters_wrapper" data-page="{{facesPage}}" data-ng-controller="CharacterCtrl">
+    <!--<button class="characters_nav" data-ng-click="prevChar($event)">previous</button>-->
+    <div class="characters_inner">
+        <ul class="characters">
+            <li class="character" data-ng-repeat="char in characters">
+                <button class="character_button __{{char}}" value="{{char}}" data-ng-click="selectCharacter($event)"  data-ng-class="{'__selected': char === character}"></button>
+            </li>
+        </ul>
+    </div>
+    <!--<button class="characters_nav" data-ng-click="nextChar($event)">next</button>-->
+</div>

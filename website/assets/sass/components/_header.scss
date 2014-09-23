@@ -1,0 +1,33 @@
+.header {
+    background: transparentize($color-main-dark, .3);
+    padding: 10px;
+    overflow: hidden;
+}
+
+.header_title {
+    color: $color-secondary;
+    font-size: 2em;
+    padding: 0;
+    font-family: 'arcade';
+    width: 30%;
+    float: left;
+}
+
+.header_nav {
+    float: right;
+    width: 70%;
+    text-align: right;
+}
+
+.header_nav_link {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 20px;
+    font-size: 2em;
+    font-family: 'arcade';
+    color: $color-main-light;
+    
+    &:hover {
+        color: white;
+    }
+}

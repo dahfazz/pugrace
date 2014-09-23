@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <link rel="import" href="/assets/components/profile/index.html">
+        <link rel="import" href="/assets/components/profile/style.html">
+        <link rel="stylesheet" href="/assets/css/main.css">
+    </head>
+    <body data-ng-app="myApp">
+        <div data-ng-controller="AppCtrl">
+            <div data-ng-view></div>
+        </div>
+    </body>
+
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+
+    <script src="/src/classes/Answer.js"></script>
+    <script src="/src/classes/Quizz.js"></script>
+    <script src="/src/classes/Race.js"></script>
+    <script src="/src/classes/Runner.js"></script>
+
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="../bower_components/modernizr/modernizr.js"></script>
+    <script src="../bower_components/angular/angular.js"></script>
+    <script src="../bower_components/angular-route/angular-route.js"></script>
+    <script src="../bower_components/angular-sanitize/angular-sanitize.js"></script>
+
+    <script src="/src/app.js"></script>
+
+    <script src="/src/controllers/JoinCtrl.js"></script>
+    <script src="/src/controllers/AppCtrl.js"></script>
+    <script src="/src/controllers/CharacterCtrl.js"></script>
+    <script src="/src/controllers/LoginCtrl.js"></script>
+    <script src="/src/controllers/NameCtrl.js"></script>
+    <script src="/src/controllers/RaceCtrl.js"></script>
+    <script src="/src/controllers/RacesCtrl.js"></script>
+
+    <script>
+        socket  = io();
+    </script>
+</html>

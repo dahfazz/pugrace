@@ -1,0 +1,28 @@
+
+@include define('project-helpers') {
+
+  /* _____ PROJECT HELPERS _____ */
+
+  @include _add(box) {
+    background: $color-main-dark;
+    border-top: 10px solid $color-main-light;
+    border-bottom: 5px solid $color-main-medium;
+  }
+  
+  @include _add(clickable) {
+    display: inline-block;
+    font-family: 'arcade';
+    color: $color-secondary;
+    border: none;
+    background: none;
+    outline: none;
+  }
+  
+  @include _add(input) {
+    padding: 10px 0;
+    font-family: 'arcade';
+    font-size: 3em;
+    text-transform: uppercase;
+  }
+
+}

@@ -1,0 +1,31 @@
+.racerunners {
+    background: $color-main-dark;
+    border: 10px solid $color-main-light;
+    overflow: hidden;
+    padding: 15px 0 10px 65px;
+    position: fixed;
+    width: 400px;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.racerunners_line {
+    font-family: 'arcade';
+    font-size: 1.8em;
+    width: 50%;
+    float: left;
+
+    &.__waiting {
+        color: white;
+    }
+
+    &.__rewarded, &.__animated {
+        color: $color-secondary;
+    }
+
+    &.__answered {
+        color: $color-main-medium;
+    }
+}

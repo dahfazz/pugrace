@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+  <head>
+      <script src="bower_components/platform/platform.js"></script>
+        <link rel="import" href="/assets/components/profile/style.html">
+        <link rel="import" href="/assets/components/profile/index.html">
+        <link rel="import" href="/assets/components/gamepad/style.html">
+        <link rel="import" href="/assets/components/gamepad/index.html">
+    
+      <link rel="stylesheet" href="/assets/css/main.css">
+      <script src="/assets/js/libs/modernizr.js"></script>
+  </head>
+  <body onload="init()">
+  
+    <my-profile></my-profile>
+  
+    <my-gamepad></my-gamepad>
+
+
+    <!-- SOUND -->
+    <audio id="soundPlayer"></audio>
+    
+    <!-- Javascripts -->
+    <script src="/assets/js/libs/jquery.js"></script>
+    <script src="/assets/js/libs/socketio.js"></script>
+    <script src="/assets/js/src/init/gamepad.js"></script>
+    <script src="/assets/js/src/Sound.js"></script>
+    <script src="/assets/js/src/Runner.js"></script>
+  </body>
+</html>

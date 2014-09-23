@@ -1,0 +1,2987 @@
+@font-face {
+  font-family: 'arcade';
+  src: url("/assets/fonts/arcade/arcade.eot");
+  src: url("/assets/fonts/arcade/arcade.eot?#iefix") format("embedded-opentype"), url("/assets/fonts/arcade/arcade.woff") format("woff"), url("/assets/fonts/arcade/arcade.ttf") format("truetype"), url("/assets/fonts/arcade/arcade.svg#Sri-TSCRegular") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+body {
+  background: black;
+  font-size: 100%; }
+
+.registered .gamepad {
+  display: block; }
+.registered #joinButton {
+  display: none; }
+
+.gamepad {
+  background: #1f2072;
+  border: 10px solid #9393c9;
+  overflow: hidden;
+  padding: 30px;
+  margin: auto;
+  display: none; }
+  .win .gamepad, .looser .gamepad {
+    display: none; }
+
+.gamepad-question {
+  text-align: center;
+  width: 100%;
+  font-family: 'arcade';
+  font-size: 3em;
+  color: #9393c9; }
+  .gamepad-question img {
+    height: 70px;
+    margin: auto;
+    border: 5px solid #9393c9; }
+
+.gamepad-answers {
+  padding: 0;
+  margin: 0;
+  list-style: none; }
+
+.gamepad-answers li {
+  text-align: center;
+  border-bottom: 2px solid #9393c9; }
+  .gamepad-answers li button {
+    display: block;
+    text-align: center;
+    width: 100%;
+    padding: 10px 0;
+    font-family: 'arcade';
+    font-size: 2em;
+    color: #d7c72a;
+    border: none;
+    background: none;
+    outline: none; }
+
+@media (max-device-width: 640px) {
+  .gamepad {
+    width: 500px;
+    height: 210px;
+    margin-top: 80px; } }
+.join {
+  width: 90%;
+  max-width: 400px;
+  margin: 30px auto;
+  background: #1f2072;
+  border-top: 10px solid #9393c9;
+  border-bottom: 5px solid #413f88;
+  padding: 40px; }
+
+.join-label {
+  display: block;
+  text-align: center;
+  width: 100%;
+  font-family: 'arcade';
+  font-size: 3em;
+  color: #9393c9; }
+
+.join-input {
+  display: block;
+  text-align: center;
+  width: 100%;
+  margin-top: 30px;
+  padding: 20px 0;
+  font-family: 'arcade';
+  font-size: 3em; }
+
+.join-button {
+  display: block;
+  text-align: center;
+  width: 100%;
+  padding: 20px 0;
+  font-family: 'arcade';
+  font-size: 3em;
+  color: #d7c72a;
+  border: none;
+  background: none;
+  outline: none; }
+  .join-button:before {
+    content: "";
+    display: inline-block;
+    width: 5px;
+    vertical-align: middle;
+    border: 10px solid transparent;
+    border-left-color: #d7c72a;
+    cursor: pointer;
+    margin-top: -14px; }
+  .join-button:active {
+    padding-top: 23px; }
+
+/*  FACES */
+.join-faces {
+  margin: 30px auto 0;
+  padding: 0;
+  overflow: hidden;
+  list-style: none;
+  width: 450px; }
+  .registered .join-faces {
+    width: 150px; }
+
+.join-face {
+  float: left;
+  width: 33%;
+  padding: 0;
+  height: 123px;
+  text-align: center; }
+
+.join-face-button {
+  width: 123px;
+  height: 123px;
+  display: block;
+  margin: auto;
+  background: url("/assets/images/face-a.png") no-repeat;
+  border: 6px solid #9393c9;
+  outline: none; }
+  .__selected .join-face-button {
+    border-color: #d7c72a;
+    background-color: white; }
+
+.__alternative .join-face-button {
+  background-image: url("/assets/images/face-b.png"); }
+
+.__pig .join-face-button {
+  background-image: url("/assets/images/face-c.png"); }
+
+@media (max-device-width: 640px) {
+  .join {
+    max-width: none; }
+
+  .join-label,
+  .join-input,
+  .join-button,
+  .join-faces {
+    margin-top: 50px;
+    font-size: 6em; } }
+.win, .looser {
+  z-index: 9999999; }
+  .win:before, .looser:before {
+    content: "";
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0; }
+  .win:after, .looser:after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    display: block;
+    height: 70px;
+    width: 500px;
+    margin: auto;
+    font-size: 70px; }
+
+.win:before {
+  background: rgba(0, 255, 0, 0.9); }
+.win:after {
+  content: "YOU WIN!"; }
+
+.looser:before {
+  background: rgba(255, 0, 0, 0.9); }
+.looser:after {
+  content: "YOU LOST..."; }
+
+.players {
+  margin: 0;
+  padding: 0;
+  display: block;
+  width: 900px;
+  margin: 60px auto 0;
+  background: #9393c9;
+  border: 10px solid #eee;
+  border-radius: 10px; }
+
+.player {
+  display: block;
+  border-bottom: 2px solid black;
+  padding: 30px 0 0;
+  overflow: hidden;
+  position: relative; }
+  .player:after {
+    content: "";
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    right: 0;
+    bottom: -23px;
+    background: url("/assets/images/pizza.png") no-repeat;
+    background-size: cover; }
+
+.pug {
+  display: block;
+  float: left;
+  width: 140px;
+  height: 140px;
+  position: relative;
+  background: url("/assets/images/pug.gif") top no-repeat;
+  background-size: cover;
+  transition: margin-left .6s linear;
+  margin-bottom: -46px;
+  margin-left: -28px;
+  z-index: 1; }
+  .__black .pug {
+    background-image: url("/assets/images/pug-b.gif"); }
+  .__pig .pug {
+    background-image: url("/assets/images/pig.gif"); }
+
+.pug-name {
+  position: absolute;
+  bottom: 110px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  text-transform: uppercase; }
+
+.start-button {
+  display: block;
+  text-align: center;
+  width: 100%;
+  margin-top: 30px;
+  padding: 20px 0;
+  font-family: 'arcade';
+  font-size: 3em;
+  color: #d7c72a;
+  border: none;
+  background: none;
+  outline: none; }
+  .start-button:before {
+    content: "";
+    display: inline-block;
+    width: 5px;
+    vertical-align: middle;
+    border: 10px solid transparent;
+    border-left-color: #d7c72a;
+    cursor: pointer;
+    margin-top: -14px; }
+  .start-button:active {
+    padding-top: 23px; }
+
+[data-steps="1"] .pug {
+  margin-left: 10px; }
+
+[data-steps="2"] .pug {
+  margin-left: 20px; }
+
+[data-steps="3"] .pug {
+  margin-left: 30px; }
+
+[data-steps="4"] .pug {
+  margin-left: 40px; }
+
+[data-steps="5"] .pug {
+  margin-left: 50px; }
+
+[data-steps="6"] .pug {
+  margin-left: 60px; }
+
+[data-steps="7"] .pug {
+  margin-left: 70px; }
+
+[data-steps="8"] .pug {
+  margin-left: 80px; }
+
+[data-steps="9"] .pug {
+  margin-left: 90px; }
+
+[data-steps="10"] .pug {
+  margin-left: 100px; }
+
+[data-steps="11"] .pug {
+  margin-left: 110px; }
+
+[data-steps="12"] .pug {
+  margin-left: 120px; }
+
+[data-steps="13"] .pug {
+  margin-left: 130px; }
+
+[data-steps="14"] .pug {
+  margin-left: 140px; }
+
+[data-steps="15"] .pug {
+  margin-left: 150px; }
+
+[data-steps="16"] .pug {
+  margin-left: 160px; }
+
+[data-steps="17"] .pug {
+  margin-left: 170px; }
+
+[data-steps="18"] .pug {
+  margin-left: 180px; }
+
+[data-steps="19"] .pug {
+  margin-left: 190px; }
+
+[data-steps="20"] .pug {
+  margin-left: 200px; }
+
+[data-steps="21"] .pug {
+  margin-left: 210px; }
+
+[data-steps="22"] .pug {
+  margin-left: 220px; }
+
+[data-steps="23"] .pug {
+  margin-left: 230px; }
+
+[data-steps="24"] .pug {
+  margin-left: 240px; }
+
+[data-steps="25"] .pug {
+  margin-left: 250px; }
+
+[data-steps="26"] .pug {
+  margin-left: 260px; }
+
+[data-steps="27"] .pug {
+  margin-left: 270px; }
+
+[data-steps="28"] .pug {
+  margin-left: 280px; }
+
+[data-steps="29"] .pug {
+  margin-left: 290px; }
+
+[data-steps="30"] .pug {
+  margin-left: 300px; }
+
+[data-steps="31"] .pug {
+  margin-left: 310px; }
+
+[data-steps="32"] .pug {
+  margin-left: 320px; }
+
+[data-steps="33"] .pug {
+  margin-left: 330px; }
+
+[data-steps="34"] .pug {
+  margin-left: 340px; }
+
+[data-steps="35"] .pug {
+  margin-left: 350px; }
+
+[data-steps="36"] .pug {
+  margin-left: 360px; }
+
+[data-steps="37"] .pug {
+  margin-left: 370px; }
+
+[data-steps="38"] .pug {
+  margin-left: 380px; }
+
+[data-steps="39"] .pug {
+  margin-left: 390px; }
+
+[data-steps="40"] .pug {
+  margin-left: 400px; }
+
+[data-steps="41"] .pug {
+  margin-left: 410px; }
+
+[data-steps="42"] .pug {
+  margin-left: 420px; }
+
+[data-steps="43"] .pug {
+  margin-left: 430px; }
+
+[data-steps="44"] .pug {
+  margin-left: 440px; }
+
+[data-steps="45"] .pug {
+  margin-left: 450px; }
+
+[data-steps="46"] .pug {
+  margin-left: 460px; }
+
+[data-steps="47"] .pug {
+  margin-left: 470px; }
+
+[data-steps="48"] .pug {
+  margin-left: 480px; }
+
+[data-steps="49"] .pug {
+  margin-left: 490px; }
+
+[data-steps="50"] .pug {
+  margin-left: 500px; }
+
+[data-steps="51"] .pug {
+  margin-left: 510px; }
+
+[data-steps="52"] .pug {
+  margin-left: 520px; }
+
+[data-steps="53"] .pug {
+  margin-left: 530px; }
+
+[data-steps="54"] .pug {
+  margin-left: 540px; }
+
+[data-steps="55"] .pug {
+  margin-left: 550px; }
+
+[data-steps="56"] .pug {
+  margin-left: 560px; }
+
+[data-steps="57"] .pug {
+  margin-left: 570px; }
+
+[data-steps="58"] .pug {
+  margin-left: 580px; }
+
+[data-steps="59"] .pug {
+  margin-left: 590px; }
+
+[data-steps="60"] .pug {
+  margin-left: 600px; }
+
+[data-steps="61"] .pug {
+  margin-left: 610px; }
+
+[data-steps="62"] .pug {
+  margin-left: 620px; }
+
+[data-steps="63"] .pug {
+  margin-left: 630px; }
+
+[data-steps="64"] .pug {
+  margin-left: 640px; }
+
+[data-steps="65"] .pug {
+  margin-left: 650px; }
+
+[data-steps="66"] .pug {
+  margin-left: 660px; }
+
+[data-steps="67"] .pug {
+  margin-left: 670px; }
+
+[data-steps="68"] .pug {
+  margin-left: 680px; }
+
+[data-steps="69"] .pug {
+  margin-left: 690px; }
+
+[data-steps="70"] .pug {
+  margin-left: 700px; }
+
+[data-steps="71"] .pug {
+  margin-left: 710px; }
+
+[data-steps="72"] .pug {
+  margin-left: 720px; }
+
+[data-steps="73"] .pug {
+  margin-left: 730px; }
+
+[data-steps="74"] .pug {
+  margin-left: 740px; }
+
+[data-steps="75"] .pug {
+  margin-left: 750px; }
+
+[data-steps="76"] .pug {
+  margin-left: 760px; }
+
+[data-steps="77"] .pug {
+  margin-left: 770px; }
+
+[data-steps="78"] .pug {
+  margin-left: 780px; }
+
+[data-steps="79"] .pug {
+  margin-left: 790px; }
+
+[data-steps="80"] .pug {
+  margin-left: 800px; }
+
+[data-steps="81"] .pug {
+  margin-left: 810px; }
+
+[data-steps="82"] .pug {
+  margin-left: 820px; }
+
+[data-steps="83"] .pug {
+  margin-left: 830px; }
+
+[data-steps="84"] .pug {
+  margin-left: 840px; }
+
+[data-steps="85"] .pug {
+  margin-left: 850px; }
+
+[data-steps="86"] .pug {
+  margin-left: 860px; }
+
+[data-steps="87"] .pug {
+  margin-left: 870px; }
+
+[data-steps="88"] .pug {
+  margin-left: 880px; }
+
+[data-steps="89"] .pug {
+  margin-left: 890px; }
+
+[data-steps="90"] .pug {
+  margin-left: 900px; }
+
+[data-steps="91"] .pug {
+  margin-left: 910px; }
+
+[data-steps="92"] .pug {
+  margin-left: 920px; }
+
+[data-steps="93"] .pug {
+  margin-left: 930px; }
+
+[data-steps="94"] .pug {
+  margin-left: 940px; }
+
+[data-steps="95"] .pug {
+  margin-left: 950px; }
+
+[data-steps="96"] .pug {
+  margin-left: 960px; }
+
+[data-steps="97"] .pug {
+  margin-left: 970px; }
+
+[data-steps="98"] .pug {
+  margin-left: 980px; }
+
+[data-steps="99"] .pug {
+  margin-left: 990px; }
+
+[data-steps="100"] .pug {
+  margin-left: 1000px; }
+
+[data-steps="101"] .pug {
+  margin-left: 1010px; }
+
+[data-steps="102"] .pug {
+  margin-left: 1020px; }
+
+[data-steps="103"] .pug {
+  margin-left: 1030px; }
+
+[data-steps="104"] .pug {
+  margin-left: 1040px; }
+
+[data-steps="105"] .pug {
+  margin-left: 1050px; }
+
+[data-steps="106"] .pug {
+  margin-left: 1060px; }
+
+[data-steps="107"] .pug {
+  margin-left: 1070px; }
+
+[data-steps="108"] .pug {
+  margin-left: 1080px; }
+
+[data-steps="109"] .pug {
+  margin-left: 1090px; }
+
+[data-steps="110"] .pug {
+  margin-left: 1100px; }
+
+[data-steps="111"] .pug {
+  margin-left: 1110px; }
+
+[data-steps="112"] .pug {
+  margin-left: 1120px; }
+
+[data-steps="113"] .pug {
+  margin-left: 1130px; }
+
+[data-steps="114"] .pug {
+  margin-left: 1140px; }
+
+[data-steps="115"] .pug {
+  margin-left: 1150px; }
+
+[data-steps="116"] .pug {
+  margin-left: 1160px; }
+
+[data-steps="117"] .pug {
+  margin-left: 1170px; }
+
+[data-steps="118"] .pug {
+  margin-left: 1180px; }
+
+[data-steps="119"] .pug {
+  margin-left: 1190px; }
+
+[data-steps="120"] .pug {
+  margin-left: 1200px; }
+
+[data-steps="121"] .pug {
+  margin-left: 1210px; }
+
+[data-steps="122"] .pug {
+  margin-left: 1220px; }
+
+[data-steps="123"] .pug {
+  margin-left: 1230px; }
+
+[data-steps="124"] .pug {
+  margin-left: 1240px; }
+
+[data-steps="125"] .pug {
+  margin-left: 1250px; }
+
+[data-steps="126"] .pug {
+  margin-left: 1260px; }
+
+[data-steps="127"] .pug {
+  margin-left: 1270px; }
+
+[data-steps="128"] .pug {
+  margin-left: 1280px; }
+
+[data-steps="129"] .pug {
+  margin-left: 1290px; }
+
+[data-steps="130"] .pug {
+  margin-left: 1300px; }
+
+[data-steps="131"] .pug {
+  margin-left: 1310px; }
+
+[data-steps="132"] .pug {
+  margin-left: 1320px; }
+
+[data-steps="133"] .pug {
+  margin-left: 1330px; }
+
+[data-steps="134"] .pug {
+  margin-left: 1340px; }
+
+[data-steps="135"] .pug {
+  margin-left: 1350px; }
+
+[data-steps="136"] .pug {
+  margin-left: 1360px; }
+
+[data-steps="137"] .pug {
+  margin-left: 1370px; }
+
+[data-steps="138"] .pug {
+  margin-left: 1380px; }
+
+[data-steps="139"] .pug {
+  margin-left: 1390px; }
+
+[data-steps="140"] .pug {
+  margin-left: 1400px; }
+
+[data-steps="141"] .pug {
+  margin-left: 1410px; }
+
+[data-steps="142"] .pug {
+  margin-left: 1420px; }
+
+[data-steps="143"] .pug {
+  margin-left: 1430px; }
+
+[data-steps="144"] .pug {
+  margin-left: 1440px; }
+
+[data-steps="145"] .pug {
+  margin-left: 1450px; }
+
+[data-steps="146"] .pug {
+  margin-left: 1460px; }
+
+[data-steps="147"] .pug {
+  margin-left: 1470px; }
+
+[data-steps="148"] .pug {
+  margin-left: 1480px; }
+
+[data-steps="149"] .pug {
+  margin-left: 1490px; }
+
+[data-steps="150"] .pug {
+  margin-left: 1500px; }
+
+[data-steps="151"] .pug {
+  margin-left: 1510px; }
+
+[data-steps="152"] .pug {
+  margin-left: 1520px; }
+
+[data-steps="153"] .pug {
+  margin-left: 1530px; }
+
+[data-steps="154"] .pug {
+  margin-left: 1540px; }
+
+[data-steps="155"] .pug {
+  margin-left: 1550px; }
+
+[data-steps="156"] .pug {
+  margin-left: 1560px; }
+
+[data-steps="157"] .pug {
+  margin-left: 1570px; }
+
+[data-steps="158"] .pug {
+  margin-left: 1580px; }
+
+[data-steps="159"] .pug {
+  margin-left: 1590px; }
+
+[data-steps="160"] .pug {
+  margin-left: 1600px; }
+
+[data-steps="161"] .pug {
+  margin-left: 1610px; }
+
+[data-steps="162"] .pug {
+  margin-left: 1620px; }
+
+[data-steps="163"] .pug {
+  margin-left: 1630px; }
+
+[data-steps="164"] .pug {
+  margin-left: 1640px; }
+
+[data-steps="165"] .pug {
+  margin-left: 1650px; }
+
+[data-steps="166"] .pug {
+  margin-left: 1660px; }
+
+[data-steps="167"] .pug {
+  margin-left: 1670px; }
+
+[data-steps="168"] .pug {
+  margin-left: 1680px; }
+
+[data-steps="169"] .pug {
+  margin-left: 1690px; }
+
+[data-steps="170"] .pug {
+  margin-left: 1700px; }
+
+[data-steps="171"] .pug {
+  margin-left: 1710px; }
+
+[data-steps="172"] .pug {
+  margin-left: 1720px; }
+
+[data-steps="173"] .pug {
+  margin-left: 1730px; }
+
+[data-steps="174"] .pug {
+  margin-left: 1740px; }
+
+[data-steps="175"] .pug {
+  margin-left: 1750px; }
+
+[data-steps="176"] .pug {
+  margin-left: 1760px; }
+
+[data-steps="177"] .pug {
+  margin-left: 1770px; }
+
+[data-steps="178"] .pug {
+  margin-left: 1780px; }
+
+[data-steps="179"] .pug {
+  margin-left: 1790px; }
+
+[data-steps="180"] .pug {
+  margin-left: 1800px; }
+
+[data-steps="181"] .pug {
+  margin-left: 1810px; }
+
+[data-steps="182"] .pug {
+  margin-left: 1820px; }
+
+[data-steps="183"] .pug {
+  margin-left: 1830px; }
+
+[data-steps="184"] .pug {
+  margin-left: 1840px; }
+
+[data-steps="185"] .pug {
+  margin-left: 1850px; }
+
+[data-steps="186"] .pug {
+  margin-left: 1860px; }
+
+[data-steps="187"] .pug {
+  margin-left: 1870px; }
+
+[data-steps="188"] .pug {
+  margin-left: 1880px; }
+
+[data-steps="189"] .pug {
+  margin-left: 1890px; }
+
+[data-steps="190"] .pug {
+  margin-left: 1900px; }
+
+[data-steps="191"] .pug {
+  margin-left: 1910px; }
+
+[data-steps="192"] .pug {
+  margin-left: 1920px; }
+
+[data-steps="193"] .pug {
+  margin-left: 1930px; }
+
+[data-steps="194"] .pug {
+  margin-left: 1940px; }
+
+[data-steps="195"] .pug {
+  margin-left: 1950px; }
+
+[data-steps="196"] .pug {
+  margin-left: 1960px; }
+
+[data-steps="197"] .pug {
+  margin-left: 1970px; }
+
+[data-steps="198"] .pug {
+  margin-left: 1980px; }
+
+[data-steps="199"] .pug {
+  margin-left: 1990px; }
+
+[data-steps="200"] .pug {
+  margin-left: 2000px; }
+
+[data-steps="201"] .pug {
+  margin-left: 2010px; }
+
+[data-steps="202"] .pug {
+  margin-left: 2020px; }
+
+[data-steps="203"] .pug {
+  margin-left: 2030px; }
+
+[data-steps="204"] .pug {
+  margin-left: 2040px; }
+
+[data-steps="205"] .pug {
+  margin-left: 2050px; }
+
+[data-steps="206"] .pug {
+  margin-left: 2060px; }
+
+[data-steps="207"] .pug {
+  margin-left: 2070px; }
+
+[data-steps="208"] .pug {
+  margin-left: 2080px; }
+
+[data-steps="209"] .pug {
+  margin-left: 2090px; }
+
+[data-steps="210"] .pug {
+  margin-left: 2100px; }
+
+[data-steps="211"] .pug {
+  margin-left: 2110px; }
+
+[data-steps="212"] .pug {
+  margin-left: 2120px; }
+
+[data-steps="213"] .pug {
+  margin-left: 2130px; }
+
+[data-steps="214"] .pug {
+  margin-left: 2140px; }
+
+[data-steps="215"] .pug {
+  margin-left: 2150px; }
+
+[data-steps="216"] .pug {
+  margin-left: 2160px; }
+
+[data-steps="217"] .pug {
+  margin-left: 2170px; }
+
+[data-steps="218"] .pug {
+  margin-left: 2180px; }
+
+[data-steps="219"] .pug {
+  margin-left: 2190px; }
+
+[data-steps="220"] .pug {
+  margin-left: 2200px; }
+
+[data-steps="221"] .pug {
+  margin-left: 2210px; }
+
+[data-steps="222"] .pug {
+  margin-left: 2220px; }
+
+[data-steps="223"] .pug {
+  margin-left: 2230px; }
+
+[data-steps="224"] .pug {
+  margin-left: 2240px; }
+
+[data-steps="225"] .pug {
+  margin-left: 2250px; }
+
+[data-steps="226"] .pug {
+  margin-left: 2260px; }
+
+[data-steps="227"] .pug {
+  margin-left: 2270px; }
+
+[data-steps="228"] .pug {
+  margin-left: 2280px; }
+
+[data-steps="229"] .pug {
+  margin-left: 2290px; }
+
+[data-steps="230"] .pug {
+  margin-left: 2300px; }
+
+[data-steps="231"] .pug {
+  margin-left: 2310px; }
+
+[data-steps="232"] .pug {
+  margin-left: 2320px; }
+
+[data-steps="233"] .pug {
+  margin-left: 2330px; }
+
+[data-steps="234"] .pug {
+  margin-left: 2340px; }
+
+[data-steps="235"] .pug {
+  margin-left: 2350px; }
+
+[data-steps="236"] .pug {
+  margin-left: 2360px; }
+
+[data-steps="237"] .pug {
+  margin-left: 2370px; }
+
+[data-steps="238"] .pug {
+  margin-left: 2380px; }
+
+[data-steps="239"] .pug {
+  margin-left: 2390px; }
+
+[data-steps="240"] .pug {
+  margin-left: 2400px; }
+
+[data-steps="241"] .pug {
+  margin-left: 2410px; }
+
+[data-steps="242"] .pug {
+  margin-left: 2420px; }
+
+[data-steps="243"] .pug {
+  margin-left: 2430px; }
+
+[data-steps="244"] .pug {
+  margin-left: 2440px; }
+
+[data-steps="245"] .pug {
+  margin-left: 2450px; }
+
+[data-steps="246"] .pug {
+  margin-left: 2460px; }
+
+[data-steps="247"] .pug {
+  margin-left: 2470px; }
+
+[data-steps="248"] .pug {
+  margin-left: 2480px; }
+
+[data-steps="249"] .pug {
+  margin-left: 2490px; }
+
+[data-steps="250"] .pug {
+  margin-left: 2500px; }
+
+[data-steps="251"] .pug {
+  margin-left: 2510px; }
+
+[data-steps="252"] .pug {
+  margin-left: 2520px; }
+
+[data-steps="253"] .pug {
+  margin-left: 2530px; }
+
+[data-steps="254"] .pug {
+  margin-left: 2540px; }
+
+[data-steps="255"] .pug {
+  margin-left: 2550px; }
+
+[data-steps="256"] .pug {
+  margin-left: 2560px; }
+
+[data-steps="257"] .pug {
+  margin-left: 2570px; }
+
+[data-steps="258"] .pug {
+  margin-left: 2580px; }
+
+[data-steps="259"] .pug {
+  margin-left: 2590px; }
+
+[data-steps="260"] .pug {
+  margin-left: 2600px; }
+
+[data-steps="261"] .pug {
+  margin-left: 2610px; }
+
+[data-steps="262"] .pug {
+  margin-left: 2620px; }
+
+[data-steps="263"] .pug {
+  margin-left: 2630px; }
+
+[data-steps="264"] .pug {
+  margin-left: 2640px; }
+
+[data-steps="265"] .pug {
+  margin-left: 2650px; }
+
+[data-steps="266"] .pug {
+  margin-left: 2660px; }
+
+[data-steps="267"] .pug {
+  margin-left: 2670px; }
+
+[data-steps="268"] .pug {
+  margin-left: 2680px; }
+
+[data-steps="269"] .pug {
+  margin-left: 2690px; }
+
+[data-steps="270"] .pug {
+  margin-left: 2700px; }
+
+[data-steps="271"] .pug {
+  margin-left: 2710px; }
+
+[data-steps="272"] .pug {
+  margin-left: 2720px; }
+
+[data-steps="273"] .pug {
+  margin-left: 2730px; }
+
+[data-steps="274"] .pug {
+  margin-left: 2740px; }
+
+[data-steps="275"] .pug {
+  margin-left: 2750px; }
+
+[data-steps="276"] .pug {
+  margin-left: 2760px; }
+
+[data-steps="277"] .pug {
+  margin-left: 2770px; }
+
+[data-steps="278"] .pug {
+  margin-left: 2780px; }
+
+[data-steps="279"] .pug {
+  margin-left: 2790px; }
+
+[data-steps="280"] .pug {
+  margin-left: 2800px; }
+
+[data-steps="281"] .pug {
+  margin-left: 2810px; }
+
+[data-steps="282"] .pug {
+  margin-left: 2820px; }
+
+[data-steps="283"] .pug {
+  margin-left: 2830px; }
+
+[data-steps="284"] .pug {
+  margin-left: 2840px; }
+
+[data-steps="285"] .pug {
+  margin-left: 2850px; }
+
+[data-steps="286"] .pug {
+  margin-left: 2860px; }
+
+[data-steps="287"] .pug {
+  margin-left: 2870px; }
+
+[data-steps="288"] .pug {
+  margin-left: 2880px; }
+
+[data-steps="289"] .pug {
+  margin-left: 2890px; }
+
+[data-steps="290"] .pug {
+  margin-left: 2900px; }
+
+[data-steps="291"] .pug {
+  margin-left: 2910px; }
+
+[data-steps="292"] .pug {
+  margin-left: 2920px; }
+
+[data-steps="293"] .pug {
+  margin-left: 2930px; }
+
+[data-steps="294"] .pug {
+  margin-left: 2940px; }
+
+[data-steps="295"] .pug {
+  margin-left: 2950px; }
+
+[data-steps="296"] .pug {
+  margin-left: 2960px; }
+
+[data-steps="297"] .pug {
+  margin-left: 2970px; }
+
+[data-steps="298"] .pug {
+  margin-left: 2980px; }
+
+[data-steps="299"] .pug {
+  margin-left: 2990px; }
+
+[data-steps="300"] .pug {
+  margin-left: 3000px; }
+
+[data-steps="301"] .pug {
+  margin-left: 3010px; }
+
+[data-steps="302"] .pug {
+  margin-left: 3020px; }
+
+[data-steps="303"] .pug {
+  margin-left: 3030px; }
+
+[data-steps="304"] .pug {
+  margin-left: 3040px; }
+
+[data-steps="305"] .pug {
+  margin-left: 3050px; }
+
+[data-steps="306"] .pug {
+  margin-left: 3060px; }
+
+[data-steps="307"] .pug {
+  margin-left: 3070px; }
+
+[data-steps="308"] .pug {
+  margin-left: 3080px; }
+
+[data-steps="309"] .pug {
+  margin-left: 3090px; }
+
+[data-steps="310"] .pug {
+  margin-left: 3100px; }
+
+[data-steps="311"] .pug {
+  margin-left: 3110px; }
+
+[data-steps="312"] .pug {
+  margin-left: 3120px; }
+
+[data-steps="313"] .pug {
+  margin-left: 3130px; }
+
+[data-steps="314"] .pug {
+  margin-left: 3140px; }
+
+[data-steps="315"] .pug {
+  margin-left: 3150px; }
+
+[data-steps="316"] .pug {
+  margin-left: 3160px; }
+
+[data-steps="317"] .pug {
+  margin-left: 3170px; }
+
+[data-steps="318"] .pug {
+  margin-left: 3180px; }
+
+[data-steps="319"] .pug {
+  margin-left: 3190px; }
+
+[data-steps="320"] .pug {
+  margin-left: 3200px; }
+
+[data-steps="321"] .pug {
+  margin-left: 3210px; }
+
+[data-steps="322"] .pug {
+  margin-left: 3220px; }
+
+[data-steps="323"] .pug {
+  margin-left: 3230px; }
+
+[data-steps="324"] .pug {
+  margin-left: 3240px; }
+
+[data-steps="325"] .pug {
+  margin-left: 3250px; }
+
+[data-steps="326"] .pug {
+  margin-left: 3260px; }
+
+[data-steps="327"] .pug {
+  margin-left: 3270px; }
+
+[data-steps="328"] .pug {
+  margin-left: 3280px; }
+
+[data-steps="329"] .pug {
+  margin-left: 3290px; }
+
+[data-steps="330"] .pug {
+  margin-left: 3300px; }
+
+[data-steps="331"] .pug {
+  margin-left: 3310px; }
+
+[data-steps="332"] .pug {
+  margin-left: 3320px; }
+
+[data-steps="333"] .pug {
+  margin-left: 3330px; }
+
+[data-steps="334"] .pug {
+  margin-left: 3340px; }
+
+[data-steps="335"] .pug {
+  margin-left: 3350px; }
+
+[data-steps="336"] .pug {
+  margin-left: 3360px; }
+
+[data-steps="337"] .pug {
+  margin-left: 3370px; }
+
+[data-steps="338"] .pug {
+  margin-left: 3380px; }
+
+[data-steps="339"] .pug {
+  margin-left: 3390px; }
+
+[data-steps="340"] .pug {
+  margin-left: 3400px; }
+
+[data-steps="341"] .pug {
+  margin-left: 3410px; }
+
+[data-steps="342"] .pug {
+  margin-left: 3420px; }
+
+[data-steps="343"] .pug {
+  margin-left: 3430px; }
+
+[data-steps="344"] .pug {
+  margin-left: 3440px; }
+
+[data-steps="345"] .pug {
+  margin-left: 3450px; }
+
+[data-steps="346"] .pug {
+  margin-left: 3460px; }
+
+[data-steps="347"] .pug {
+  margin-left: 3470px; }
+
+[data-steps="348"] .pug {
+  margin-left: 3480px; }
+
+[data-steps="349"] .pug {
+  margin-left: 3490px; }
+
+[data-steps="350"] .pug {
+  margin-left: 3500px; }
+
+[data-steps="351"] .pug {
+  margin-left: 3510px; }
+
+[data-steps="352"] .pug {
+  margin-left: 3520px; }
+
+[data-steps="353"] .pug {
+  margin-left: 3530px; }
+
+[data-steps="354"] .pug {
+  margin-left: 3540px; }
+
+[data-steps="355"] .pug {
+  margin-left: 3550px; }
+
+[data-steps="356"] .pug {
+  margin-left: 3560px; }
+
+[data-steps="357"] .pug {
+  margin-left: 3570px; }
+
+[data-steps="358"] .pug {
+  margin-left: 3580px; }
+
+[data-steps="359"] .pug {
+  margin-left: 3590px; }
+
+[data-steps="360"] .pug {
+  margin-left: 3600px; }
+
+[data-steps="361"] .pug {
+  margin-left: 3610px; }
+
+[data-steps="362"] .pug {
+  margin-left: 3620px; }
+
+[data-steps="363"] .pug {
+  margin-left: 3630px; }
+
+[data-steps="364"] .pug {
+  margin-left: 3640px; }
+
+[data-steps="365"] .pug {
+  margin-left: 3650px; }
+
+[data-steps="366"] .pug {
+  margin-left: 3660px; }
+
+[data-steps="367"] .pug {
+  margin-left: 3670px; }
+
+[data-steps="368"] .pug {
+  margin-left: 3680px; }
+
+[data-steps="369"] .pug {
+  margin-left: 3690px; }
+
+[data-steps="370"] .pug {
+  margin-left: 3700px; }
+
+[data-steps="371"] .pug {
+  margin-left: 3710px; }
+
+[data-steps="372"] .pug {
+  margin-left: 3720px; }
+
+[data-steps="373"] .pug {
+  margin-left: 3730px; }
+
+[data-steps="374"] .pug {
+  margin-left: 3740px; }
+
+[data-steps="375"] .pug {
+  margin-left: 3750px; }
+
+[data-steps="376"] .pug {
+  margin-left: 3760px; }
+
+[data-steps="377"] .pug {
+  margin-left: 3770px; }
+
+[data-steps="378"] .pug {
+  margin-left: 3780px; }
+
+[data-steps="379"] .pug {
+  margin-left: 3790px; }
+
+[data-steps="380"] .pug {
+  margin-left: 3800px; }
+
+[data-steps="381"] .pug {
+  margin-left: 3810px; }
+
+[data-steps="382"] .pug {
+  margin-left: 3820px; }
+
+[data-steps="383"] .pug {
+  margin-left: 3830px; }
+
+[data-steps="384"] .pug {
+  margin-left: 3840px; }
+
+[data-steps="385"] .pug {
+  margin-left: 3850px; }
+
+[data-steps="386"] .pug {
+  margin-left: 3860px; }
+
+[data-steps="387"] .pug {
+  margin-left: 3870px; }
+
+[data-steps="388"] .pug {
+  margin-left: 3880px; }
+
+[data-steps="389"] .pug {
+  margin-left: 3890px; }
+
+[data-steps="390"] .pug {
+  margin-left: 3900px; }
+
+[data-steps="391"] .pug {
+  margin-left: 3910px; }
+
+[data-steps="392"] .pug {
+  margin-left: 3920px; }
+
+[data-steps="393"] .pug {
+  margin-left: 3930px; }
+
+[data-steps="394"] .pug {
+  margin-left: 3940px; }
+
+[data-steps="395"] .pug {
+  margin-left: 3950px; }
+
+[data-steps="396"] .pug {
+  margin-left: 3960px; }
+
+[data-steps="397"] .pug {
+  margin-left: 3970px; }
+
+[data-steps="398"] .pug {
+  margin-left: 3980px; }
+
+[data-steps="399"] .pug {
+  margin-left: 3990px; }
+
+[data-steps="400"] .pug {
+  margin-left: 4000px; }
+
+[data-steps="401"] .pug {
+  margin-left: 4010px; }
+
+[data-steps="402"] .pug {
+  margin-left: 4020px; }
+
+[data-steps="403"] .pug {
+  margin-left: 4030px; }
+
+[data-steps="404"] .pug {
+  margin-left: 4040px; }
+
+[data-steps="405"] .pug {
+  margin-left: 4050px; }
+
+[data-steps="406"] .pug {
+  margin-left: 4060px; }
+
+[data-steps="407"] .pug {
+  margin-left: 4070px; }
+
+[data-steps="408"] .pug {
+  margin-left: 4080px; }
+
+[data-steps="409"] .pug {
+  margin-left: 4090px; }
+
+[data-steps="410"] .pug {
+  margin-left: 4100px; }
+
+[data-steps="411"] .pug {
+  margin-left: 4110px; }
+
+[data-steps="412"] .pug {
+  margin-left: 4120px; }
+
+[data-steps="413"] .pug {
+  margin-left: 4130px; }
+
+[data-steps="414"] .pug {
+  margin-left: 4140px; }
+
+[data-steps="415"] .pug {
+  margin-left: 4150px; }
+
+[data-steps="416"] .pug {
+  margin-left: 4160px; }
+
+[data-steps="417"] .pug {
+  margin-left: 4170px; }
+
+[data-steps="418"] .pug {
+  margin-left: 4180px; }
+
+[data-steps="419"] .pug {
+  margin-left: 4190px; }
+
+[data-steps="420"] .pug {
+  margin-left: 4200px; }
+
+[data-steps="421"] .pug {
+  margin-left: 4210px; }
+
+[data-steps="422"] .pug {
+  margin-left: 4220px; }
+
+[data-steps="423"] .pug {
+  margin-left: 4230px; }
+
+[data-steps="424"] .pug {
+  margin-left: 4240px; }
+
+[data-steps="425"] .pug {
+  margin-left: 4250px; }
+
+[data-steps="426"] .pug {
+  margin-left: 4260px; }
+
+[data-steps="427"] .pug {
+  margin-left: 4270px; }
+
+[data-steps="428"] .pug {
+  margin-left: 4280px; }
+
+[data-steps="429"] .pug {
+  margin-left: 4290px; }
+
+[data-steps="430"] .pug {
+  margin-left: 4300px; }
+
+[data-steps="431"] .pug {
+  margin-left: 4310px; }
+
+[data-steps="432"] .pug {
+  margin-left: 4320px; }
+
+[data-steps="433"] .pug {
+  margin-left: 4330px; }
+
+[data-steps="434"] .pug {
+  margin-left: 4340px; }
+
+[data-steps="435"] .pug {
+  margin-left: 4350px; }
+
+[data-steps="436"] .pug {
+  margin-left: 4360px; }
+
+[data-steps="437"] .pug {
+  margin-left: 4370px; }
+
+[data-steps="438"] .pug {
+  margin-left: 4380px; }
+
+[data-steps="439"] .pug {
+  margin-left: 4390px; }
+
+[data-steps="440"] .pug {
+  margin-left: 4400px; }
+
+[data-steps="441"] .pug {
+  margin-left: 4410px; }
+
+[data-steps="442"] .pug {
+  margin-left: 4420px; }
+
+[data-steps="443"] .pug {
+  margin-left: 4430px; }
+
+[data-steps="444"] .pug {
+  margin-left: 4440px; }
+
+[data-steps="445"] .pug {
+  margin-left: 4450px; }
+
+[data-steps="446"] .pug {
+  margin-left: 4460px; }
+
+[data-steps="447"] .pug {
+  margin-left: 4470px; }
+
+[data-steps="448"] .pug {
+  margin-left: 4480px; }
+
+[data-steps="449"] .pug {
+  margin-left: 4490px; }
+
+[data-steps="450"] .pug {
+  margin-left: 4500px; }
+
+[data-steps="451"] .pug {
+  margin-left: 4510px; }
+
+[data-steps="452"] .pug {
+  margin-left: 4520px; }
+
+[data-steps="453"] .pug {
+  margin-left: 4530px; }
+
+[data-steps="454"] .pug {
+  margin-left: 4540px; }
+
+[data-steps="455"] .pug {
+  margin-left: 4550px; }
+
+[data-steps="456"] .pug {
+  margin-left: 4560px; }
+
+[data-steps="457"] .pug {
+  margin-left: 4570px; }
+
+[data-steps="458"] .pug {
+  margin-left: 4580px; }
+
+[data-steps="459"] .pug {
+  margin-left: 4590px; }
+
+[data-steps="460"] .pug {
+  margin-left: 4600px; }
+
+[data-steps="461"] .pug {
+  margin-left: 4610px; }
+
+[data-steps="462"] .pug {
+  margin-left: 4620px; }
+
+[data-steps="463"] .pug {
+  margin-left: 4630px; }
+
+[data-steps="464"] .pug {
+  margin-left: 4640px; }
+
+[data-steps="465"] .pug {
+  margin-left: 4650px; }
+
+[data-steps="466"] .pug {
+  margin-left: 4660px; }
+
+[data-steps="467"] .pug {
+  margin-left: 4670px; }
+
+[data-steps="468"] .pug {
+  margin-left: 4680px; }
+
+[data-steps="469"] .pug {
+  margin-left: 4690px; }
+
+[data-steps="470"] .pug {
+  margin-left: 4700px; }
+
+[data-steps="471"] .pug {
+  margin-left: 4710px; }
+
+[data-steps="472"] .pug {
+  margin-left: 4720px; }
+
+[data-steps="473"] .pug {
+  margin-left: 4730px; }
+
+[data-steps="474"] .pug {
+  margin-left: 4740px; }
+
+[data-steps="475"] .pug {
+  margin-left: 4750px; }
+
+[data-steps="476"] .pug {
+  margin-left: 4760px; }
+
+[data-steps="477"] .pug {
+  margin-left: 4770px; }
+
+[data-steps="478"] .pug {
+  margin-left: 4780px; }
+
+[data-steps="479"] .pug {
+  margin-left: 4790px; }
+
+[data-steps="480"] .pug {
+  margin-left: 4800px; }
+
+[data-steps="481"] .pug {
+  margin-left: 4810px; }
+
+[data-steps="482"] .pug {
+  margin-left: 4820px; }
+
+[data-steps="483"] .pug {
+  margin-left: 4830px; }
+
+[data-steps="484"] .pug {
+  margin-left: 4840px; }
+
+[data-steps="485"] .pug {
+  margin-left: 4850px; }
+
+[data-steps="486"] .pug {
+  margin-left: 4860px; }
+
+[data-steps="487"] .pug {
+  margin-left: 4870px; }
+
+[data-steps="488"] .pug {
+  margin-left: 4880px; }
+
+[data-steps="489"] .pug {
+  margin-left: 4890px; }
+
+[data-steps="490"] .pug {
+  margin-left: 4900px; }
+
+[data-steps="491"] .pug {
+  margin-left: 4910px; }
+
+[data-steps="492"] .pug {
+  margin-left: 4920px; }
+
+[data-steps="493"] .pug {
+  margin-left: 4930px; }
+
+[data-steps="494"] .pug {
+  margin-left: 4940px; }
+
+[data-steps="495"] .pug {
+  margin-left: 4950px; }
+
+[data-steps="496"] .pug {
+  margin-left: 4960px; }
+
+[data-steps="497"] .pug {
+  margin-left: 4970px; }
+
+[data-steps="498"] .pug {
+  margin-left: 4980px; }
+
+[data-steps="499"] .pug {
+  margin-left: 4990px; }
+
+[data-steps="500"] .pug {
+  margin-left: 5000px; }
+
+[data-steps="501"] .pug {
+  margin-left: 5010px; }
+
+[data-steps="502"] .pug {
+  margin-left: 5020px; }
+
+[data-steps="503"] .pug {
+  margin-left: 5030px; }
+
+[data-steps="504"] .pug {
+  margin-left: 5040px; }
+
+[data-steps="505"] .pug {
+  margin-left: 5050px; }
+
+[data-steps="506"] .pug {
+  margin-left: 5060px; }
+
+[data-steps="507"] .pug {
+  margin-left: 5070px; }
+
+[data-steps="508"] .pug {
+  margin-left: 5080px; }
+
+[data-steps="509"] .pug {
+  margin-left: 5090px; }
+
+[data-steps="510"] .pug {
+  margin-left: 5100px; }
+
+[data-steps="511"] .pug {
+  margin-left: 5110px; }
+
+[data-steps="512"] .pug {
+  margin-left: 5120px; }
+
+[data-steps="513"] .pug {
+  margin-left: 5130px; }
+
+[data-steps="514"] .pug {
+  margin-left: 5140px; }
+
+[data-steps="515"] .pug {
+  margin-left: 5150px; }
+
+[data-steps="516"] .pug {
+  margin-left: 5160px; }
+
+[data-steps="517"] .pug {
+  margin-left: 5170px; }
+
+[data-steps="518"] .pug {
+  margin-left: 5180px; }
+
+[data-steps="519"] .pug {
+  margin-left: 5190px; }
+
+[data-steps="520"] .pug {
+  margin-left: 5200px; }
+
+[data-steps="521"] .pug {
+  margin-left: 5210px; }
+
+[data-steps="522"] .pug {
+  margin-left: 5220px; }
+
+[data-steps="523"] .pug {
+  margin-left: 5230px; }
+
+[data-steps="524"] .pug {
+  margin-left: 5240px; }
+
+[data-steps="525"] .pug {
+  margin-left: 5250px; }
+
+[data-steps="526"] .pug {
+  margin-left: 5260px; }
+
+[data-steps="527"] .pug {
+  margin-left: 5270px; }
+
+[data-steps="528"] .pug {
+  margin-left: 5280px; }
+
+[data-steps="529"] .pug {
+  margin-left: 5290px; }
+
+[data-steps="530"] .pug {
+  margin-left: 5300px; }
+
+[data-steps="531"] .pug {
+  margin-left: 5310px; }
+
+[data-steps="532"] .pug {
+  margin-left: 5320px; }
+
+[data-steps="533"] .pug {
+  margin-left: 5330px; }
+
+[data-steps="534"] .pug {
+  margin-left: 5340px; }
+
+[data-steps="535"] .pug {
+  margin-left: 5350px; }
+
+[data-steps="536"] .pug {
+  margin-left: 5360px; }
+
+[data-steps="537"] .pug {
+  margin-left: 5370px; }
+
+[data-steps="538"] .pug {
+  margin-left: 5380px; }
+
+[data-steps="539"] .pug {
+  margin-left: 5390px; }
+
+[data-steps="540"] .pug {
+  margin-left: 5400px; }
+
+[data-steps="541"] .pug {
+  margin-left: 5410px; }
+
+[data-steps="542"] .pug {
+  margin-left: 5420px; }
+
+[data-steps="543"] .pug {
+  margin-left: 5430px; }
+
+[data-steps="544"] .pug {
+  margin-left: 5440px; }
+
+[data-steps="545"] .pug {
+  margin-left: 5450px; }
+
+[data-steps="546"] .pug {
+  margin-left: 5460px; }
+
+[data-steps="547"] .pug {
+  margin-left: 5470px; }
+
+[data-steps="548"] .pug {
+  margin-left: 5480px; }
+
+[data-steps="549"] .pug {
+  margin-left: 5490px; }
+
+[data-steps="550"] .pug {
+  margin-left: 5500px; }
+
+[data-steps="551"] .pug {
+  margin-left: 5510px; }
+
+[data-steps="552"] .pug {
+  margin-left: 5520px; }
+
+[data-steps="553"] .pug {
+  margin-left: 5530px; }
+
+[data-steps="554"] .pug {
+  margin-left: 5540px; }
+
+[data-steps="555"] .pug {
+  margin-left: 5550px; }
+
+[data-steps="556"] .pug {
+  margin-left: 5560px; }
+
+[data-steps="557"] .pug {
+  margin-left: 5570px; }
+
+[data-steps="558"] .pug {
+  margin-left: 5580px; }
+
+[data-steps="559"] .pug {
+  margin-left: 5590px; }
+
+[data-steps="560"] .pug {
+  margin-left: 5600px; }
+
+[data-steps="561"] .pug {
+  margin-left: 5610px; }
+
+[data-steps="562"] .pug {
+  margin-left: 5620px; }
+
+[data-steps="563"] .pug {
+  margin-left: 5630px; }
+
+[data-steps="564"] .pug {
+  margin-left: 5640px; }
+
+[data-steps="565"] .pug {
+  margin-left: 5650px; }
+
+[data-steps="566"] .pug {
+  margin-left: 5660px; }
+
+[data-steps="567"] .pug {
+  margin-left: 5670px; }
+
+[data-steps="568"] .pug {
+  margin-left: 5680px; }
+
+[data-steps="569"] .pug {
+  margin-left: 5690px; }
+
+[data-steps="570"] .pug {
+  margin-left: 5700px; }
+
+[data-steps="571"] .pug {
+  margin-left: 5710px; }
+
+[data-steps="572"] .pug {
+  margin-left: 5720px; }
+
+[data-steps="573"] .pug {
+  margin-left: 5730px; }
+
+[data-steps="574"] .pug {
+  margin-left: 5740px; }
+
+[data-steps="575"] .pug {
+  margin-left: 5750px; }
+
+[data-steps="576"] .pug {
+  margin-left: 5760px; }
+
+[data-steps="577"] .pug {
+  margin-left: 5770px; }
+
+[data-steps="578"] .pug {
+  margin-left: 5780px; }
+
+[data-steps="579"] .pug {
+  margin-left: 5790px; }
+
+[data-steps="580"] .pug {
+  margin-left: 5800px; }
+
+[data-steps="581"] .pug {
+  margin-left: 5810px; }
+
+[data-steps="582"] .pug {
+  margin-left: 5820px; }
+
+[data-steps="583"] .pug {
+  margin-left: 5830px; }
+
+[data-steps="584"] .pug {
+  margin-left: 5840px; }
+
+[data-steps="585"] .pug {
+  margin-left: 5850px; }
+
+[data-steps="586"] .pug {
+  margin-left: 5860px; }
+
+[data-steps="587"] .pug {
+  margin-left: 5870px; }
+
+[data-steps="588"] .pug {
+  margin-left: 5880px; }
+
+[data-steps="589"] .pug {
+  margin-left: 5890px; }
+
+[data-steps="590"] .pug {
+  margin-left: 5900px; }
+
+[data-steps="591"] .pug {
+  margin-left: 5910px; }
+
+[data-steps="592"] .pug {
+  margin-left: 5920px; }
+
+[data-steps="593"] .pug {
+  margin-left: 5930px; }
+
+[data-steps="594"] .pug {
+  margin-left: 5940px; }
+
+[data-steps="595"] .pug {
+  margin-left: 5950px; }
+
+[data-steps="596"] .pug {
+  margin-left: 5960px; }
+
+[data-steps="597"] .pug {
+  margin-left: 5970px; }
+
+[data-steps="598"] .pug {
+  margin-left: 5980px; }
+
+[data-steps="599"] .pug {
+  margin-left: 5990px; }
+
+[data-steps="600"] .pug {
+  margin-left: 6000px; }
+
+[data-steps="601"] .pug {
+  margin-left: 6010px; }
+
+[data-steps="602"] .pug {
+  margin-left: 6020px; }
+
+[data-steps="603"] .pug {
+  margin-left: 6030px; }
+
+[data-steps="604"] .pug {
+  margin-left: 6040px; }
+
+[data-steps="605"] .pug {
+  margin-left: 6050px; }
+
+[data-steps="606"] .pug {
+  margin-left: 6060px; }
+
+[data-steps="607"] .pug {
+  margin-left: 6070px; }
+
+[data-steps="608"] .pug {
+  margin-left: 6080px; }
+
+[data-steps="609"] .pug {
+  margin-left: 6090px; }
+
+[data-steps="610"] .pug {
+  margin-left: 6100px; }
+
+[data-steps="611"] .pug {
+  margin-left: 6110px; }
+
+[data-steps="612"] .pug {
+  margin-left: 6120px; }
+
+[data-steps="613"] .pug {
+  margin-left: 6130px; }
+
+[data-steps="614"] .pug {
+  margin-left: 6140px; }
+
+[data-steps="615"] .pug {
+  margin-left: 6150px; }
+
+[data-steps="616"] .pug {
+  margin-left: 6160px; }
+
+[data-steps="617"] .pug {
+  margin-left: 6170px; }
+
+[data-steps="618"] .pug {
+  margin-left: 6180px; }
+
+[data-steps="619"] .pug {
+  margin-left: 6190px; }
+
+[data-steps="620"] .pug {
+  margin-left: 6200px; }
+
+[data-steps="621"] .pug {
+  margin-left: 6210px; }
+
+[data-steps="622"] .pug {
+  margin-left: 6220px; }
+
+[data-steps="623"] .pug {
+  margin-left: 6230px; }
+
+[data-steps="624"] .pug {
+  margin-left: 6240px; }
+
+[data-steps="625"] .pug {
+  margin-left: 6250px; }
+
+[data-steps="626"] .pug {
+  margin-left: 6260px; }
+
+[data-steps="627"] .pug {
+  margin-left: 6270px; }
+
+[data-steps="628"] .pug {
+  margin-left: 6280px; }
+
+[data-steps="629"] .pug {
+  margin-left: 6290px; }
+
+[data-steps="630"] .pug {
+  margin-left: 6300px; }
+
+[data-steps="631"] .pug {
+  margin-left: 6310px; }
+
+[data-steps="632"] .pug {
+  margin-left: 6320px; }
+
+[data-steps="633"] .pug {
+  margin-left: 6330px; }
+
+[data-steps="634"] .pug {
+  margin-left: 6340px; }
+
+[data-steps="635"] .pug {
+  margin-left: 6350px; }
+
+[data-steps="636"] .pug {
+  margin-left: 6360px; }
+
+[data-steps="637"] .pug {
+  margin-left: 6370px; }
+
+[data-steps="638"] .pug {
+  margin-left: 6380px; }
+
+[data-steps="639"] .pug {
+  margin-left: 6390px; }
+
+[data-steps="640"] .pug {
+  margin-left: 6400px; }
+
+[data-steps="641"] .pug {
+  margin-left: 6410px; }
+
+[data-steps="642"] .pug {
+  margin-left: 6420px; }
+
+[data-steps="643"] .pug {
+  margin-left: 6430px; }
+
+[data-steps="644"] .pug {
+  margin-left: 6440px; }
+
+[data-steps="645"] .pug {
+  margin-left: 6450px; }
+
+[data-steps="646"] .pug {
+  margin-left: 6460px; }
+
+[data-steps="647"] .pug {
+  margin-left: 6470px; }
+
+[data-steps="648"] .pug {
+  margin-left: 6480px; }
+
+[data-steps="649"] .pug {
+  margin-left: 6490px; }
+
+[data-steps="650"] .pug {
+  margin-left: 6500px; }
+
+[data-steps="651"] .pug {
+  margin-left: 6510px; }
+
+[data-steps="652"] .pug {
+  margin-left: 6520px; }
+
+[data-steps="653"] .pug {
+  margin-left: 6530px; }
+
+[data-steps="654"] .pug {
+  margin-left: 6540px; }
+
+[data-steps="655"] .pug {
+  margin-left: 6550px; }
+
+[data-steps="656"] .pug {
+  margin-left: 6560px; }
+
+[data-steps="657"] .pug {
+  margin-left: 6570px; }
+
+[data-steps="658"] .pug {
+  margin-left: 6580px; }
+
+[data-steps="659"] .pug {
+  margin-left: 6590px; }
+
+[data-steps="660"] .pug {
+  margin-left: 6600px; }
+
+[data-steps="661"] .pug {
+  margin-left: 6610px; }
+
+[data-steps="662"] .pug {
+  margin-left: 6620px; }
+
+[data-steps="663"] .pug {
+  margin-left: 6630px; }
+
+[data-steps="664"] .pug {
+  margin-left: 6640px; }
+
+[data-steps="665"] .pug {
+  margin-left: 6650px; }
+
+[data-steps="666"] .pug {
+  margin-left: 6660px; }
+
+[data-steps="667"] .pug {
+  margin-left: 6670px; }
+
+[data-steps="668"] .pug {
+  margin-left: 6680px; }
+
+[data-steps="669"] .pug {
+  margin-left: 6690px; }
+
+[data-steps="670"] .pug {
+  margin-left: 6700px; }
+
+[data-steps="671"] .pug {
+  margin-left: 6710px; }
+
+[data-steps="672"] .pug {
+  margin-left: 6720px; }
+
+[data-steps="673"] .pug {
+  margin-left: 6730px; }
+
+[data-steps="674"] .pug {
+  margin-left: 6740px; }
+
+[data-steps="675"] .pug {
+  margin-left: 6750px; }
+
+[data-steps="676"] .pug {
+  margin-left: 6760px; }
+
+[data-steps="677"] .pug {
+  margin-left: 6770px; }
+
+[data-steps="678"] .pug {
+  margin-left: 6780px; }
+
+[data-steps="679"] .pug {
+  margin-left: 6790px; }
+
+[data-steps="680"] .pug {
+  margin-left: 6800px; }
+
+[data-steps="681"] .pug {
+  margin-left: 6810px; }
+
+[data-steps="682"] .pug {
+  margin-left: 6820px; }
+
+[data-steps="683"] .pug {
+  margin-left: 6830px; }
+
+[data-steps="684"] .pug {
+  margin-left: 6840px; }
+
+[data-steps="685"] .pug {
+  margin-left: 6850px; }
+
+[data-steps="686"] .pug {
+  margin-left: 6860px; }
+
+[data-steps="687"] .pug {
+  margin-left: 6870px; }
+
+[data-steps="688"] .pug {
+  margin-left: 6880px; }
+
+[data-steps="689"] .pug {
+  margin-left: 6890px; }
+
+[data-steps="690"] .pug {
+  margin-left: 6900px; }
+
+[data-steps="691"] .pug {
+  margin-left: 6910px; }
+
+[data-steps="692"] .pug {
+  margin-left: 6920px; }
+
+[data-steps="693"] .pug {
+  margin-left: 6930px; }
+
+[data-steps="694"] .pug {
+  margin-left: 6940px; }
+
+[data-steps="695"] .pug {
+  margin-left: 6950px; }
+
+[data-steps="696"] .pug {
+  margin-left: 6960px; }
+
+[data-steps="697"] .pug {
+  margin-left: 6970px; }
+
+[data-steps="698"] .pug {
+  margin-left: 6980px; }
+
+[data-steps="699"] .pug {
+  margin-left: 6990px; }
+
+[data-steps="700"] .pug {
+  margin-left: 7000px; }
+
+[data-steps="701"] .pug {
+  margin-left: 7010px; }
+
+[data-steps="702"] .pug {
+  margin-left: 7020px; }
+
+[data-steps="703"] .pug {
+  margin-left: 7030px; }
+
+[data-steps="704"] .pug {
+  margin-left: 7040px; }
+
+[data-steps="705"] .pug {
+  margin-left: 7050px; }
+
+[data-steps="706"] .pug {
+  margin-left: 7060px; }
+
+[data-steps="707"] .pug {
+  margin-left: 7070px; }
+
+[data-steps="708"] .pug {
+  margin-left: 7080px; }
+
+[data-steps="709"] .pug {
+  margin-left: 7090px; }
+
+[data-steps="710"] .pug {
+  margin-left: 7100px; }
+
+[data-steps="711"] .pug {
+  margin-left: 7110px; }
+
+[data-steps="712"] .pug {
+  margin-left: 7120px; }
+
+[data-steps="713"] .pug {
+  margin-left: 7130px; }
+
+[data-steps="714"] .pug {
+  margin-left: 7140px; }
+
+[data-steps="715"] .pug {
+  margin-left: 7150px; }
+
+[data-steps="716"] .pug {
+  margin-left: 7160px; }
+
+[data-steps="717"] .pug {
+  margin-left: 7170px; }
+
+[data-steps="718"] .pug {
+  margin-left: 7180px; }
+
+[data-steps="719"] .pug {
+  margin-left: 7190px; }
+
+[data-steps="720"] .pug {
+  margin-left: 7200px; }
+
+[data-steps="721"] .pug {
+  margin-left: 7210px; }
+
+[data-steps="722"] .pug {
+  margin-left: 7220px; }
+
+[data-steps="723"] .pug {
+  margin-left: 7230px; }
+
+[data-steps="724"] .pug {
+  margin-left: 7240px; }
+
+[data-steps="725"] .pug {
+  margin-left: 7250px; }
+
+[data-steps="726"] .pug {
+  margin-left: 7260px; }
+
+[data-steps="727"] .pug {
+  margin-left: 7270px; }
+
+[data-steps="728"] .pug {
+  margin-left: 7280px; }
+
+[data-steps="729"] .pug {
+  margin-left: 7290px; }
+
+[data-steps="730"] .pug {
+  margin-left: 7300px; }
+
+[data-steps="731"] .pug {
+  margin-left: 7310px; }
+
+[data-steps="732"] .pug {
+  margin-left: 7320px; }
+
+[data-steps="733"] .pug {
+  margin-left: 7330px; }
+
+[data-steps="734"] .pug {
+  margin-left: 7340px; }
+
+[data-steps="735"] .pug {
+  margin-left: 7350px; }
+
+[data-steps="736"] .pug {
+  margin-left: 7360px; }
+
+[data-steps="737"] .pug {
+  margin-left: 7370px; }
+
+[data-steps="738"] .pug {
+  margin-left: 7380px; }
+
+[data-steps="739"] .pug {
+  margin-left: 7390px; }
+
+[data-steps="740"] .pug {
+  margin-left: 7400px; }
+
+[data-steps="741"] .pug {
+  margin-left: 7410px; }
+
+[data-steps="742"] .pug {
+  margin-left: 7420px; }
+
+[data-steps="743"] .pug {
+  margin-left: 7430px; }
+
+[data-steps="744"] .pug {
+  margin-left: 7440px; }
+
+[data-steps="745"] .pug {
+  margin-left: 7450px; }
+
+[data-steps="746"] .pug {
+  margin-left: 7460px; }
+
+[data-steps="747"] .pug {
+  margin-left: 7470px; }
+
+[data-steps="748"] .pug {
+  margin-left: 7480px; }
+
+[data-steps="749"] .pug {
+  margin-left: 7490px; }
+
+[data-steps="750"] .pug {
+  margin-left: 7500px; }
+
+[data-steps="751"] .pug {
+  margin-left: 7510px; }
+
+[data-steps="752"] .pug {
+  margin-left: 7520px; }
+
+[data-steps="753"] .pug {
+  margin-left: 7530px; }
+
+[data-steps="754"] .pug {
+  margin-left: 7540px; }
+
+[data-steps="755"] .pug {
+  margin-left: 7550px; }
+
+[data-steps="756"] .pug {
+  margin-left: 7560px; }
+
+[data-steps="757"] .pug {
+  margin-left: 7570px; }
+
+[data-steps="758"] .pug {
+  margin-left: 7580px; }
+
+[data-steps="759"] .pug {
+  margin-left: 7590px; }
+
+[data-steps="760"] .pug {
+  margin-left: 7600px; }
+
+[data-steps="761"] .pug {
+  margin-left: 7610px; }
+
+[data-steps="762"] .pug {
+  margin-left: 7620px; }
+
+[data-steps="763"] .pug {
+  margin-left: 7630px; }
+
+[data-steps="764"] .pug {
+  margin-left: 7640px; }
+
+[data-steps="765"] .pug {
+  margin-left: 7650px; }
+
+[data-steps="766"] .pug {
+  margin-left: 7660px; }
+
+[data-steps="767"] .pug {
+  margin-left: 7670px; }
+
+[data-steps="768"] .pug {
+  margin-left: 7680px; }
+
+[data-steps="769"] .pug {
+  margin-left: 7690px; }
+
+[data-steps="770"] .pug {
+  margin-left: 7700px; }
+
+[data-steps="771"] .pug {
+  margin-left: 7710px; }
+
+[data-steps="772"] .pug {
+  margin-left: 7720px; }
+
+[data-steps="773"] .pug {
+  margin-left: 7730px; }
+
+[data-steps="774"] .pug {
+  margin-left: 7740px; }
+
+[data-steps="775"] .pug {
+  margin-left: 7750px; }
+
+[data-steps="776"] .pug {
+  margin-left: 7760px; }
+
+[data-steps="777"] .pug {
+  margin-left: 7770px; }
+
+[data-steps="778"] .pug {
+  margin-left: 7780px; }
+
+[data-steps="779"] .pug {
+  margin-left: 7790px; }
+
+[data-steps="780"] .pug {
+  margin-left: 7800px; }
+
+[data-steps="781"] .pug {
+  margin-left: 7810px; }
+
+[data-steps="782"] .pug {
+  margin-left: 7820px; }
+
+[data-steps="783"] .pug {
+  margin-left: 7830px; }
+
+[data-steps="784"] .pug {
+  margin-left: 7840px; }
+
+[data-steps="785"] .pug {
+  margin-left: 7850px; }
+
+[data-steps="786"] .pug {
+  margin-left: 7860px; }
+
+[data-steps="787"] .pug {
+  margin-left: 7870px; }
+
+[data-steps="788"] .pug {
+  margin-left: 7880px; }
+
+[data-steps="789"] .pug {
+  margin-left: 7890px; }
+
+[data-steps="790"] .pug {
+  margin-left: 7900px; }
+
+[data-steps="791"] .pug {
+  margin-left: 7910px; }
+
+[data-steps="792"] .pug {
+  margin-left: 7920px; }
+
+[data-steps="793"] .pug {
+  margin-left: 7930px; }
+
+[data-steps="794"] .pug {
+  margin-left: 7940px; }
+
+[data-steps="795"] .pug {
+  margin-left: 7950px; }
+
+[data-steps="796"] .pug {
+  margin-left: 7960px; }
+
+[data-steps="797"] .pug {
+  margin-left: 7970px; }
+
+[data-steps="798"] .pug {
+  margin-left: 7980px; }
+
+[data-steps="799"] .pug {
+  margin-left: 7990px; }
+
+[data-steps="800"] .pug {
+  margin-left: 8000px; }
+
+[data-steps="801"] .pug {
+  margin-left: 8010px; }
+
+[data-steps="802"] .pug {
+  margin-left: 8020px; }
+
+[data-steps="803"] .pug {
+  margin-left: 8030px; }
+
+[data-steps="804"] .pug {
+  margin-left: 8040px; }
+
+[data-steps="805"] .pug {
+  margin-left: 8050px; }
+
+[data-steps="806"] .pug {
+  margin-left: 8060px; }
+
+[data-steps="807"] .pug {
+  margin-left: 8070px; }
+
+[data-steps="808"] .pug {
+  margin-left: 8080px; }
+
+[data-steps="809"] .pug {
+  margin-left: 8090px; }
+
+[data-steps="810"] .pug {
+  margin-left: 8100px; }
+
+[data-steps="811"] .pug {
+  margin-left: 8110px; }
+
+[data-steps="812"] .pug {
+  margin-left: 8120px; }
+
+[data-steps="813"] .pug {
+  margin-left: 8130px; }
+
+[data-steps="814"] .pug {
+  margin-left: 8140px; }
+
+[data-steps="815"] .pug {
+  margin-left: 8150px; }
+
+[data-steps="816"] .pug {
+  margin-left: 8160px; }
+
+[data-steps="817"] .pug {
+  margin-left: 8170px; }
+
+[data-steps="818"] .pug {
+  margin-left: 8180px; }
+
+[data-steps="819"] .pug {
+  margin-left: 8190px; }
+
+[data-steps="820"] .pug {
+  margin-left: 8200px; }
+
+[data-steps="821"] .pug {
+  margin-left: 8210px; }
+
+[data-steps="822"] .pug {
+  margin-left: 8220px; }
+
+[data-steps="823"] .pug {
+  margin-left: 8230px; }
+
+[data-steps="824"] .pug {
+  margin-left: 8240px; }
+
+[data-steps="825"] .pug {
+  margin-left: 8250px; }
+
+[data-steps="826"] .pug {
+  margin-left: 8260px; }
+
+[data-steps="827"] .pug {
+  margin-left: 8270px; }
+
+[data-steps="828"] .pug {
+  margin-left: 8280px; }
+
+[data-steps="829"] .pug {
+  margin-left: 8290px; }
+
+[data-steps="830"] .pug {
+  margin-left: 8300px; }
+
+[data-steps="831"] .pug {
+  margin-left: 8310px; }
+
+[data-steps="832"] .pug {
+  margin-left: 8320px; }
+
+[data-steps="833"] .pug {
+  margin-left: 8330px; }
+
+[data-steps="834"] .pug {
+  margin-left: 8340px; }
+
+[data-steps="835"] .pug {
+  margin-left: 8350px; }
+
+[data-steps="836"] .pug {
+  margin-left: 8360px; }
+
+[data-steps="837"] .pug {
+  margin-left: 8370px; }
+
+[data-steps="838"] .pug {
+  margin-left: 8380px; }
+
+[data-steps="839"] .pug {
+  margin-left: 8390px; }
+
+[data-steps="840"] .pug {
+  margin-left: 8400px; }
+
+[data-steps="841"] .pug {
+  margin-left: 8410px; }
+
+[data-steps="842"] .pug {
+  margin-left: 8420px; }
+
+[data-steps="843"] .pug {
+  margin-left: 8430px; }
+
+[data-steps="844"] .pug {
+  margin-left: 8440px; }
+
+[data-steps="845"] .pug {
+  margin-left: 8450px; }
+
+[data-steps="846"] .pug {
+  margin-left: 8460px; }
+
+[data-steps="847"] .pug {
+  margin-left: 8470px; }
+
+[data-steps="848"] .pug {
+  margin-left: 8480px; }
+
+[data-steps="849"] .pug {
+  margin-left: 8490px; }
+
+[data-steps="850"] .pug {
+  margin-left: 8500px; }
+
+[data-steps="851"] .pug {
+  margin-left: 8510px; }
+
+[data-steps="852"] .pug {
+  margin-left: 8520px; }
+
+[data-steps="853"] .pug {
+  margin-left: 8530px; }
+
+[data-steps="854"] .pug {
+  margin-left: 8540px; }
+
+[data-steps="855"] .pug {
+  margin-left: 8550px; }
+
+[data-steps="856"] .pug {
+  margin-left: 8560px; }
+
+[data-steps="857"] .pug {
+  margin-left: 8570px; }
+
+[data-steps="858"] .pug {
+  margin-left: 8580px; }
+
+[data-steps="859"] .pug {
+  margin-left: 8590px; }
+
+[data-steps="860"] .pug {
+  margin-left: 8600px; }
+
+[data-steps="861"] .pug {
+  margin-left: 8610px; }
+
+[data-steps="862"] .pug {
+  margin-left: 8620px; }
+
+[data-steps="863"] .pug {
+  margin-left: 8630px; }
+
+[data-steps="864"] .pug {
+  margin-left: 8640px; }
+
+[data-steps="865"] .pug {
+  margin-left: 8650px; }
+
+[data-steps="866"] .pug {
+  margin-left: 8660px; }
+
+[data-steps="867"] .pug {
+  margin-left: 8670px; }
+
+[data-steps="868"] .pug {
+  margin-left: 8680px; }
+
+[data-steps="869"] .pug {
+  margin-left: 8690px; }
+
+[data-steps="870"] .pug {
+  margin-left: 8700px; }
+
+[data-steps="871"] .pug {
+  margin-left: 8710px; }
+
+[data-steps="872"] .pug {
+  margin-left: 8720px; }
+
+[data-steps="873"] .pug {
+  margin-left: 8730px; }
+
+[data-steps="874"] .pug {
+  margin-left: 8740px; }
+
+[data-steps="875"] .pug {
+  margin-left: 8750px; }
+
+[data-steps="876"] .pug {
+  margin-left: 8760px; }
+
+[data-steps="877"] .pug {
+  margin-left: 8770px; }
+
+[data-steps="878"] .pug {
+  margin-left: 8780px; }
+
+[data-steps="879"] .pug {
+  margin-left: 8790px; }
+
+[data-steps="880"] .pug {
+  margin-left: 8800px; }
+
+[data-steps="881"] .pug {
+  margin-left: 8810px; }
+
+[data-steps="882"] .pug {
+  margin-left: 8820px; }
+
+[data-steps="883"] .pug {
+  margin-left: 8830px; }
+
+[data-steps="884"] .pug {
+  margin-left: 8840px; }
+
+[data-steps="885"] .pug {
+  margin-left: 8850px; }
+
+[data-steps="886"] .pug {
+  margin-left: 8860px; }
+
+[data-steps="887"] .pug {
+  margin-left: 8870px; }
+
+[data-steps="888"] .pug {
+  margin-left: 8880px; }
+
+[data-steps="889"] .pug {
+  margin-left: 8890px; }
+
+[data-steps="890"] .pug {
+  margin-left: 8900px; }
+
+[data-steps="891"] .pug {
+  margin-left: 8910px; }
+
+[data-steps="892"] .pug {
+  margin-left: 8920px; }
+
+[data-steps="893"] .pug {
+  margin-left: 8930px; }
+
+[data-steps="894"] .pug {
+  margin-left: 8940px; }
+
+[data-steps="895"] .pug {
+  margin-left: 8950px; }
+
+[data-steps="896"] .pug {
+  margin-left: 8960px; }
+
+[data-steps="897"] .pug {
+  margin-left: 8970px; }
+
+[data-steps="898"] .pug {
+  margin-left: 8980px; }
+
+[data-steps="899"] .pug {
+  margin-left: 8990px; }
+
+[data-steps="900"] .pug {
+  margin-left: 9000px; }
+
+.winner {
+  margin: auto;
+  background: #1f2072;
+  border-top: 10px solid #9393c9;
+  border-bottom: 5px solid #413f88;
+  padding: 40px;
+  opacity: 0;
+  transition: opacity .2s linear;
+  position: absolute;
+  top: 10%;
+  right: 10%;
+  bottom: 10%;
+  left: 10%;
+  z-index: -1; }
+  .finished .winner {
+    opacity: 1;
+    z-index: 999999999; }
+
+@media (max-device-width: 640px) {
+  .winner {
+    max-width: none; } }
+
+/*# sourceMappingURL=main.css.map */

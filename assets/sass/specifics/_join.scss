@@ -1,0 +1,162 @@
+
+.join {
+    background: $color-main-dark;
+    @include full(0);
+    background-image: url('/assets/images/intro.png');
+    background-repeat: repeat-x;
+    background-position: bottom left;
+    padding-top: 60px;
+    
+    &:before, &:after {
+        content: '';
+        display: block;
+        width: 140px;
+        height: 140px;
+        z-index: 1;
+        position: absolute;
+        bottom: 40px;
+        left: -200px;
+    }
+    
+    &:before {
+        background: url('/assets/images/anime/whitepug.gif') center no-repeat;
+        background-size: cover;
+        -webkit-animation: run 5s infinite;
+        animation: run 5s infinite;
+    }
+    
+    &:after {
+        background: url('/assets/images/anime/blackpug.gif') center no-repeat;
+        background-size: cover;
+        -webkit-animation: run 4s .5s infinite;
+        animation: run 4s .5s infinite;
+    }
+}
+
+@-webkit-keyframes run {
+  0%   { left: -200px; }
+  100% { left: 130%; }
+}
+@keyframes run {
+  0%   { left: -200px; }
+  100% { left: 130%; }
+}
+
+
+.join_header {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    font-size: .9em;
+    background: $color-main-medium;
+    overflow: hidden;
+}
+
+.mainTitle {
+    font-family: 'arcade';
+    color: white;
+    float: left;
+    margin: 10px 0 0 10px;
+}
+
+.login {
+    float: right;
+    margin: 10px 10px 0;
+    font-size: 1em;
+}
+
+.login_label {
+    font-family: 'arcade';
+    color: white;
+    font-size: 1.8em;
+    margin-right: 5px;
+    display: inline-block;
+}
+
+.login_button {
+    font-family: 'arcade';
+    color: $color-secondary;
+    font-size: 1.8em;
+    display: inline-block;
+    border: none;
+    background: none;
+}
+
+.join_section {
+    width: 600px;
+    margin: 20px auto 0;
+    text-align: center;
+}
+
+.join-label {
+    display: inline-block;
+    text-align: center;
+    font-family: 'arcade';
+    font-size: 2.5em;
+    margin-right: 10px;
+    color: $color-main-light;
+    z-index: 10;
+    position: relative;
+}
+
+.join_nameWrapper {
+    width: 400px;
+    margin: 30px auto 20px;
+    font-size: 0;
+    text-align: center;
+    z-index: 10;
+}
+
+.join_nameInner {
+    display: inline-block;
+}
+
+[class^='join_name_'] {
+    display: inline-block;
+    width: 80px;
+    text-align: center;
+    @include remIt('font-size', 30);
+    @extend %input;
+    
+    &:first-child {
+        margin-left: 0;
+    }
+}
+
+.join_name_b {
+    margin: 0 20px;
+}
+
+.join_pwd {
+    display: block;
+    width: 280px;
+    padding: 12px 10px 0 10px;
+    margin: auto;
+    z-index: 10;
+    position: relative;
+    font-size: 2em;
+    @extend %input;
+}
+
+
+
+.retro_button {
+    @extend %clickable;
+    z-index: 10;
+    position: relative;
+    font-size: 2.5em;
+    vertical-align: top;
+    background: $color-main-medium;
+    @include box-shadow(5px 5px 0 0 $color-main-light);
+
+    .join_section & {
+        background: $color-main-dark;
+        @include box-shadow(5px 5px 0 0 $color-main-medium);
+    }
+
+    &:active {
+        @include box-shadow(none);
+        margin: 0 -5px -5px 0;
+    }
+}

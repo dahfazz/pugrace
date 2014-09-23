@@ -1,0 +1,64 @@
+.gamepad {
+    background: $color-main-dark;
+    border: 10px solid $color-main-light;
+    padding: 30px;
+    margin: 0;
+    position: relative;
+}
+
+.gamepad_question {
+    text-align: center;
+    width: 100%;
+    font-family: 'arcade';
+    font-size: 3em;
+    color: $color-main-light;
+    
+    img {
+        height: 70px;
+        margin: auto;
+        border: 5px solid $color-main-light;
+    }
+}
+
+.gamepad_options {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.gamepad_option {
+    text-align: center;
+    border-bottom: 2px solid $color-main-light;
+}
+
+.gamepad_button {
+    display: block;
+    text-align: center;
+    width: 100%;
+    padding: 10px 0;
+    font-family: 'arcade';
+    font-size: 2em;
+    color: $color-secondary;
+    border: none;
+    background: none;
+    outline: none;
+    
+    &[disabled] {
+        color: $color-main-medium;
+    }
+}
+
+.gamepad_timer {
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    margin-left: -30px;
+    font-family: 'arcade';
+    font-size: 3.2em;
+    color: white;
+    width: 100px;
+    height: 60px;
+    text-align: center;
+    background-color: $color-main-dark;
+    border: 10px solid $color-main-light;
+}

@@ -1,0 +1,34 @@
+<link rel="import" href="/bower_components/core-style/core-style.html">
+<link rel="import" href="/bower_components/polymer/polymer.html">
+
+<polymer-element name="my-profile" noscript>
+    <template>
+        <core-style ref="profile"></core-style>
+        <div class="profile">
+            <div class="profile_inner">
+                <div class="profile_imgWrapper">
+                    <img id="profileImg" src="" alt="" class="profile_img">
+                </div>
+                <div class="profile_user">
+                    <span class="profile_name" id="profileName"></span><br>
+                    <a class="profile_link" id="profileEdit" href="/edit">Edit</a>
+                    <a class="profile_link" on-click="{{logout}}" id="profileLogout">Quit</a>
+                </div>
+            </div>
+        </div>
+    </template>
+    <script>
+        Polymer('my-profile', {
+            ready: function() {
+                var me = JSON.parse(localStorage.getItem('pugrunner_me'));
+                this.$.profileName.innerHTML = me.name;
+                this.$.profileImg.src = '/assets/images/characters/' + me.character + '.png';
+
+            },
+            logout: function() {
+                localStorage.clear();
+                window.location = '/';
+            }
+        });
+    </script>
+</polymer-element>

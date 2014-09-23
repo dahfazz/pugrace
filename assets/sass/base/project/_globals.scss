@@ -1,0 +1,41 @@
+
+@include define('project-globals') {
+
+  /* _____ GLOBAL DEFAULTS _____ */
+
+  *,
+  :before,
+  :after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  html {
+    font-size: 100%;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  /* _____ LAYOUT _____ */
+
+
+  body {
+      background: black;
+      font-size: 100%;
+  }
+  
+  .registered {
+      .gamepad {
+          display: block;
+      }
+      #joinButton {
+          display: none;
+      }
+  }
+}

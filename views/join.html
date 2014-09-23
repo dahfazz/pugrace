@@ -1,0 +1,34 @@
+<div class="join" data-ng-controller="JoinCtrl">
+
+    <div data-ng-include="'/views/login.html'"></div>
+
+    
+
+    <div class="join_header">
+        <h1 class="mainTitle" data-ng-bind="appTitle"></h1>
+        <div class="login">
+            <span class="login_label" for="player_name">Already a pug ?</span>
+            <button type="button" class="login_button" data-ng-click="openLoginModal()">Log in</button>
+        </div>
+    </div>
+
+    <form novalidate class="join_section" data-ng-submit="createRunner()">
+        <label class="join-label" for="player_name">Create your runner</label>
+        
+        <div data-ng-include="'/views/characters.html'"></div>
+
+        <div class="join_nameWrapper">
+            <div class="join_nameInner">
+                <input data-ng-keyup="nextInput('.join_name_b')" data-ng-model="name_a" title="Letters only" required pattern="[a-zA-Z]" maxlength="1" type="text" class="join_name_a" placeholder="A" />
+                <input data-ng-keyup="nextInput('.join_name_c')" data-ng-model="name_b" title="Letters only" required pattern="[a-zA-Z]" maxlength="1" type="text" class="join_name_b" placeholder="A" />
+                <input data-ng-keyup="nextInput('.join_pwd')"    data-ng-model="name_c" title="Letters only" required pattern="[a-zA-Z]" maxlength="1" type="text" class="join_name_c" placeholder="A" />
+            </div>
+        </div>
+        
+        <input title="6 alphanumerics minimum" required pattern="[a-zA-Z0-9]{6,}" type="password" class="join_pwd" data-ng-model="join_pwd" placeholder="Password" />
+        
+        <div class="join_section">
+            <button  type="submit" class="retro_button">Create</button>
+        </div>
+    </form>
+</div>

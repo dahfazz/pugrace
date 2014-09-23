@@ -1,0 +1,51 @@
+
+@import 'base/utils/__utils';
+@import 'base/project/__project';
+
+.profile {
+    @extend %box;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.profile_inner {
+    display: inline-block;
+}
+
+.profile_imgWrapper {
+    border: 10px solid $color-main-medium;
+    background: $color-main-light;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.profile_img {
+    height: 60px;
+}
+
+.profile_user {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 15px;
+    text-align: left;
+}
+
+.profile_name {
+    color: $color-main-light;
+    font-family: 'arcade';
+    @include remIt('font-size', 40);
+}
+
+.profile_link {
+    margin-right: 10px;
+    padding-right: 10px;
+    border-right: 2px solid $color-secondary;
+    color: $color-secondary;
+    font-family: 'arcade';
+    text-decoration: underline;
+    @include remIt('font-size', 36);
+
+    &:last-child {
+        border-right: none;
+    }
+}

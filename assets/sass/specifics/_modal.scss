@@ -1,0 +1,22 @@
+
+.modal {
+    @include full(0);
+    background: rgba(0,0,0,.7);
+    font-family: 'arcade';
+    z-index: 90;
+}
+
+.modal_inner {
+    background: $color-main-medium;
+    z-index: 30;
+    padding: 20px;
+    box-shadow: 10px 10px $color-main-light;
+}
+
+.modal_title {
+    text-align: center;
+    border-bottom: 5px solid $color-main-light;
+    color: $color-secondary;
+    padding-bottom: 20px;
+    text-transform: uppercase;
+}

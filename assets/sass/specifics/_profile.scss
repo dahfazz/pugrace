@@ -1,0 +1,38 @@
+.profile {
+    @extend %box;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.profile_inner {
+    display: inline-block;
+}
+
+.profile_imgWrapper {
+    border: 10px solid $color-main-medium;
+    background: $color-main-light;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.profile_img {
+    height: 60px;
+}
+
+.profile_user {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 15px;
+}
+
+.profile_name {
+    color: $color-main-light;
+    font-family: 'arcade';
+    @include remIt('font-size', 40);
+}
+
+.profile_edit {
+    color: $color-secondary;
+    font-family: 'arcade';
+    @include remIt('font-size', 36);
+}

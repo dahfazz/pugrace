@@ -1,0 +1,12 @@
+
+.login_nameWrapper {
+    width: 300px;
+    margin: 30px auto;
+}
+
+.login_pwd {
+    width: 390px;
+    margin: 30px auto;
+    display: block;
+    @include remIt('font-size', 32);
+}

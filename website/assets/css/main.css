@@ -1,0 +1,114 @@
+/* _____ VARIABLES _____ */
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-size: 100%; }
+
+.header {
+  background: rgba(31, 32, 114, 0.7);
+  padding: 10px;
+  overflow: hidden; }
+
+.header_title {
+  color: #d7c72a;
+  font-size: 2em;
+  padding: 0;
+  font-family: 'arcade';
+  width: 30%;
+  float: left; }
+
+.header_nav {
+  float: right;
+  width: 70%;
+  text-align: right; }
+
+.header_nav_link {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 20px;
+  font-size: 2em;
+  font-family: 'arcade';
+  color: #9393c9; }
+  .header_nav_link:hover {
+    color: white; }
+
+.footer {
+  background: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 90px; }
+
+.footer {
+  background: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 90px; }
+
+.video {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  background: url("/website/assets/video/video.mp4.png");
+  background-size: cover; }
+
+@font-face {
+  font-family: 'arcade';
+  src: url("/assets/fonts/arcade/arcade.eot");
+  src: url("/assets/fonts/arcade/arcade.eot?#iefix") format("embedded-opentype"), url("/assets/fonts/arcade/arcade.woff") format("woff"), url("/assets/fonts/arcade/arcade.ttf") format("truetype"), url("/assets/fonts/arcade/arcade.svg#Sri-TSCRegular") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+.box {
+  width: 320px;
+  height: 490px;
+  background: red;
+  position: absolute;
+  left: 6%;
+  top: 0;
+  bottom: 0;
+  margin: auto; }
+
+.box_action {
+  border-radius: 50%;
+  background: yellow;
+  position: absolute;
+  bottom: 25%;
+  right: -30px;
+  width: 150px;
+  height: 150px;
+  text-align: center;
+  text-decoration: none; }
+
+.box_action:before {
+  content: '';
+  display: inline-block;
+  width: 0;
+  vertical-align: middle;
+  height: 100%; }
+
+.box_action_inner {
+  display: inline-block;
+  vertical-align: middle; }
+
+.box_title {
+  font-size: 2em;
+  display: block; }
+
+.box_subtitle {
+  font-size: 1em;
+  display: block; }
+
+/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,114 @@
+
+/*  FACES */
+.characters_wrapper {
+    text-align: center;
+    margin: 30px auto 0;
+    position: relative;
+    width: 300px;
+    z-index: 10;
+}
+
+.characters_nav {
+    content: "b";
+    position: absolute;
+    left: -50px;
+    top: 50%;
+    width: 32px;
+    height: 25px;
+    margin-top: -12px;
+    border: none;
+    outline: none;
+    text-indent: -999999999px;
+    background: url('/assets/images/prev.png') no-repeat;
+    
+    &:last-child {
+        left: auto;
+        right: -40px;
+        background: url('/assets/images/next.png') no-repeat;
+    }
+}
+
+.characters_inner {
+    overflow: hidden;
+    text-align: left;
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.characters {
+    margin: 0;
+    padding: 0 50px 0 0;
+    overflow: hidden;
+    display: inline-block;
+    word-spacing: 10px;
+    white-space: nowrap;
+    transition: all .6s linear;
+    font-size: 0;
+
+    .registered & {
+        width: 150px;
+    }
+}
+
+
+[data-page="0"] {
+  .characters_nav:first-child {
+      display: none;
+  }
+}
+
+[data-page="1"] {
+    
+    .characters {
+        margin-left: -392px;
+    }
+    
+    .characters_nav:last-child {
+        display: none;
+    }
+}
+
+.character {
+    display: inline-block;
+    padding: 0;
+    margin-right: 55px;
+}
+
+.character_button {
+    border: 6px solid $color-main-light;
+    background: none;
+    display: block;
+    padding: 0;
+    width: 123px;
+    height: 123px;
+    background-repeat: no-repeat;
+    &.__selected {
+        border-color: $color-secondary;
+        background-color: white;
+    }
+}
+
+.__blackpug {
+    background-image: url('/assets/images/characters/blackpug.png');
+}
+
+.__whitepug {
+    background-image: url('/assets/images/characters/whitepug.png');
+}
+
+.__mj {
+    background-image: url('/assets/images/characters/mj.png');
+}
+
+.__guinea {
+    background-image: url('/assets/images/characters/guinea.png');
+}
+
+.__pig {
+    background-image: url('/assets/images/characters/pig.png');
+}
+
+.__ufo {
+    background-image: url('/assets/images/characters/ufo.png');
+}

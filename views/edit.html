@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+  <head>
+      <title>Pug Runner - Edit your runner</title>
+      <link rel="stylesheet" href="/assets/css/main.css">
+      <script src="/assets/js/libs/modernizr.js"></script>
+  </head>
+  <body onload="init()">
+
+    <form class="join">
+        <label class="join-label" for="player_name">Edit your runner</label>
+        
+        <div class="join-faces-wrapper">
+            <button id="prevChars" class="join-faces-nav">previous</button>
+            <div class="join-faces-inner">
+                <ul class="join-faces">
+                    <li class="join-face __blackpug">
+                        <button class="join-face-button" value="blackpug"></button>
+                    </li>
+                    <li class="join-face __whitepug">
+                        <button class="join-face-button" value="whitepug"></button>
+                    </li>
+                    <li class="join-face __pig">
+                        <button class="join-face-button" value="pig"></button>
+                    </li>
+                    <li class="join-face __guinea">
+                        <button class="join-face-button" value="guinea"></button>
+                    </li>
+                    <li class="join-face __mj">
+                        <button class="join-face-button" value="mj"></button>
+                    </li>
+                    <li class="join-face __ufo">
+                        <button class="join-face-button" value="ufo"></button>
+                    </li>
+                </ul>
+            </div>
+            <button id="nextChars" class="join-faces-nav">next</button>
+        </div>
+        
+        <button type="submit" class="join-button">Save</button>
+    </form>
+
+    <!-- SOUND -->
+    <audio id="soundPlayer"></audio>
+    
+    <!-- Javascripts -->
+    <script src="/assets/js/libs/jquery.js"></script>
+    <script src="/assets/js/libs/socketio.js"></script>
+    <script src="/assets/js/src/init/edit.js"></script>
+    <script src="/assets/js/src/Runner.js"></script>
+    <script src="/assets/js/src/Sound.js"></script>
+    <script src="/assets/js/src/utils/characters.js"></script>
+  </body>
+</html>

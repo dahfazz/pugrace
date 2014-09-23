@@ -1,0 +1,136 @@
+
+.race_header {
+    background: $color-main-dark;
+    border-bottom: 5px solid $color-main-medium;
+    overflow: hidden;
+    padding: 10px 20px 5px 20px;
+    margin-bottom: 20px;
+}
+
+.race_title {
+    float: left;
+    font-family: 'arcade';
+    color: white;
+    font-size: 2em;
+}
+
+.start-button {
+    display: inline-block;
+    text-align: center;
+    float: right;
+    font-family: 'arcade';
+    font-size: 2em;
+    color: $color-secondary;
+    border: none;
+    background: none;
+    outline: none;
+}
+
+.runners {
+    margin: 0 auto 20px;
+    padding: 159 0 0;
+    display: block;
+    width: 1000px;
+    height: 338px;
+    background: url('/assets/images/field.jpg') no-repeat top left;
+    background-size: cover;
+    border: 10px solid #eee;
+    border-radius: 10px;
+}
+
+.runner {
+    display: block;
+    padding: 0;
+    position: relative;
+    height: 21px;
+}
+
+.runner:nth-child(1) .runner_anime {
+    bottom: -5px;
+    left: 109px;
+}
+
+.runner:nth-child(2) .runner_anime {
+    bottom: -6px;
+    left: 96px;
+}
+
+.runner:nth-child(3) .runner_anime {
+    bottom: -3px;
+    left: 83px;
+}
+
+.runner:nth-child(4) .runner_anime {
+    bottom: 1px;
+    left: 72px;
+}
+
+.runner:nth-child(5) .runner_anime {
+    bottom: 3px;
+    left: 59px;
+}
+
+.runner:nth-child(6) .runner_anime {
+    bottom: 6px;
+    left: 48px;
+}
+
+.runner_anime {
+    display: block;
+    float: left;
+    width: 70px;
+    height: 70px;
+    position: relative;
+    transition: margin-left .6s linear;
+    margin: 0;
+    z-index: 1;
+    position: absolute;
+    
+    &.__whitepug  { background-image: url('/assets/images/freezed/whitepug.png'); background-size: cover; }
+    &.__blackpug  { background-image: url('/assets/images/freezed/blackpug.png'); background-size: cover;}
+    &.__pig       { background-image: url('/assets/images/freezed/pig.png'); background-size: cover;}
+    &.__guinea    { background-image: url('/assets/images/freezed/guinea.png'); background-size: cover;}
+    &.__mj        { background-image: url('/assets/images/freezed/mj.png'); background-size: cover;}
+    &.__ufo       { background-image: url('/assets/images/freezed/ufo.png'); background-size: cover;}
+}
+
+.__animated {
+    .__whitepug  { background-image: url('/assets/images/animated/whitepug.gif'); background-size: cover; }
+    .__blackpug  { background-image: url('/assets/images/animated/blackpug.gif'); background-size: cover;}
+    .__pig       { background-image: url('/assets/images/animated/pig.gif'); background-size: cover;}
+    .__guinea    { background-image: url('/assets/images/animated/guinea.gif'); background-size: cover;}
+    .__mj        { background-image: url('/assets/images/animated/mj.gif'); background-size: cover;}
+    .__ufo       { background-image: url('/assets/images/animated/ufo.gif'); background-size: cover;}
+}
+
+[data-steps="10"] .runner_anime {
+    margin-left: 10%;
+}
+
+[data-steps="20"] .runner_anime {
+    margin-left: 20%;
+}
+
+[data-steps="30"] .runner_anime {
+    margin-left: 30%;
+}
+
+[data-steps="40"] .runner_anime {
+    margin-left: 40%;
+}
+
+[data-steps="50"] .runner_anime {
+    margin-left: 50%;
+}
+
+[data-steps="60"] .runner_anime {
+    margin-left: 60%;
+}
+
+[data-steps="70"] .runner_anime {
+    margin-left: 70%;
+}
+
+[data-steps="80"] .runner_anime {
+    margin-left: 81%;
+}

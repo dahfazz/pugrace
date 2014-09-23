@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <script src="/assets/js/libs/modernizr.js"></script>
+  </head>
+  <body onload="initTrack()">
+    <ul id="players" class="players">
+    </ul>
+
+    <button id="start" class="start-button">Start</button>
+    
+    <div class="winner">
+        <span class="winner-inner"></span>
+    </div>
+    
+    <!-- SOUND -->
+    <audio id="soundPlayer"></audio>
+
+    <!-- Libs -->
+    <script src="/assets/js/libs/jquery.js"></script>
+    <script src="/assets/js/libs/socketio.js"></script>
+    
+    <!-- Src -->
+    <script src="/assets/js/data/quizz.js"></script>
+    <script src="/assets/js/src/Sound.js"></script>
+    <script src="/assets/js/src/Quizz.js"></script>
+    <script src="/assets/js/src/init/track.js"></script>
+    <script src="/assets/js/src/Runner.js"></script>
+  </body>
+</html>

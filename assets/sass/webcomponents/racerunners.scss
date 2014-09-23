@@ -1,0 +1,24 @@
+
+@import 'base/utils/__utils';
+@import 'base/project/__project';
+
+.racerunners {
+    background: $color-main-dark;
+    border: 10px solid $color-main-light;
+    overflow: hidden;
+    padding: 15px 0 10px 65px;
+    position: fixed;
+    width: 400px;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.racerunners_line {
+    color: $color-secondary;
+    font-family: 'arcade';
+    font-size: 1.8em;
+    width: 50%;
+    float: left;
+}

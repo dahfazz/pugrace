@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'ArcadeRegular';
+    src: url('arcade.eot');
+    src: url('arcade.eot') format('embedded-opentype'),
+         url('arcade.woff2') format('woff2'),
+         url('arcade.woff') format('woff'),
+         url('arcade.ttf') format('truetype'),
+         url('arcade.svg#ArcadeRegular') format('svg');
+}
