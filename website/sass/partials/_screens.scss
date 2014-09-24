@@ -1,0 +1,28 @@
+.screens {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.screen {
+    width: 33%;
+    display: inline-block;
+    height: 200px;
+    background-repeat: no-repeat;
+    background-position: top;
+
+    &.__home {
+        background-image: url('../img/screens/home.png');
+        background-size: 100% auto;
+    }
+
+    &.__races {
+        background-image: url('../img/screens/races.png');
+        background-size: 100% auto;
+    }
+
+    &.__race {
+        background-image: url('../img/screens/race.png');
+        background-size: 100% auto;
+    }
+}

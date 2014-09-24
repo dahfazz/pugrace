@@ -1,0 +1,17 @@
+.stats {
+  text-align: center;
+  margin: 60px 0; }
+
+.stats_items {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+
+.stats_item {
+  display: inline-block;
+  padding: 0 30px;
+  text-align: center;
+  font-size: 3em; }
+
+/*# sourceMappingURL=stats.css.map */

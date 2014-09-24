@@ -1,8 +1,9 @@
 
 .nav {
-    display: inline-block;
-    float: right;
-    margin: 0.67em 0;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 10;
 }
 
 .nav_link{

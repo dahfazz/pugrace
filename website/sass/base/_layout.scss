@@ -10,19 +10,9 @@ html {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+}
 
-    background: url('../img/hercule-big.jpg') no-repeat top;
-    background-size: 100% auto;
-    background-attachment: fixed;
-
-    &:before {
-        content: '';
-        position: fixed;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        background: rgba(52, 73, 94, .8);
-        z-index: -1;
-    }
+.wrapper {
+    width: 990px;
+    margin: auto;
 }

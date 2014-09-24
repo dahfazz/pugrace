@@ -1,0 +1,43 @@
+
+
+.tech {
+    margin: 0 0 0 30px;
+    padding: 0;
+    overflow: hidden;
+}
+
+.tech_item {
+
+    float: left;
+    width: 33%;
+    height: 150px;
+    margin-top: 30px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    text-indent: -99999px;
+
+
+    &.__angular {
+        background-image: url('../img/logos/angular.jpg');
+    }
+
+    &.__nodejs {
+        background-image: url('../img/logos/nodejs.png');
+    }
+
+    &.__heroku {
+        background-image: url('../img/logos/heroku.png');
+    }
+
+    &.__polymer {
+        background-image: url('../img/logos/polymer.png');
+    }
+
+    &.__docssa {
+        background-image: url('../img/logos/docssa.png');
+    }
+
+    &.__socketio {
+        background-image: url('../img/logos/socketio.png');
+    }
+}

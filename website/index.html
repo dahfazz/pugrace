@@ -4,78 +4,22 @@
         <link rel="stylesheet" href="css/main.css">
         <link href='http://fonts.googleapis.com/css?family=Roboto:100,300,700,400' rel='stylesheet' type='text/css'>
     </head>
-    <body>
-
-    <header class="header">
-        <h1 class="header_title">PUG RACE</h1>
-        <nav class="nav">
-            <a href="#rules" class="nav_link">Rules</a>
-            <a href="#install" class="nav_link">Installation</a>
-            <a href="#quality" class="nav_link">Quality</a>
-        </nav>
-    </header>
+    <body data-ng-app="website">
 
 
-    <div class="imgWrapper">
-
-        <div class="box">
-            <button class="fork_button"><span>Fork it</span><span>on Github</span></button>
-            <div class="box_inner">
-                <div class="box_title">Multiplayer pug racing retro videogame</div>
-                <button class="play_button"><span class="play_button_inner">Play online</span></button>
-            </div>
-        </div>
-
-        <img    class="img"
-                src="img/small.png"
-                srcset="img/small.png 640w, 
-                        img/medium.png 1024w, 
-                        img/hercule-big.jpg 2048w"
-                alt="">
-    </div>
+        <div data-ng-include="'partials/nav.html'"></div>
 
 
+        <!--<div data-ng-include="'partials/home.html'"></div>-->
+        <div data-ng-view></div>
 
 
+        <script src="js/libs/angular.min.js"></script>
+        <script src="js/libs/angular-route.min.js"></script>
+        <script src="js/libs/angular-sanitize.min.js"></script>
 
-    <div class="wrapper">
-        <div class="section" id="rules">
-            <h2 class="section_title">Rules</h2>
-            <div class="section_inner">
-                <ol>
-                    <li>You create a new race and then, becomes the owner.</li>
-                    <li>Any other players can join the race until you click START, or whether you're 6 runners.</li>
-                    <li>Every opponent receive the same question</li>
-                    <li>Only the first who sends the good answer makes his pug running one step forward</li>
-                    <li>You can only answer once to each question</li>
-
-                </ol>
-            </div>
-        </div>
-
-        <div class="section" id="install">
-            <h2 class="section_title">Install locally</h2>
-            <div class="section_inner">
-                Lorem ipsum
-            </div>
-        </div>
-
-        <div class="section" id="quality">
-            <h2 class="section_title">Quality</h2>
-            <div class="section_inner">
-                Pugs are greedy, but they are also gourmets, that's why we always careful put the best treats in their bowls.
-            </div>
-        </div>
-    </div>
-
-
-    
-    
-
-
-        <footer class="footer">
-            <div class="footer_label">&#9829; pugs</div>
-        </footer>
+        <script src="js/app.js"></script>
+        <script src="js/controllers/mainCtrl.js"></script>
 
     </body>
 </html>
