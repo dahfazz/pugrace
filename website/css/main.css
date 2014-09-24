@@ -120,12 +120,24 @@ html {
   height: 120px;
   border-radius: 50%;
   display: block;
-  color: white;
-  background: red;
+  color: black;
+  background: white;
   border: none;
   position: absolute;
   bottom: 25px;
-  right: 25px; }
+  right: 25px;
+  text-decoration: none; }
+  .fork_button:hover {
+    background: #ddd; }
+  .fork_button span {
+    display: block;
+    text-align: center; }
+  .fork_button span:first-child {
+    text-transform: uppercase;
+    font-size: 1.5em;
+    margin-top: 35px; }
+  .fork_button span:last-child {
+    font-size: 1.1em; }
 
 .section {
   background: white;
@@ -146,7 +158,7 @@ html {
   font-weight: lighter; }
 
 .list {
-  margin: 0 0 0 30px;
+  margin: 0 0 0 45px;
   padding: 0; }
 
 .list_item {
@@ -214,5 +226,29 @@ html {
   .screen.__race {
     background-image: url("../img/screens/race.png");
     background-size: 100% auto; }
+
+.code {
+  background: black;
+  font-size: .5em;
+  font-family: 'verdana';
+  color: #f2f2f2;
+  display: block;
+  padding: 20px; }
+  .code .comment {
+    color: #999; }
+  .code b {
+    color: white; }
+
+.steps {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+
+.step {
+  padding: 20px 0; }
+
+.step_title {
+  font-weight: normal;
+  font-size: .6em; }
 
 /*# sourceMappingURL=main.css.map */
