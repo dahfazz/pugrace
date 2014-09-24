@@ -39,6 +39,7 @@ myApp.controller('RacesCtrl', ['$scope', '$rootScope', '$location', '$http',
 
         var socketData = {'runner': me, 'race': race};
         socket.emit('joinRace', socketData);
+        console.log('JOIN')
         $location.path('/race');
     }
 
@@ -55,14 +56,14 @@ myApp.controller('RacesCtrl', ['$scope', '$rootScope', '$location', '$http',
     
     // Insert new race
     socket.on('newRaceCreated', function(data) {
-        
+
         var newRace = data.race.name, 
             races = data.races;
-        
+
         $scope.newRace_name = '';
         $scope.RACES = races;
         $scope.$apply();
-        
+
         if (races[newRace].owner.name === me.name) {
             joinRace(newRace);
         }
@@ -83,6 +84,7 @@ myApp.controller('RacesCtrl', ['$scope', '$rootScope', '$location', '$http',
         socket.emit('newChallenger', race);
         
         $location.path('/race');
+        $scope.$apply();
     }
 
 }]);

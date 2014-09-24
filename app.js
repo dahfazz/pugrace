@@ -127,7 +127,6 @@ io.on('connection', function(socket) {
     */
     socket.on('nextQuestion', function(data) {
         var randomKey   = Math.floor(Math.random() * data.remainingQuizzSIze);
-        console.log('HERE')
         io.sockets.emit('goToNextQuestion', {'race': data.race, 'question_key': randomKey});
     });
 
@@ -151,9 +150,11 @@ io.on('connection', function(socket) {
             'goodanswer': goodanswer
         };
 
-        io.sockets.emit('reward', obj);
+        if (goodanswer) {
+            RACES[data.race.name].runners[data.runner.name].steps += 10;
+        }
 
-        //io.sockets.emit('questionHandled', obj);
+        io.sockets.emit('reward', obj);
     });
 
 
@@ -172,7 +173,6 @@ io.on('connection', function(socket) {
             'race': race,
             'races': RACES
         };
-
         io.sockets.emit('newRaceCreated', data);
     });
 

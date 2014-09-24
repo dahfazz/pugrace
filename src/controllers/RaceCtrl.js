@@ -1,12 +1,42 @@
-myApp.controller('RaceCtrl', ['$scope', '$rootScope', '$timeout', '$http', '$interval', function($scope, $rootScope, $timeout, $http, $interval) {
+myApp.controller('RaceCtrl', ['$scope', '$rootScope', '$timeout', '$http', '$interval', '$routeParams', function($scope, $rootScope, $timeout, $http, $interval, $routeParams) {
 
     $scope.$id = 'RaceCtrl';
 
-    var questionTimer = 20,
+    var questionTimer = 10,
         timeout,
         interval;
 
     $scope.me = JSON.parse(localStorage.getItem('pugrunner_me'));
+
+    if ($routeParams.raceName && $routeParams.runnerName) {
+
+        $http({
+            'method': 'GET',
+            'url': '/runner/' + $routeParams.runnerName
+        }).success(function(runner){
+            $scope.me = runner;
+        });
+
+        $http({
+            'method': 'GET',
+            'url': '/race/' + $routeParams.raceName
+        }).success(function(race){
+
+            $scope.RACE = race;
+            console.log(race.quizz)
+            $scope.QUESTIONS = race.quizz.items;
+
+            if ($scope.RACE && $scope.RACE.state !== 'waiting') {
+                $scope.startButton = false;
+            }
+
+            if ($scope.RACE && $scope.RACE.owner.name === $scope.me.name) {
+                $scope.startButton = true;
+            }
+        });
+    } else {
+        init();
+    }
 
     function init() {
 
@@ -29,7 +59,6 @@ myApp.controller('RaceCtrl', ['$scope', '$rootScope', '$timeout', '$http', '$int
             }
         });
     };
-    init();
 
 
 
@@ -150,7 +179,6 @@ myApp.controller('RaceCtrl', ['$scope', '$rootScope', '$timeout', '$http', '$int
             // Wrong answer ...and if it's mine
             if (data.runner.name === $scope.me.name) {
                 $scope.RACE.runners[data.runner.name].state = 'answered';
-                console.log($scope.RACE.runners[data.runner.name])
                 $scope.$apply();
                 socket.emit('runnerUpdated', $scope.me);
             }

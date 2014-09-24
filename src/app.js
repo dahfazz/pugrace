@@ -17,7 +17,13 @@ myApp.config(function($routeProvider, $locationProvider) {
         .when('/race', {
             templateUrl: '/views/race.html',
             controller: 'RaceCtrl'
-        });
+        })
+
+        .when('/race/:raceName/:runnerName', {
+            templateUrl: '/views/race.html',
+            controller: 'RaceCtrl'
+        })
+    ;
       
     // configure html5 to get links working on jsfiddle
     //$locationProvider.html5Mode(true);
