@@ -27,9 +27,13 @@ app.use('/bower_components',    express.static(__dirname + '/bower_components'))
 
 
 /* ROUTES */
-var routingOptions = {root: __dirname + '/views/'};
+
 router.get('/', function(req, res) {
-    res.sendFile('index.html', routingOptions , function (err) {});
+    res.sendFile('/index.html', {root: __dirname + '/website/'} , function (err) {});
+});
+
+router.get('/play', function(req, res) {
+    res.sendFile('/index.html', {root: __dirname + '/views/'} , function (err) {});
 });
 
 router.get('/allraces', function(req, res) {

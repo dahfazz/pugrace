@@ -44,6 +44,8 @@
     padding: 10px;
     margin-top: 20px;
     background: none;
+    display: inline-block;
+    text-decoration: none;
     &:hover {
         background: $color-main;
     }

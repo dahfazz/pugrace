@@ -103,7 +103,9 @@ html {
   border-radius: 4px;
   padding: 10px;
   margin-top: 20px;
-  background: none; }
+  background: none;
+  display: inline-block;
+  text-decoration: none; }
   .play_button:hover {
     background: #2980b9; }
 

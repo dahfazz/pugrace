@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AACA,MAAO;EACH,UAAU,EAAE,MAAM;EAClB,MAAM,EAAE,MAAM;;AAGlB,YAAa;EACT,OAAO,EAAE,YAAY;EACrB,MAAM,EAAE,CAAC;EACT,OAAO,EAAE,CAAC;EACV,UAAU,EAAE,IAAI;;AAGpB,WAAY;EACR,OAAO,EAAE,YAAY;EACrB,OAAO,EAAE,MAAM;EACf,UAAU,EAAE,MAAM;EAClB,SAAS,EAAE,GAAG",
-"sources": ["../../sass/partials/stats.scss"],
-"names": [],
-"file": "stats.css"
-}
