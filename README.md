@@ -1,4 +1,54 @@
 Pug Race
 =========
 
-angular
+
+## Intro
+Pug Race is the first pug racing videogame, strongly inspired by the old school horse racing game in theme parks.
+
+
+## Rules
+* 1. Create a new race (you are the owner)
+* 2. Any other players can join the race until the owner clicks START, or whether 6 runners are engaged
+* 3. Every opponent receive the same question at the same time
+* 4. Only the first who sends the good answer makes his pug running one step forward
+* 5. You can only answer once to each question
+* 6. Obviously, the first who reaches the finish line wins the race
+
+
+## Contributing
+You are all warmly invited to contribute to PUG RACE.
+Improving existing code, taking over one of the ideas or suggest yours, all your Pull Requests
+will be considered.
+
+
+# Improvements
+* TEAMS: Group with your friends and be the best in the team ranking
+# BONUSES: Randomly appearing while running a race
+# CUSTOMIZATION: Submit your pug
+# PUG PROFILE: Create your pug profile with name, nickname, special move, bio, etc...
+# CUSTOMIZATION: Submit your questions
+# SOCIAL: Link your pug with your social profiles
+# 1ON1: Invite one other pug to a mano-mano race
+# SCENES: Create new scene backgrounds
+
+ 
+
+## Author
+
+**Fabien Zibi**
+
+- <https://twitter.com/_faz>
+- <https://github.com/dahfazz>
+
+
+## Special thanks
+
+- Smwhr <https://twitter.com/smwhr>
+- Fred De Matos <https://twitter.com/freddematos>
+- Manu Quinto
+
+
+## License
+
+Copyright (c) 2014 Fabien Zibi
+Licensed under the MIT license.

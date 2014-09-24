@@ -17,6 +17,14 @@ http.listen(port, function(){
 });
 
 
+/* STATIC ASSETS */
+app.use('/assets',              express.static(__dirname + '/assets'));
+app.use('/src',                 express.static(__dirname + '/src'));
+app.use('/views',               express.static(__dirname + '/views'));
+app.use('/website',             express.static(__dirname + '/website'));
+app.use('/bower_components',    express.static(__dirname + '/bower_components'));
+
+
 /* ROUTES */
 var routingOptions = {root: __dirname + '/views/'};
 router.get('/', function(req, res) {
@@ -39,9 +47,24 @@ router.get('/runner/:name', function(req, res) {
     res.send(JSON.stringify(RUNNERS[req.params.name]), {}, function (err) {});
 });
 
+router.get('/stats', function(req, res) {
+    var stats = {
+        'races': Object.size(RACES),
+        'runners': Object.size(RUNNERS)
+    }
+    res.send(stats, {}, function (err) {});
+});
+
+Object.size = function(obj) {
+    var size = 0, key;
+    for (key in obj) {
+        if (obj.hasOwnProperty(key)) size++;
+    }
+    return size;
+};
+
+
 app.use('/', router);
-
-
 
 
 /* GENERATE WEB COMPONENTS CORE-STYLE */
