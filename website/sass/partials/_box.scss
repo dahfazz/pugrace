@@ -1,0 +1,71 @@
+.box {
+    width: 450px;
+    height: 618px;
+    background: url('../img/box.jpg') no-repeat;
+    position: absolute;
+    top: 50%;
+    margin-top: -310px;
+    left: 5%;
+
+    -webkit-animation: appear .6s 1;
+    animation: appear .6s 1;
+
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+
+}
+
+@-webkit-keyframes appear {
+  0%   { left: -800px;}
+  80%  { left: 7%;}
+  100% { left: 5%;}
+}
+@keyframes appear {
+  0%   { left: -800px;}
+  80%  { left: 7%;}
+  100% { left: 5%;}
+}
+
+
+.box_inner {
+    font-size: 3em;
+    position: absolute;
+    left: 110%;
+    top: 50%;
+    color: white;
+    height: 200px;
+    width: 500px;
+    margin-top: -100px;
+    text-align: center;
+}
+
+.play_button {
+    border: 2px solid white;
+    border-radius: 4px;
+    padding: 10px;
+    margin-top: 20px;
+    background: none;
+    &:hover {
+        background: $color-main;
+    }
+}
+
+.play_button_inner {
+    margin-top: 10px;
+    color: white;
+    text-transform: uppercase;
+    font-size: .5em;
+}
+
+.fork_button {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    display: block;
+    color: white;
+    background: red;
+    border: none;
+    position: absolute;
+    bottom: 25px;
+    right: 25px;
+}

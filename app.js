@@ -4,16 +4,17 @@ var http        = require('http').Server(app);
 var io          = require('socket.io')(http);
 var router      = express.Router();
 var fs          = require('fs');
+var conf        = require('./conf');
 
 var RACES = {},  RUNNERS = {};
 
 
 // SERVER
-var port = process.env.PORT || 8880;
-var ip   = process.env.IP || '192.168.2.188';
+var port = process.env.PORT || conf.port;
+var ip   = process.env.IP || conf.ip;
 
 http.listen(port, function(){
-  console.log('here we go');
+  console.log('here we go on ' + ip + ':' + port);
 });
 
 

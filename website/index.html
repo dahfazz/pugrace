@@ -1,33 +1,81 @@
-<!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="/website/assets/css/main.css" type="text/css" />
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link href='http://fonts.googleapis.com/css?family=Roboto:100,300,700,400' rel='stylesheet' type='text/css'>
     </head>
     <body>
-        <header class="header">
-            <div class="header_title">Pug Race</div>
-            <nav class="header_nav">
-                <a href="" class="header_nav_link">hello</a>
-                <a href="" class="header_nav_link">hello</a>
-                <a href="" class="header_nav_link">hello</a>
-            </nav>
-        </header>
-        <section class="wrapper">
-            <div class="box">
-                <a class="box_action" href="">
-                    <span class="box_action_inner">
-                        <span class="box_title">Fork me</span>
-                        <span class="box_subtitle">on github</span>
-                    </span>
-                </a>
+
+    <header class="header">
+        <h1 class="header_title">PUG RACE</h1>
+        <nav class="nav">
+            <a href="#rules" class="nav_link">Rules</a>
+            <a href="#install" class="nav_link">Installation</a>
+            <a href="#quality" class="nav_link">Quality</a>
+        </nav>
+    </header>
+
+
+    <div class="imgWrapper">
+
+        <div class="box">
+            <button class="fork_button"><span>Fork it</span><span>on Github</span></button>
+            <div class="box_inner">
+                <div class="box_title">Multiplayer pug racing retro videogame</div>
+                <button class="play_button"><span class="play_button_inner">Play online</span></button>
             </div>
-        </section>
-        <footer class="footer"></footer>
-        
-        <video autoplay loop class="video" poster="/website/assets/video/video.mp4.png">
-            <source src="/website/assets/video/video.mp4" type="video/mp4">
-            <source src="/website/assets/video/video.webm" type="video/mp4">
-        </video>
-        
+        </div>
+
+        <img    class="img"
+                src="img/small.png"
+                srcset="img/small.png 640w, 
+                        img/medium.png 1024w, 
+                        img/hercule-big.jpg 2048w"
+                alt="">
+    </div>
+
+
+
+
+
+    <div class="wrapper">
+        <div class="section" id="rules">
+            <h2 class="section_title">Rules</h2>
+            <div class="section_inner">
+                <ol>
+                    <li>You create a new race and then, becomes the owner.</li>
+                    <li>Any other players can join the race until you click START, or whether you're 6 runners.</li>
+                    <li>Every opponent receive the same question</li>
+                    <li>Only the first who sends the good answer makes his pug running one step forward</li>
+                    <li>You can only answer once to each question</li>
+
+                </ol>
+            </div>
+        </div>
+
+        <div class="section" id="install">
+            <h2 class="section_title">Install locally</h2>
+            <div class="section_inner">
+                Lorem ipsum
+            </div>
+        </div>
+
+        <div class="section" id="quality">
+            <h2 class="section_title">Quality</h2>
+            <div class="section_inner">
+                Pugs are greedy, but they are also gourmets, that's why we always careful put the best treats in their bowls.
+            </div>
+        </div>
+    </div>
+
+
+    
+    
+
+
+        <footer class="footer">
+            <div class="footer_label">&#9829; pugs</div>
+        </footer>
+
     </body>
 </html>
