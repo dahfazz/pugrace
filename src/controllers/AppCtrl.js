@@ -1,4 +1,4 @@
-myApp.controller('AppCtrl', ['$scope', '$http', function($scope, $http) {
+myApp.controller('AppCtrl', ['$scope', '$http', '$location', function($scope, $http, $location) {
 
     $scope.$id = 'appCtrl';
     
@@ -23,4 +23,10 @@ myApp.controller('AppCtrl', ['$scope', '$http', function($scope, $http) {
                 $scope.runners = data;
             });
     });
+
+
+    $scope.goto = function(event, route) {
+        event.preventDefault();
+        $location.path(route);
+    };
 }]);

@@ -23,6 +23,11 @@ myApp.config(function($routeProvider, $locationProvider) {
             templateUrl: '/views/race.html',
             controller: 'RaceCtrl'
         })
+
+        .when('/leaderboard', {
+            templateUrl: '/views/leaderboard.html',
+            controller: 'LeaderboardCtrl'
+        })
     ;
       
     // configure html5 to get links working on jsfiddle

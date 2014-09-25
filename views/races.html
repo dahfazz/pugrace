@@ -2,6 +2,9 @@
 <my-profile></my-profile>
 
 <form class="createRace_form" data-ng-submit="createRaceSubmit()">
+    
+    <button data-ng-click="goto($event, 'leaderboard')" class="leaderboardLink">Leaderboard...</button>
+
     <input class="createRace_input" type="text" placeholder="New race name" data-ng-model="newRace_name" />
     <button class="retro_button" type="submit">Create a race</button>
 </form>

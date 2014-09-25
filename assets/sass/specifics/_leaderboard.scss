@@ -1,0 +1,54 @@
+
+
+.leaderboard {
+    width: 600px;
+    margin: 40px auto;
+    font-family: 'arcade';
+}
+
+.leaderboard_title {
+    color: $color-secondary;
+    @include remIt('font-size', 50);
+    text-align: center;
+}
+
+.leaderboard_items {
+}
+
+.leaderboard_item {
+    color: white;
+    @include remIt('font-size', 34);
+    padding: 5px 0;
+    border-bottom: 1px solid #333;
+    overflow: hidden;
+}
+
+.leaderboard_img {
+    width: 60px;
+    height: 60px;
+    border: 3px solid $color-main-light;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.leaderboard_rank {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+
+    &:after {
+        content: '.';
+    }
+}
+.leaderboard_name {
+    display: inline-block;
+    vertical-align: middle;
+}
+.leaderboard_score {
+    display: inline-block;
+    vertical-align: middle;
+
+    &:after {
+        content: 'pts';
+    }
+}

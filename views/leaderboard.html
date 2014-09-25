@@ -1,0 +1,10 @@
+<div class="leaderboard">
+    <h2 class="leaderboard_title">LEADERBOARD</h2>
+    <ul class="leaderboard_items">
+        <li class="leaderboard_item" data-ng-repeat="runner in RUNNERS | orderBy:score:true">
+            <img data-ng-src="/assets/images/characters/{{runner.character}}.png" alt="" class="leaderboard_img">
+            <span class="leaderboard_score">{{runner.score}}</span>
+            <span class="leaderboard_name">{{runner.name}}</span>
+        </li>
+    </ul>
+</div>

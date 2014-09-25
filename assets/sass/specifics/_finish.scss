@@ -1,0 +1,59 @@
+
+.__winner, .__looser {
+
+    &:before {
+        content: "";
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 10;
+    }
+
+    &:after {
+        content: "";
+        width: 300px;
+        height: 320px;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        z-index: 90;
+        color: white;
+        @include remIt('font-size', 40);
+        text-align: center;
+        background-position: center 20px;
+        background-repeat: no-repeat;
+    }
+}
+
+.__winner {
+
+    &:before {
+        background: rgba(39, 174, 96, .9);
+    }
+
+    &:after {
+        content: 'YOU WON';
+        background-image: url('/assets/images/winner.png');
+        background-size: cover;
+    }
+}
+
+.__looser {
+    
+    
+
+    &:before {
+        background: rgba(231, 76, 60, .9);
+    }
+
+    &:after {
+        content: 'YOU LOST';
+        background-image: url('/assets/images/looser.png');
+        background-size: cover;
+    }
+}

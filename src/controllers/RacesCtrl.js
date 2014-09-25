@@ -8,6 +8,13 @@ myApp.controller('RacesCtrl', ['$scope', '$rootScope', '$location', '$http',
 
         if (!me.race_name) $location.path('/races');
 
+        if (me) {
+            var data = {
+                'me': me
+            }
+            socket.emit('restoreMe', data)
+        }
+
         $http({
             'method': 'GET',
             'url': '/allraces'
@@ -15,6 +22,7 @@ myApp.controller('RacesCtrl', ['$scope', '$rootScope', '$location', '$http',
             $scope.RACES = races;
         });
     };
+
     init();
 
 
@@ -26,7 +34,13 @@ myApp.controller('RacesCtrl', ['$scope', '$rootScope', '$location', '$http',
             var race = new Race(name, me);
             localStorage.setItem('pugrunner_me', JSON.stringify(me))
             race.runners[me.name] = me;
-            socket.emit('askNewRace', race);
+
+            var data = {
+                'race': race,
+                'owner': me
+            }
+
+            socket.emit('askNewRace', data);
         }
     }
 

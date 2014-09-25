@@ -1,6 +1,10 @@
-myApp.controller('RaceCtrl', ['$scope', '$rootScope', '$timeout', '$http', '$interval', '$routeParams', function($scope, $rootScope, $timeout, $http, $interval, $routeParams) {
+myApp.controller('RaceCtrl', ['$scope', '$rootScope', '$timeout', '$http', '$interval', '$routeParams', '$location', function($scope, $rootScope, $timeout, $http, $interval, $routeParams, $location) {
 
     $scope.$id = 'RaceCtrl';
+
+    $rootScope.WINNER = false;
+    $rootScope.LOOSER = false;
+
 
     var questionTimer = 10,
         timeout,
@@ -84,6 +88,7 @@ myApp.controller('RaceCtrl', ['$scope', '$rootScope', '$timeout', '$http', '$int
             'remainingQuizzSIze': $scope.RACE.quizz.items.length
         }
 
+        socket.emit('raceStarted', data);
         socket.emit('nextQuestion', data);
     }
 
@@ -188,18 +193,27 @@ myApp.controller('RaceCtrl', ['$scope', '$rootScope', '$timeout', '$http', '$int
 
 
 
-    /*  WHEN QUESTION IS HANDLED BY SERVER
+    /* FINISH LINE
+        - runner
         - race
         - question_key
+        - goodanswer
     */
-    /*socket.on('questionHandled', function(data) {
+    socket.on('finish', function(data) {
+        // Not my race
+        if (data.race.name !== $scope.me.race_name) return;
 
-        // Not for me
-        if (me.race_name !== data.race.name) return;
+        $interval.cancel(interval);
+        $timeout.cancel(timeout);
 
-        $scope.RACE.quizz.items.splice(data.question_key, 1);
-        $scope.$apply();
-    });*/
+        if ($scope.me.name === data.runner.name) {
+            $scope.me.score += 10;
+            localStorage.setItem('pugrunner_me', JSON.stringify($scope.me));
+            $rootScope.WINNER = true;
+        } else {
+            $rootScope.LOOSER = true;
+        }
+    });
 
 
 
@@ -212,6 +226,9 @@ myApp.controller('RaceCtrl', ['$scope', '$rootScope', '$timeout', '$http', '$int
     $scope.$on('$destroy', function() {
         $interval.cancel(interval);
         $timeout.cancel(timeout);
+
+        $rootScope.WINNER = false;
+        $rootScope.LOOSER = false;
     });
 
 }]);

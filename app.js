@@ -8,6 +8,8 @@ var conf        = require('./conf');
 
 var RACES = {},  RUNNERS = {};
 
+var finishStep = 10;
+
 
 // SERVER
 var port = process.env.PORT || conf.port;
@@ -109,14 +111,28 @@ io.on('connection', function(socket) {
     /* WHEN START GAME */
     socket.on('startRace', function(race_name) {
         RACES[race_name].state = 'playing';
+        console.log(RACES)
         io.sockets.emit('raceStarted');
     });
 
 
 
-    /* WHEN GAME HAS A WINNER */
-    socket.on('winner', function(data) {
-        io.sockets.emit('finished', data);
+    /* RESTORE KNOWN PLAYER
+        - me
+    */
+    socket.on('restoreMe', function(data) {
+        console.log('restore me')
+        RUNNERS[data.me.name] = data.me;
+    });
+
+
+
+    /* WHEN RACE START
+        - race
+        - remainingQuizzSIze
+    */
+    socket.on('raceStarted', function(data) {
+        RACES[data.race.name].state = 'playing';
     });
 
 
@@ -152,9 +168,22 @@ io.on('connection', function(socket) {
 
         if (goodanswer) {
             RACES[data.race.name].runners[data.runner.name].steps += 10;
+            RUNNERS[data.runner.name].steps += 10;
         }
 
+        if (RACES[data.race.name])
+
         io.sockets.emit('reward', obj);
+
+        // Finish line
+        if (RACES[data.race.name].runners[data.runner.name].steps == finishStep) {
+            console.log('SCORE +10')
+            RUNNERS[data.runner.name].score += 10;
+
+            io.sockets.emit('finish', obj);
+
+            delete RACES[data.race.name];
+        }
     });
 
 
@@ -165,15 +194,20 @@ io.on('connection', function(socket) {
     });
 
 
-    /* WHEN NEW RACE SUBMITED */
-    socket.on('askNewRace', function(race) {
-        RACES[race.name] = race;
+    /* WHEN NEW RACE SUBMITED 
+        - race
+        - owner
+    */
+    socket.on('askNewRace', function(data) {
+        RACES[data.race.name] = data.race;
+        RUNNERS[data.owner.name].race_name = data.race.name;
 
-        var data = {
-            'race': race,
+        var obj = {
+            'race': data.race,
             'races': RACES
         };
-        io.sockets.emit('newRaceCreated', data);
+
+        io.sockets.emit('newRaceCreated', obj);
     });
 
 

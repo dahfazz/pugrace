@@ -1,4 +1,16 @@
 
+.race_exit_button {
+    position: fixed;
+    bottom: 40px;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    margin: auto;
+    width: 200px;
+    padding: 20px;
+    @include remIt('font-size', 40);
+}
+
 .race_header {
     background: $color-main-dark;
     border-bottom: 5px solid $color-main-medium;

@@ -4,7 +4,7 @@
         <link rel="import" href="/assets/components/profile/style.html">
         <link rel="stylesheet" href="/assets/css/main.css">
     </head>
-    <body data-ng-app="myApp">
+    <body data-ng-app="myApp" data-ng-class="{'__winner': WINNER, '__looser': LOOSER}">
         <div data-ng-controller="AppCtrl">
             <div data-ng-view></div>
         </div>
@@ -30,6 +30,7 @@
     <script src="/src/controllers/JoinCtrl.js"></script>
     <script src="/src/controllers/AppCtrl.js"></script>
     <script src="/src/controllers/CharacterCtrl.js"></script>
+    <script src="/src/controllers/LeaderboardCtrl.js"></script>
     <script src="/src/controllers/LoginCtrl.js"></script>
     <script src="/src/controllers/NameCtrl.js"></script>
     <script src="/src/controllers/RaceCtrl.js"></script>

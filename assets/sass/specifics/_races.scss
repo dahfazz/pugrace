@@ -60,3 +60,16 @@
     border: none;
     background: none;
 }
+
+.leaderboardLink {
+    background: none;
+    border: none;
+    font-family: 'arcade';
+    color: $color-secondary;
+    @include remIt('font-size', 25);
+    margin-right: 20px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-bottom: -10px;
+
+}
