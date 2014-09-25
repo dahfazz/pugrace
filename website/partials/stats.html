@@ -1,7 +1,11 @@
 
 <div class="stats">
     <ul class="stats_items">
-        <li class="stats_item">{{stats.runners}} Pugs</li>
-        <li class="stats_item">{{stats.races}} Races</li>
+        <li class="stats_item">
+            {{stats.runners}} <span data-ng-if="stats.runners > 1">Pugs</span><span data-ng-if="stats.runners <= 1">Pug</span>
+        </li>
+        <li class="stats_item">
+            {{stats.races}} <span data-ng-if="stats.runners > 1">Races</span><span data-ng-if="stats.runners <= 1">Race</span>
+        </li>
     </ul>
 </div>

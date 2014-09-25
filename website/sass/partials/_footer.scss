@@ -1,7 +1,20 @@
 .footer {
     background: #111;
-    overflow: hidden;
-    padding: 40px 0;
+    padding: 20px 0;
+    position: relative;
+    z-index: 3;
+
+    &:before {
+        content: "";
+        height: 140px;
+        width: 140px;
+        display: block;
+        background: url('../img/logo.png') no-repeat;
+        background-size: cover;
+        position: absolute;
+        bottom: 0px;
+        right: 0px;
+    }
 }
 
 .footer_label {

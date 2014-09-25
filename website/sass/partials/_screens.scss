@@ -2,10 +2,11 @@
     padding: 0;
     margin: 0;
     list-style: none;
+    font-size: 0;
 }
 
 .screen {
-    width: 33%;
+    width: 30%;
     display: inline-block;
     height: 200px;
     background-repeat: no-repeat;
@@ -19,6 +20,7 @@
     &.__races {
         background-image: url('../img/screens/races.png');
         background-size: 100% auto;
+        margin-left: 5%;margin-right: 5%;
     }
 
     &.__race {

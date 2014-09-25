@@ -1,16 +1,23 @@
 .code {
     background: black;
-    font-size: .5em;
     font-family: 'verdana';
-    color: #f2f2f2;
+    color: #fff;
     display: block;
     padding: 20px;
 
     .comment {
         color: #999;
     }
+}
 
-    b {
-        color: white;
+.file {
+    background: rgba(0, 0, 0, 0.05);
+    font-family: 'verdana';
+    color: #000;
+    display: block;
+    padding: 20px;
+
+    .comment {
+        color: #999;
     }
 }
