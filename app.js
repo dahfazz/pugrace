@@ -89,8 +89,6 @@ function generateComponent(name) {
     });
 }
 generateComponent('profile');
-generateComponent('gamepad');
-generateComponent('racerunners');
 
 
 
