@@ -8,7 +8,7 @@ var conf        = require('./conf');
 
 var RACES = {},  RUNNERS = {};
 
-var finishStep = 10;
+var finishStep = 80;
 
 
 // SERVER
