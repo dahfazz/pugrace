@@ -6,7 +6,7 @@
     bottom: 0;
     left: 0;
     z-index: 50;
-    background: transparentize($color-main-dark, .1);
+    background: transparentize($color-main-light, .1);
     display: none;
 
     &.__visible {

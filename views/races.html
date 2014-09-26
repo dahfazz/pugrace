@@ -15,7 +15,9 @@
             <span class="highlighted">{{race.name}}</span> ({{race.runnerNb}} pugs)</span>
         <button data-ng-if="race.name === myRace" class="race_link leave_button" data-ng-click="leaveRace($event)">Leave</button>
         <span data-ng-if="race.state === 'full'" class="race_state">Full</span>
-        <button data-ng-if="race.state !== 'full'" class="race_link" data-ng-click="joinWithPhone($event, race)">Join on my phone</button> | 
-        <button data-ng-if="race.state !== 'full' && race.name !== myRace" class="race_link" data-ng-click="joinRace($event, race)">Join</button>
+        
+        <button data-ng-if="race.state !== 'full' && race.name !== myRace" class="race_link" data-ng-click="joinRace($event, race)">Play here</button>
+
+        <button data-ng-if="race.state !== 'full'" class="race_link" data-ng-click="joinWithPhone($event, race)">Play on my phone</button>
     </li>
 </ul>

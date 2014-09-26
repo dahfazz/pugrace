@@ -817,9 +817,16 @@ body {
   font-size: 25px;
   float: right;
   border: none;
-  background: none; }
+  background: none;
+  border-right: 1px solid #444;
+  padding-right: 25px;
+  margin-right: 25px; }
   .cssremunit .race_link {
     font-size: 1.5625rem; }
+  .race_link:nth-child(2) {
+    border-right: none;
+    padding-right: 0;
+    margin-right: 0; }
 
 .leaderboardLink {
   background: none;
@@ -1200,7 +1207,7 @@ body {
   bottom: 0;
   left: 0;
   z-index: 50;
-  background: rgba(31, 32, 114, 0.9);
+  background: rgba(147, 147, 201, 0.9);
   display: none; }
   .qrCode.__visible {
     display: block; }
