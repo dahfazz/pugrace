@@ -19,7 +19,7 @@ myApp.controller('JoinCtrl', ['$scope', '$rootScope', '$location', function($sco
     
     $scope.nextInput = function(sel) {
         document.querySelector(sel).focus();
-    }
+    };
     
     
     $scope.createRunner = function () {
@@ -32,7 +32,7 @@ myApp.controller('JoinCtrl', ['$scope', '$rootScope', '$location', function($sco
             me = new Runner(_name, _character, _pwd);
             socket.emit('askCreateRunner', me);
         }
-    }
+    };
     
     socket.on('runnerCreated', function(runner) {
         localStorage.setItem('pugrunner_me', JSON.stringify(runner));

@@ -184,5 +184,5 @@ function Quizz() {
             "question": "What is Women's 100 metres world record?",
             "answer": 1
         }
-    ]
+    ];
 }

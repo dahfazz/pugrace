@@ -27,7 +27,6 @@ myApp.controller('RaceCtrl', ['$scope', '$rootScope', '$timeout', '$http', '$int
         }).success(function(race){
 
             $scope.RACE = race;
-            console.log(race.quizz)
             $scope.QUESTIONS = race.quizz.items;
 
             if ($scope.RACE && $scope.RACE.state !== 'waiting') {
@@ -62,8 +61,7 @@ myApp.controller('RaceCtrl', ['$scope', '$rootScope', '$timeout', '$http', '$int
                 $scope.startButton = true;
             }
         });
-    };
-
+    }
 
 
     /* NEW CHALLENGER
@@ -86,11 +84,11 @@ myApp.controller('RaceCtrl', ['$scope', '$rootScope', '$timeout', '$http', '$int
         var data = {
             'race': $scope.RACE,
             'remainingQuizzSIze': $scope.RACE.quizz.items.length
-        }
+        };
 
         socket.emit('raceStarted', data);
         socket.emit('nextQuestion', data);
-    }
+    };
 
 
     /* NEXT STEP
@@ -105,7 +103,7 @@ myApp.controller('RaceCtrl', ['$scope', '$rootScope', '$timeout', '$http', '$int
         $scope.QUESTION_KEY = data.question_key;
         $scope.RACE.runners[$scope.me.name].state = 'waiting';
 
-        var data = {
+        var obj = {
             'race': $scope.RACE,
             'remainingQuizzSIze': $scope.RACE.quizz.items.length
         };
@@ -119,7 +117,7 @@ myApp.controller('RaceCtrl', ['$scope', '$rootScope', '$timeout', '$http', '$int
         }, 1000);
 
         timeout = $timeout(function() {
-            socket.emit('nextQuestion', data);
+            socket.emit('nextQuestion', obj);
         }, questionTimer * 1000);
         //$scope.$apply();
     });
@@ -139,7 +137,7 @@ myApp.controller('RaceCtrl', ['$scope', '$rootScope', '$timeout', '$http', '$int
         };
 
         socket.emit('sendAnswer', data);
-    }
+    };
 
 
     /* REWARD
@@ -169,14 +167,14 @@ myApp.controller('RaceCtrl', ['$scope', '$rootScope', '$timeout', '$http', '$int
 
             // Stop the runner
             var runner_name = data.runner.name,
-                data = {
+                obj = {
                     'race': $scope.RACE,
                     'remainingQuizzSIze': $scope.RACE.quizz.items.length
                 };
 
             $timeout(function() {
                 $scope.RACE.runners[runner_name].state = 'rewarded';
-                socket.emit('nextQuestion', data);
+                socket.emit('nextQuestion', obj);
             }, 500);
 
         } else {

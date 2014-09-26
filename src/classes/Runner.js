@@ -9,10 +9,10 @@ function Runner(name, character, pwd) {
   this.score      = 0;
   this.pwd        = pwd;
   this.state      = 'waiting';  // waiting | animated
-  this.race_name;
+  this.race_name  = undefined;
 }
 
 
 Runner.prototype.addStep = function () {
   this.steps++;
-}
+};

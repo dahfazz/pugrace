@@ -43,11 +43,11 @@ myApp.controller('AppCtrl', ['$scope', '$http', '$location', function($scope, $h
 
         $scope.qrCode = true;
         $location.path('/race');
-    }
+    };
 
 
     $scope.qrClose = function (event) {
         event.preventDefault();
         $scope.qrCode = false;
-    }
+    };
 }]);

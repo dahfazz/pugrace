@@ -9,11 +9,11 @@ function Storage(key) {
 
 Storage.prototype.set = function(obj) {
     this.storage.setItem(this.key, obj);
-}
+};
 
 Storage.prototype.get = function() {
     return this.storage.getItem(this.key);
-}
+};
 
 
 var storage_me   = new Storage('pugrunner_me');

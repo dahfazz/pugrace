@@ -9,13 +9,13 @@ myApp.controller('LoginCtrl', ['$scope', '$location', function($scope, $location
     
     $scope.closeLoginModal = function () {
         $scope.loginModal = false;
-    }
+    };
     
     
     $scope.loginSubmit = function(event) {
 
         var _name       = $scope.login_A.toUpperCase() + $scope.login_B.toUpperCase() + $scope.login_C.toUpperCase();
-        var _pwd        = $scope.login_PWD
+        var _pwd        = $scope.login_PWD;
         
         var data = {
             'name': _name,
@@ -23,7 +23,7 @@ myApp.controller('LoginCtrl', ['$scope', '$location', function($scope, $location
         };
 
         socket.emit('tryLogin', data);
-    }
+    };
 
     socket.on('logginOK', function(runner) {
         localStorage.setItem('pugrunner_me', JSON.stringify(runner));
