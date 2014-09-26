@@ -4,7 +4,7 @@ var http        = require('http').Server(app);
 var io          = require('socket.io')(http);
 var router      = express.Router();
 var fs          = require('fs');
-var conf        = require('./conf.js');
+var conf        = require('./conf');
 
 var RACES = {},  RUNNERS = {};
 
