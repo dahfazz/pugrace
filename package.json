@@ -17,7 +17,6 @@
     "npm": "1.2.x"
   },
   "scripts": {
-    //"postinstall": "bower update && gulp"
     "postinstall": "bower update"
   }
 }
