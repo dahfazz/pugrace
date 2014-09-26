@@ -8,11 +8,11 @@ Pug Race is the first pug racing videogame, strongly inspired by the old school 
 
 ## Rules
 * First, create your pug
-* Then, Join a create or create yours (you become the owner).
+* Then, join a game or create yours (you become the owner).
 * Any other players can join the race until the owner click START, or whether you're 6 runners.
-* Everybody engaged in the race receive the same question simultaneously
-* Only the first who sends the good answer makes his pug running one step forward
-* You can only answer once to each question
+* Everybody engaged in the race receive the same question simultaneously.
+* Only the first who sends the good answer makes his pug running one step forward.
+* You can only answer once to each question.
 
 
 ## Contributing
