@@ -23,13 +23,13 @@ will be considered.
 
 # Improvements
 * TEAMS: Group with your friends and be the best in the team ranking
-# BONUSES: Randomly appearing while running a race
-# CUSTOMIZATION: Submit your pug
-# PUG PROFILE: Create your pug profile with name, nickname, special move, bio, etc...
-# CUSTOMIZATION: Submit your questions
-# SOCIAL: Link your pug with your social profiles
-# 1ON1: Invite one other pug to a mano-mano race
-# SCENES: Create new scene backgrounds
+* BONUSES: Randomly appearing while running a race
+* CUSTOMIZATION: Submit your pug
+* PUG PROFILE: Create your pug profile with name, nickname, special move, bio, etc...
+* CUSTOMIZATION: Submit your questions
+* SOCIAL: Link your pug with your social profiles
+* 1ON1: Invite one other pug to a mano-mano race
+* SCENES: Create new scene backgrounds
 
  
 
