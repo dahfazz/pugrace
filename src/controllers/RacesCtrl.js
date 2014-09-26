@@ -1,16 +1,16 @@
 myApp.controller('RacesCtrl', ['$scope', '$rootScope', '$location', '$http',
     function($scope, $rootScope, $location, $http) {
 
-    var me = JSON.parse(localStorage.getItem('pugrunner_me'));
+    $scope.me = JSON.parse(localStorage.getItem('pugrunner_me'));
 
 
     function init() {
 
-        if (!me.race_name) $location.path('/races');
+        if (!$scope.me.race_name) $location.path('/races');
 
-        if (me) {
+        if ($scope.me) {
             var data = {
-                'me': me
+                'me': $scope.me
             };
             socket.emit('restoreMe', data);
         }
@@ -30,14 +30,14 @@ myApp.controller('RacesCtrl', ['$scope', '$rootScope', '$location', '$http',
     $scope.createRaceSubmit = function () {
         var name = $scope.newRace_name;
         if (name) {
-            me.steps = 0;
+            $scope.me.steps = 0;
             var race = new Race(name, me);
-            localStorage.setItem('pugrunner_me', JSON.stringify(me));
+            localStorage.setItem('pugrunner_me', JSON.stringify($scope.me));
             race.runners[me.name] = me;
 
             var data = {
                 'race': race,
-                'owner': me
+                'owner': $scope.me
             };
 
             socket.emit('askNewRace', data);
@@ -47,11 +47,11 @@ myApp.controller('RacesCtrl', ['$scope', '$rootScope', '$location', '$http',
 
     $scope.joinRace = function(event, race) {
         event.preventDefault();
-        me.race_name = race.name;
-        me.steps = 0;
-        localStorage.setItem('pugrunner_me', JSON.stringify(me));
+        $scope.me.race_name = race.name;
+        $scope.me.steps = 0;
+        localStorage.setItem('pugrunner_me', JSON.stringify($scope.me));
 
-        var socketData = {'runner': me, 'race': race};
+        var socketData = {'runner': $scope.me, 'race': race};
         socket.emit('joinRace', socketData);
         $location.path('/race');
     };
@@ -59,8 +59,8 @@ myApp.controller('RacesCtrl', ['$scope', '$rootScope', '$location', '$http',
 
     $scope.leaveRace = function(event) {
         event.preventDefault();
-        me.race_name = null;
-        localStorage.setItem('pugrunner_me', JSON.stringify(me));
+        $scope.me.race_name = null;
+        localStorage.setItem('pugrunner_me', JSON.stringify($scope.me));
         event.target.remove();
         $location.reload();
     };
@@ -77,7 +77,7 @@ myApp.controller('RacesCtrl', ['$scope', '$rootScope', '$location', '$http',
         $scope.RACES = races;
         $scope.$apply();
 
-        if (races[newRace].owner.name === me.name) {
+        if (races[newRace].owner.name === $scope.me.name) {
             joinRace(newRace);
         }
     });
@@ -91,13 +91,19 @@ myApp.controller('RacesCtrl', ['$scope', '$rootScope', '$location', '$http',
     
     
     function joinRace(race) {
-        me.race_name = race;
-        me.steps = 0;
-        localStorage.setItem('pugrunner_me', JSON.stringify(me));
+        $scope.me.race_name = race;
+        $scope.me.steps = 0;
+        localStorage.setItem('pugrunner_me', JSON.stringify($scope.me));
         socket.emit('newChallenger', race);
         
         $location.path('/race');
         $scope.$apply();
+    }
+
+
+    $scope.quit = function(event) {
+        localStorage.clear();
+        $location.path('/');
     }
 
 }]);

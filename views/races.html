@@ -1,5 +1,16 @@
 
-<my-profile></my-profile>
+<div class="profile">
+    <div class="profile_inner">
+        <div class="profile_imgWrapper">
+            <img data-ng-src="/assets/images/characters/{{me.character}}.png" alt="" class="profile_img">
+        </div>
+        <div class="profile_user">
+            <span class="profile_name">{{me.name}}</span><br>
+            <!--<a class="profile_link" id="profileEdit" href="/edit">Edit</a>-->
+            <a class="profile_link" data-ng-click="quit()" id="profileLogout">Quit</a>
+        </div>
+    </div>
+</div>
 
 <form class="createRace_form" data-ng-submit="createRaceSubmit()">
     

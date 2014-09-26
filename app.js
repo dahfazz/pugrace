@@ -74,23 +74,6 @@ Object.size = function(obj) {
 app.use('/', router);
 
 
-/* GENERATE WEB COMPONENTS CORE-STYLE */
-function generateComponent(name) {
-    fs.readFile('./assets/css/webcomponents/' + name + '.css', function (err, data) {
-        if (err) {
-            throw err;
-        }       
-        var contentHolder = "<core-style id='" + name + "'>" + data.toString() + "</core-style>";
-        fs.writeFile('./assets/components/' + name + '/style.html', contentHolder, function (err) {
-            if (err) {
-                throw err;
-            }
-        });
-    });
-}
-generateComponent('profile');
-
-
 
 /* WEB SOCKET COMMUNICATION */
 io.on('connection', function(socket) {
