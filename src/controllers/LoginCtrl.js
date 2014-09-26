@@ -1,5 +1,6 @@
-myApp.controller('LoginCtrl', ['$scope', function($scope) {
+myApp.controller('LoginCtrl', ['$scope', '$location', function($scope, $location) {
 
+    $scope.$id = 'loginCtrl';
     $scope.loginModal = false;
 
     $scope.$on('openLoginModal', function() {
@@ -12,13 +13,21 @@ myApp.controller('LoginCtrl', ['$scope', function($scope) {
     
     
     $scope.loginSubmit = function(event) {
-        event.preventDefault();
+
+        var _name       = $scope.login_A.toUpperCase() + $scope.login_B.toUpperCase() + $scope.login_C.toUpperCase();
+        var _pwd        = $scope.login_PWD
         
-        console.log($scope.hello)
-        
-        var _name       = $scope.login_name_a.toUpperCase() + $scope.login_name_b.toUpperCase() + $scope.login_name_c.toUpperCase();
-        var _pwd        = $scope.loginPwd;
-        
-        console.log(_name, _pwd)
+        var data = {
+            'name': _name,
+            'password': _pwd
+        };
+
+        socket.emit('tryLogin', data);
     }
+
+    socket.on('logginOK', function(runner) {
+        localStorage.setItem('pugrunner_me', JSON.stringify(runner));
+        $location.path('/races');
+        $scope.$apply();
+    });
 }]);

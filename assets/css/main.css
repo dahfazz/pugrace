@@ -843,7 +843,11 @@ body {
   margin: auto;
   background: rgba(0, 0, 0, 0.7);
   font-family: 'arcade';
-  z-index: 90; }
+  z-index: 90;
+  display: none;
+  transition: all .6s linear; }
+  .__opened .modal {
+    display: block; }
 
 .modal_inner {
   background: #413f88;
@@ -869,6 +873,18 @@ body {
   font-size: 32px; }
   .cssremunit .login_pwd {
     font-size: 2rem; }
+
+.loginForm_button {
+  font-size: 28px;
+  background: white; }
+  .cssremunit .loginForm_button {
+    font-size: 1.75rem; }
+  .loginForm_button.__minor {
+    background: #413f88;
+    color: #d7c72a;
+    position: absolute;
+    top: 10px;
+    right: 10px; }
 
 .gamepad {
   background: #1f2072;

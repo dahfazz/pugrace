@@ -4,6 +4,12 @@
     background: rgba(0,0,0,.7);
     font-family: 'arcade';
     z-index: 90;
+    display: none;
+    transition: all .6s linear;
+
+    .__opened & {
+        display: block;
+    }
 }
 
 .modal_inner {
