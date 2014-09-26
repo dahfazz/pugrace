@@ -6,11 +6,17 @@
     </head>
     <body data-ng-app="myApp" data-ng-class="{'__winner': WINNER, '__looser': LOOSER}">
         <div data-ng-controller="AppCtrl">
+
+        <div class="qrCode" data-ng-class="{'__visible': qrCode}">
+            <qrcode class="qrCode_img" size="200" data="http://pugrace.herokuapp.com/play/#/race/{{qr.race}}/{{qr.runner}}"></qrcode>
+                <button class="qrCode_closer" data-ng-click="qrClose($event)">Close</button>
+        </div>
             <div data-ng-view></div>
         </div>
     </body>
 
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="/assets/js/libs/qrcode.js"></script>
 
 
     <script src="/src/classes/Answer.js"></script>
@@ -24,6 +30,7 @@
     <script src="../bower_components/angular/angular.js"></script>
     <script src="../bower_components/angular-route/angular-route.js"></script>
     <script src="../bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="../bower_components/angular-qrcode/qrcode.js"></script>
 
     <script src="/src/app.js"></script>
 

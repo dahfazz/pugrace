@@ -4,7 +4,7 @@ var http        = require('http').Server(app);
 var io          = require('socket.io')(http);
 var router      = express.Router();
 var fs          = require('fs');
-var conf        = require('./conf.json');
+var conf        = require('./conf.js');
 
 var RACES = {},  RUNNERS = {};
 
@@ -109,7 +109,6 @@ io.on('connection', function(socket) {
     /* WHEN START GAME */
     socket.on('startRace', function(race_name) {
         RACES[race_name].state = 'playing';
-        console.log(RACES)
         io.sockets.emit('raceStarted');
     });
 
@@ -119,7 +118,6 @@ io.on('connection', function(socket) {
         - me
     */
     socket.on('restoreMe', function(data) {
-        console.log('restore me')
         RUNNERS[data.me.name] = data.me;
     });
 
@@ -175,7 +173,6 @@ io.on('connection', function(socket) {
 
         // Finish line
         if (RACES[data.race.name].runners[data.runner.name].steps == finishStep) {
-            console.log('SCORE +10')
             RUNNERS[data.runner.name].score += 10;
 
             io.sockets.emit('finish', obj);

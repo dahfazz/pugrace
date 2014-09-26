@@ -53,7 +53,6 @@ myApp.controller('RacesCtrl', ['$scope', '$rootScope', '$location', '$http',
 
         var socketData = {'runner': me, 'race': race};
         socket.emit('joinRace', socketData);
-        console.log('JOIN')
         $location.path('/race');
     }
 

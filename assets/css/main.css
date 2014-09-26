@@ -1193,4 +1193,38 @@ body {
   .leaderboard_score:after {
     content: 'pts'; }
 
+.qrCode {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 50;
+  background: rgba(31, 32, 114, 0.9);
+  display: none; }
+  .qrCode.__visible {
+    display: block; }
+
+.qrCode .qrcode {
+  width: 200px;
+  height: 200px;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -100px;
+  margin-left: -100px; }
+
+.qrCode_closer {
+  position: fixed;
+  bottom: 40px;
+  left: 0;
+  right: 0;
+  width: 200px;
+  padding: 20px 10px;
+  margin: auto;
+  font-size: 25px; }
+  .cssremunit .qrCode_closer {
+    font-size: 1.5625rem; }
+
 /*# sourceMappingURL=main.css.map */

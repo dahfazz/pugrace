@@ -1,6 +1,6 @@
 'use strict'
 
-var myApp = angular.module('myApp',['ngRoute', 'ngSanitize']);
+var myApp = angular.module('myApp',['ngRoute', 'ngSanitize', 'monospaced.qrcode']);
 
 myApp.config(function($routeProvider, $locationProvider) {
     $routeProvider
@@ -29,7 +29,4 @@ myApp.config(function($routeProvider, $locationProvider) {
             controller: 'LeaderboardCtrl'
         })
     ;
-      
-    // configure html5 to get links working on jsfiddle
-    //$locationProvider.html5Mode(true);
     });

@@ -23,6 +23,7 @@
     "angular-route": "~1.2.25",
     "angular-sanitize": "~1.2.25",
     "socket.io": "~1.1.0",
-    "modernizr": "~2.8.3"
+    "modernizr": "~2.8.3",
+    "angular-qrcode": "monospaced/angular-qrcode#~4.0.0"
   }
 }
