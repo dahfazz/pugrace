@@ -5,7 +5,13 @@ var gulp        = require('gulp'),
 
 gulp.task('sass', function() {
   return gulp.src('assets/sass/*.scss')
-    .pipe(sass({ style: 'assets/expanded' }))
+    .pipe(sass({ 
+        style: 'assets/expanded',
+        bundleExec: false,
+        sourcemap:true,
+        style:'compressed',
+        noCache: true
+    }))
     .pipe(gulp.dest('assets/css'))
     .pipe(minifycss())
     .pipe(gulp.dest('assets/css'));
