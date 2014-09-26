@@ -43,9 +43,11 @@ will be considered.
 
 ## Special thanks
 
+- Kombucha <https://github.com/kombucha>
+- Manu Quinto
 - Smwhr <https://twitter.com/smwhr>
 - Fred De Matos <https://twitter.com/freddematos>
-- Manu Quinto
+
 
 
 ## License
