@@ -177,6 +177,12 @@ io.on('connection', function(socket) {
         - owner
     */
     socket.on('askNewRace', function(data) {
+
+        if (RACES[data.race.name]) {
+            socket.emit('duplicatedRacename');
+            return false;
+        }
+
         RACES[data.race.name] = data.race;
         RUNNERS[data.owner.name].race_name = data.race.name;
 

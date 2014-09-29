@@ -31,9 +31,9 @@ myApp.controller('RacesCtrl', ['$scope', '$rootScope', '$location', '$http',
         var name = $scope.newRace_name;
         if (name) {
             $scope.me.steps = 0;
-            var race = new Race(name, me);
+            var race = new Race(name, $scope.me);
             localStorage.setItem('pugrunner_me', JSON.stringify($scope.me));
-            race.runners[me.name] = me;
+            race.runners[$scope.me.name] = $scope.me;
 
             var data = {
                 'race': race,
@@ -80,6 +80,11 @@ myApp.controller('RacesCtrl', ['$scope', '$rootScope', '$location', '$http',
         if (races[newRace].owner.name === $scope.me.name) {
             joinRace(newRace);
         }
+    });
+
+
+    socket.on('duplicatedRacename', function() {
+        alert('Duplicated race name');
     });
 
 
