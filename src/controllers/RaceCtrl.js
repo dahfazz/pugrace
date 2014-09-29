@@ -43,12 +43,15 @@ myApp.controller('RaceCtrl', ['$scope', '$rootScope', '$timeout', '$http', '$int
 
     function init() {
 
-        if (!$scope.me.race_name) window.location = '/races';
+        if (!$scope.me.race_name) $location.path('/races');
 
         $http({
             'method': 'GET',
-            'url': '/race/' + $scope.me.race_name
+            'url': '/race/' + $scope.me.race_name,
+            'cache': false
         }).success(function(race){
+
+            console.log('___', race)
 
             $scope.RACE = race;
             $scope.QUESTIONS = race.quizz.items;
@@ -217,7 +220,7 @@ myApp.controller('RaceCtrl', ['$scope', '$rootScope', '$timeout', '$http', '$int
 
     /* ERROR : NO RACE */
     socket.on('noRace', function() {
-        window.location = '/races';
+        $location('/races');
     });
 
 

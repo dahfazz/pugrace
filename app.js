@@ -183,6 +183,14 @@ io.on('connection', function(socket) {
             return false;
         }
 
+        // If owner already engaged in a race, he leaves it
+        if (data.owner.race_name && RACES[data.owner.race_name]) {
+            RACES[data.owner.race_name].runnerNb -= 1;
+        }
+
+        data.race.runnerNb += 1;
+
+
         RACES[data.race.name] = data.race;
         RUNNERS[data.owner.name].race_name = data.race.name;
 
@@ -195,12 +203,26 @@ io.on('connection', function(socket) {
     });
 
 
+    /*
+        Owner asked to delete his race
+        - race
+        - runner
+    */
+    socket.on('tryDeleteRace', function(data) {
+        if (RACES[data.race.name] && RACES[data.race.name].owner.name === data.runner.name) {
+            delete RACES[data.race.name]
+        };
+        io.sockets.emit('updateRaces', RACES);
+    });
+
+
 
     /* WHEN PLAYER WANTS TO JOIN A GAME 
         - runner
         - race
      */
     socket.on('joinRace', function(data) {
+
         RACES[data.race.name].runners[data.runner.name] = data.runner;
         var _runnerNb = 0;
         for (var i = 0 in RACES[data.race.name].runners) {

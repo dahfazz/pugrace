@@ -6,7 +6,6 @@
         </div>
         <div class="profile_user">
             <span class="profile_name">{{me.name}}</span><br>
-            <!--<a class="profile_link" id="profileEdit" href="/edit">Edit</a>-->
             <a class="profile_link" data-ng-click="quit()" id="profileLogout">Quit</a>
         </div>
     </div>
@@ -30,5 +29,7 @@
         <button data-ng-if="race.state !== 'full' && race.name !== myRace" class="race_link" data-ng-click="joinRace($event, race)">Play here</button>
 
         <button data-ng-if="race.state !== 'full'" class="race_link" data-ng-click="joinWithPhone($event, race)">Play on my phone</button>
+
+        <button data-ng-if="race.owner.name === me.name" class="race_link" data-ng-click="deleteRace($event, race, me)">Delete</button>
     </li>
 </ul>

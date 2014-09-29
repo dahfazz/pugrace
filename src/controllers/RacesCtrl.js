@@ -47,8 +47,8 @@ myApp.controller('RacesCtrl', ['$scope', '$rootScope', '$location', '$http',
 
     $scope.joinRace = function(event, race) {
         event.preventDefault();
-        $scope.me.race_name = race.name;
         $scope.me.steps = 0;
+        $scope.me.race_name = race.name;
         localStorage.setItem('pugrunner_me', JSON.stringify($scope.me));
 
         var socketData = {'runner': $scope.me, 'race': race};
@@ -63,6 +63,16 @@ myApp.controller('RacesCtrl', ['$scope', '$rootScope', '$location', '$http',
         localStorage.setItem('pugrunner_me', JSON.stringify($scope.me));
         event.target.remove();
         $location.reload();
+    };
+
+
+    $scope.deleteRace = function(event, race, runner) {
+        event.preventDefault();
+        var data = {
+            'race': race,
+            'runner': runner
+        }
+        socket.emit('tryDeleteRace', data);
     };
     
     
