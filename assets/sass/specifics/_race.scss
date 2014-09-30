@@ -1,4 +1,8 @@
 
+.running_area {
+    overflow: hidden;
+}
+
 .race_exit_button {
     position: fixed;
     bottom: 40px;
@@ -39,8 +43,8 @@
 }
 
 .runners {
-    margin: 0 auto 20px;
-    padding: 159 0 0;
+    margin: 0;
+    padding: 159px 0 0;
     display: block;
     width: 1000px;
     height: 338px;
@@ -48,6 +52,7 @@
     background-size: cover;
     border: 10px solid #eee;
     border-radius: 10px;
+    float: left;
 }
 
 .runner {

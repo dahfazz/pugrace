@@ -6,27 +6,31 @@
 
 
 
-<!-- TRACK -->
-<ul class="runners">
-    <li data-ng-repeat="runner in RACE.runners" 
-        class="runner __{{runner.state}}"
-        id="runner-{{runner.name}}"
-        data-steps="{{runner.steps}}"
-    >
-        <span class="runner_anime __{{runner.character}}"></span>
-        <img hidden data-ng-src="assets/images/anime/{{runner.character}}.gif" alt="runner">
-    </li>
-</ul>
+
+<div class="running_area">
+    <!-- RANKING -->
+    <ol class="racerunners">
+      <li class="racerunners_line __{{data.state}}"
+          data-ng-repeat="data in RACE.runners | toArray | orderBy:'steps':true">{{data.name}}</li>
+    </ol>
+
+
+    <!-- TRACK -->
+    <ul class="runners">
+        <li data-ng-repeat="runner in RACE.runners" 
+            class="runner __{{runner.state}}"
+            id="runner-{{runner.name}}"
+            data-steps="{{runner.steps}}"
+        >
+            <span class="runner_anime __{{runner.character}}"></span>
+            <img hidden data-ng-src="assets/images/anime/{{runner.character}}.gif" alt="runner">
+        </li>
+    </ul>
+</div>
 
 
 
-<!-- RANKING -->
-<ol class="racerunners">
-  <li class="racerunners_line __{{data.state}}"
-      data-ng-repeat="data in RACE.runners | toArray | orderBy:'steps':true">
-    {{$index + 1}}.{{data.name}}
-  </li>
-</ol>
+
 
 
 
