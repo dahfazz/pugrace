@@ -1,44 +1,80 @@
+body:before {
+    font-size: 60px;
+    content: "";
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    background: red;
+    color: white;
+}
+
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen 
 and (min-device-width : 320px) 
-and (max-device-width : 480px) {
-/* Styles */
+and (max-device-device-width : 490px) {
+    .running_area {
+        display: none;
+    }
 }
 
 /* Smartphones (landscape) ----------- */
 @media only screen 
 and (min-width : 321px) {
-/* Styles */
+.running_area {
+        display: none;
+    }
 }
 
 /* Smartphones (portrait) ----------- */
 @media only screen 
-and (max-width : 390px) {
+and (max-device-width : 390px) {
+    .running_area {
+        display: none;
+    }
     
+    .gamepad {
+        margin-top: 100px;
+    }
+
     .gamepad_question {
+        font-size: 6em;
+    }
+
+    .gamepad_options {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+
+    .gamepad_button {
+        padding: 30px 0;
         font-size: 5em;
+        
+        &[disabled] {
+            color: $color-main-medium;
+        }
     }
 
-    .gamepad_option {
-        padding: 40px 0;
-    }
-
-    .option_button {
-        font-size: 4em;
+    .gamepad_timer {
+        font-size: 6em;
+        top: -90px;
+        margin-left: -75px;
+        width: 150px;
+        height: 90px;
     }
 }
 
 /* iPads (portrait and landscape) ----------- */
 @media only screen 
 and (min-device-width : 768px) 
-and (max-device-width : 1024px) {
+and (max-device-device-width : 1024px) {
 /* Styles */
 }
 
 /* iPads (landscape) ----------- */
 @media only screen 
 and (min-device-width : 768px) 
-and (max-device-width : 1024px) 
+and (max-device-device-width : 1024px) 
 and (orientation : landscape) {
 /* Styles */
 }
@@ -46,26 +82,19 @@ and (orientation : landscape) {
 /* iPads (portrait) ----------- */
 @media only screen 
 and (min-device-width : 768px) 
-and (max-device-width : 1024px) 
+and (max-device-device-width : 1024px) 
 and (orientation : portrait) {
 /* Styles */
 }
 
 /* Desktops and laptops ----------- */
 @media only screen 
-and (min-width : 1224px) {
+and (min-device-width : 1224px) {
 /* Styles */
 }
 
 /* Large screens ----------- */
 @media only screen 
-and (min-width : 1824px) {
-/* Styles */
-}
-
-/* iPhone 4 ----------- */
-@media
-only screen and (-webkit-min-device-pixel-ratio : 1.5),
-only screen and (min-device-pixel-ratio : 1.5) {
+and (min-device-width : 1824px) {
 /* Styles */
 }
