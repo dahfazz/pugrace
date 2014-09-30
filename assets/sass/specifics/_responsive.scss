@@ -19,18 +19,12 @@ and (max-device-device-width : 490px) {
 
 /* Smartphones (landscape) ----------- */
 @media only screen 
-and (min-width : 321px) {
-.running_area {
-        display: none;
-    }
+and (min-device-width : 321px) {
 }
 
 /* Smartphones (portrait) ----------- */
 @media only screen 
 and (max-device-width : 390px) {
-    .running_area {
-        display: none;
-    }
     
     .gamepad {
         margin-top: 100px;
