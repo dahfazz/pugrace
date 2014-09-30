@@ -22,9 +22,9 @@
 
 <!-- RANKING -->
 <ol class="racerunners">
-  <li class="racerunners_line __{{value.state}}"
-      data-ng-repeat="(key, value) in RACE.runners | orderBy:steps:true">
-    {{$index + 1}}.{{value.name}}
+  <li class="racerunners_line __{{data.state}}"
+      data-ng-repeat="data in RACE.runners | toArray | orderBy:'steps':true">
+    {{$index + 1}}.{{data.name}}
   </li>
 </ol>
 
@@ -32,28 +32,7 @@
 
 <!-- GAMEPAD -->
 <div class="gamepad" data-ng-if="QUESTIONS[QUESTION_KEY]">
-    <div class="gamepad_timer" data-ng-if="timer">{{timer}}</div>
-    <div id="question" class="gamepad_question" data-ng-switch="QUESTIONS[QUESTION_KEY].type">
-        <span data-ng-switch-when="open">{{QUESTIONS[QUESTION_KEY].question}}</span>
-        <span data-ng-switch-when="capital">{{QUESTIONS[QUESTION_KEY].question}} is the capital of which country ?
-        </span>
-        <div data-ng-switch-when="flag">
-          <span>Which flag is it ?</span><br>
-          <img data-ng-src="/assets/images/flags/{{QUESTIONS[QUESTION_KEY].question}}.jpg" alt="">
-        </div>
-        <div data-ng-switch-when="photo">
-          <span>Where is it ?</span><br>
-          <img data-ng-src="/assets/images/photos/{{QUESTIONS[QUESTION_KEY].question}}.jpg" alt="">
-        </div>
-    </div>
-    <ul class="gamepad_options">
-      <li class="gamepad_option" data-ng-repeat="(option, value) in QUESTIONS[QUESTION_KEY].options">
-        <button class="gamepad_button" 
-                data-ng-disabled="RACE.runners[me.name].state === 'answered'"
-                data-ng-click="sendAnswer($event, option)"
-                data-ng-bind="value"></button>
-      </li>
-    </ul>
+    <div data-ng-include="'views/gamepad.html'"></div>
 </div>
 
 

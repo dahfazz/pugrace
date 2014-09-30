@@ -24,6 +24,7 @@
     "angular-sanitize": "~1.2.25",
     "socket.io": "~1.1.0",
     "modernizr": "~2.8.3",
-    "angular-qrcode": "monospaced/angular-qrcode#~4.0.0"
+    "angular-qrcode": "monospaced/angular-qrcode#~4.0.0",
+    "underscore": "~1.7.0"
   }
 }

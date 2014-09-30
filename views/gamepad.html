@@ -1,30 +1,22 @@
-<!doctype html>
-<html>
-  <head>
-      <script src="bower_components/platform/platform.js"></script>
-        <link rel="import" href="/assets/components/profile/style.html">
-        <link rel="import" href="/assets/components/profile/index.html">
-        <link rel="import" href="/assets/components/gamepad/style.html">
-        <link rel="import" href="/assets/components/gamepad/index.html">
-    
-      <link rel="stylesheet" href="/assets/css/main.css">
-      <script src="/assets/js/libs/modernizr.js"></script>
-  </head>
-  <body onload="init()">
-  
-    <my-profile></my-profile>
-  
-    <my-gamepad></my-gamepad>
-
-
-    <!-- SOUND -->
-    <audio id="soundPlayer"></audio>
-    
-    <!-- Javascripts -->
-    <script src="/assets/js/libs/jquery.js"></script>
-    <script src="/assets/js/libs/socketio.js"></script>
-    <script src="/assets/js/src/init/gamepad.js"></script>
-    <script src="/assets/js/src/Sound.js"></script>
-    <script src="/assets/js/src/Runner.js"></script>
-  </body>
-</html>
+<div class="gamepad_timer" data-ng-if="timer">{{timer}}</div>
+  <div id="question" class="gamepad_question" data-ng-switch="QUESTIONS[QUESTION_KEY].type">
+      <span data-ng-switch-when="open">{{QUESTIONS[QUESTION_KEY].question}}</span>
+      <span data-ng-switch-when="capital">{{QUESTIONS[QUESTION_KEY].question}} is the capital of which country ?
+      </span>
+      <div data-ng-switch-when="flag">
+        <span>Which flag is it ?</span><br>
+        <img data-ng-src="/assets/images/flags/{{QUESTIONS[QUESTION_KEY].question}}.jpg" alt="">
+      </div>
+      <div data-ng-switch-when="photo">
+        <span>Where is it ?</span><br>
+        <img data-ng-src="/assets/images/photos/{{QUESTIONS[QUESTION_KEY].question}}.jpg" alt="">
+      </div>
+  </div>
+  <ul class="gamepad_options">
+    <li class="gamepad_option" data-ng-repeat="(option, value) in QUESTIONS[QUESTION_KEY].options">
+      <button class="gamepad_button" 
+              data-ng-disabled="RACE.runners[me.name].state === 'answered'"
+              data-ng-click="sendAnswer($event, option)"
+              data-ng-bind="value"></button>
+    </li>
+  </ul>

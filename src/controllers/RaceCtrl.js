@@ -51,8 +51,6 @@ myApp.controller('RaceCtrl', ['$scope', '$rootScope', '$timeout', '$http', '$int
             'cache': false
         }).success(function(race){
 
-            console.log('___', race)
-
             $scope.RACE = race;
             $scope.QUESTIONS = race.quizz.items;
 
@@ -231,5 +229,12 @@ myApp.controller('RaceCtrl', ['$scope', '$rootScope', '$timeout', '$http', '$int
         $rootScope.WINNER = false;
         $rootScope.LOOSER = false;
     });
+
+
+
+    /* Sort ranking */
+    $scope.sortRanking = function(runner) {
+       return runner.steps;
+    };
 
 }]);
