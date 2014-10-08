@@ -5,6 +5,8 @@ var io          = require('socket.io')(http);
 var router      = express.Router();
 var fs          = require('fs');
 var conf        = require('./conf');
+var QUESTIONS   = require('./questions');
+
 
 var RACES = {},  RUNNERS = {};
 
@@ -118,11 +120,19 @@ io.on('connection', function(socket) {
 
     /* WHEN GO TO NEXT QUESTION
         - race
-        - remainingQuizzSIze
+        - remainingQuizzSize
     */
     socket.on('nextQuestion', function(data) {
-        var randomKey   = Math.floor(Math.random() * data.remainingQuizzSIze);
-        io.sockets.emit('goToNextQuestion', {'race': data.race, 'question_key': randomKey});
+        var randomKey   = Math.floor(Math.random() * data.race.questions.ids.length);
+
+        var nextquestion = QUESTIONS[randomKey];
+        if (RACES[data.race.name] && RACES[data.race.name].questions) {
+            RACES[data.race.name].questions.ids.splice(randomKey, 1);
+
+            RACES[data.race.name].questions.current = randomKey;
+        }
+
+        io.sockets.emit('goToNextQuestion', {'race': data.race, 'question': nextquestion});
     });
 
 
@@ -136,7 +146,7 @@ io.on('connection', function(socket) {
     */
     socket.on('sendAnswer', function(data) {
 
-        var goodanswer = (RACES[data.race.name].quizz.items[data.question_key].answer === data.option_key);
+        var goodanswer = (QUESTIONS[RACES[data.race.name].questions.current].answer === data.option_key);
 
         var obj = {
             'runner': data.runner,
@@ -193,6 +203,10 @@ io.on('connection', function(socket) {
 
         RACES[data.race.name] = data.race;
         RUNNERS[data.owner.name].race_name = data.race.name;
+
+        for (var i = 0; i <= Object.size(QUESTIONS) - 1; i++) {
+            RACES[data.race.name].questions.ids.push(i);
+        };
 
         var obj = {
             'race': data.race,

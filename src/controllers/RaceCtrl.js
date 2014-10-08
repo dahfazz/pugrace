@@ -27,7 +27,6 @@ myApp.controller('RaceCtrl', ['$scope', '$rootScope', '$timeout', '$http', '$int
         }).success(function(race){
 
             $scope.RACE = race;
-            $scope.QUESTIONS = race.quizz.items;
 
             if ($scope.RACE && $scope.RACE.state !== 'waiting') {
                 $scope.startButton = false;
@@ -52,7 +51,6 @@ myApp.controller('RaceCtrl', ['$scope', '$rootScope', '$timeout', '$http', '$int
         }).success(function(race){
 
             $scope.RACE = race;
-            $scope.QUESTIONS = race.quizz.items;
 
             if ($scope.RACE && $scope.RACE.state !== 'waiting') {
                 $scope.startButton = false;
@@ -83,8 +81,7 @@ myApp.controller('RaceCtrl', ['$scope', '$rootScope', '$timeout', '$http', '$int
         event.target.remove();
 
         var data = {
-            'race': $scope.RACE,
-            'remainingQuizzSIze': $scope.RACE.quizz.items.length
+            'race': $scope.RACE
         };
 
         socket.emit('raceStarted', data);
@@ -94,19 +91,18 @@ myApp.controller('RaceCtrl', ['$scope', '$rootScope', '$timeout', '$http', '$int
 
     /* NEXT STEP
         - race
-        - question_key
+        - question
     */
     socket.on('goToNextQuestion', function(data) {
 
         // Not for me
         if (data.race.name !== $scope.me.race_name) return;
 
-        $scope.QUESTION_KEY = data.question_key;
+        $scope.question = data.question;
         $scope.RACE.runners[$scope.me.name].state = 'waiting';
 
         var obj = {
-            'race': $scope.RACE,
-            'remainingQuizzSIze': $scope.RACE.quizz.items.length
+            'race': $scope.RACE
         };
 
         $interval.cancel(interval);
@@ -120,7 +116,6 @@ myApp.controller('RaceCtrl', ['$scope', '$rootScope', '$timeout', '$http', '$int
         timeout = $timeout(function() {
             socket.emit('nextQuestion', obj);
         }, questionTimer * 1000);
-        //$scope.$apply();
     });
 
 
@@ -132,7 +127,6 @@ myApp.controller('RaceCtrl', ['$scope', '$rootScope', '$timeout', '$http', '$int
         var data = {
             'race':         $scope.RACE,
             'runner':       $scope.me,
-            'question_key': $scope.QUESTION_KEY,
             'option_key':   option_key,
             'timestamp':    Date.now()
         };
@@ -169,8 +163,7 @@ myApp.controller('RaceCtrl', ['$scope', '$rootScope', '$timeout', '$http', '$int
             // Stop the runner
             var runner_name = data.runner.name,
                 obj = {
-                    'race': $scope.RACE,
-                    'remainingQuizzSIze': $scope.RACE.quizz.items.length
+                    'race': $scope.RACE
                 };
 
             $timeout(function() {
