@@ -139,7 +139,7 @@ var questions = [
     },
     {
         "type": "open",
-        "options": ["Patty", "Alcmène", "Mégara", "Gaïa"],
+        "options": ["Patty", "Alcmene", "Megara", "Gaia"],
         "question": "name of Hercules mother?",
         "answer": 1
     },

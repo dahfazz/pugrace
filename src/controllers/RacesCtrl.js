@@ -79,9 +79,6 @@ myApp.controller('RacesCtrl', ['$scope', '$rootScope', '$location', '$http',
     
     // Insert new race
     socket.on('newRaceCreated', function(data) {
-
-        console.log(data)
-
         var newRace = data.race.name, 
             races = data.races;
 

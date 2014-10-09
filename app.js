@@ -8,14 +8,15 @@ var conf        = require('./conf');
 var QUESTIONS   = require('./questions');
 
 
-var RACES = {},  RUNNERS = {};
+var RACES   = {},
+    RUNNERS = {};
 
 var finishStep = 80;
 
 
 // SERVER
 var port = process.env.PORT || conf.port;
-var ip   = process.env.IP || conf.ip;
+var ip   = process.env.IP   || conf.ip;
 
 http.listen(port, function(){
   console.log('here we go on ' + ip + ':' + port);
@@ -123,13 +124,13 @@ io.on('connection', function(socket) {
         - remainingQuizzSize
     */
     socket.on('nextQuestion', function(data) {
-        var randomKey   = Math.floor(Math.random() * data.race.questions.ids.length);
+        var randomKey   = Math.floor(Math.random() * RACES[data.race.name].questions.ids.length);
+        var questionKey = RACES[data.race.name].questions.ids[randomKey];
+        var nextquestion = QUESTIONS[questionKey];
 
-        var nextquestion = QUESTIONS[randomKey];
         if (RACES[data.race.name] && RACES[data.race.name].questions) {
             RACES[data.race.name].questions.ids.splice(randomKey, 1);
-
-            RACES[data.race.name].questions.current = randomKey;
+            RACES[data.race.name].questions.current = questionKey;
         }
 
         io.sockets.emit('goToNextQuestion', {'race': data.race, 'question': nextquestion});
