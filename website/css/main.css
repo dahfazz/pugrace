@@ -26,7 +26,8 @@ html {
 .wrapper {
   background: white;
   position: relative;
-  z-index: 1; }
+  z-index: 1;
+  padding-top: 25px; }
 
 .wrapper_inner {
   width: 700px;
