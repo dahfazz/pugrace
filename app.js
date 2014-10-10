@@ -14,12 +14,38 @@ var RACES   = {},
 var finishStep = 80;
 
 
+// STORES
+function updateStore() {
+    fs.writeFile('assets/store/races.json', JSON.stringify(RACES), function (err) {
+        if (err) throw err;
+    });
+    fs.writeFile('assets/store/runners.json', JSON.stringify(RUNNERS), function (err) {
+        if (err) throw err;
+    });
+}
+
+
+function initData() {
+    fs.readFile('assets/store/races.json', function (err, data) {
+        if (err) throw err;
+        RACES = JSON.parse(data);
+    });
+    fs.readFile('assets/store/runners.json', function (err, data) {
+        if (err) throw err;
+        RUNNERS = JSON.parse(data);
+    });
+}
+
+
+
+
 // SERVER
 var port = process.env.PORT || conf.port;
 var ip   = process.env.IP   || conf.ip;
 
 http.listen(port, function(){
-  console.log('here we go on ' + ip + ':' + port);
+    console.log('here we go on ' + ip + ':' + port);
+    initData();
 });
 
 
@@ -88,6 +114,9 @@ io.on('connection', function(socket) {
         } else {
             RUNNERS[runner.name] = runner;
             socket.emit('runnerCreated', runner);
+
+            // SAVE IN STORE
+            updateStore();
         }
     });
 
@@ -172,6 +201,9 @@ io.on('connection', function(socket) {
             io.sockets.emit('finish', obj);
 
             delete RACES[data.race.name];
+
+            // Remove from store
+            updateStore();
         }
     });
 
@@ -179,6 +211,9 @@ io.on('connection', function(socket) {
     /* WHEN GAME PLAYER LIST CHANGE */
     socket.on('runnerUpdated', function(runner) {
         RUNNERS[runner.name] = runner;
+
+        // SAVE IN STORE
+        updateStore();
         io.sockets.emit('updateRunnerList', RUNNERS);
     });
 
@@ -213,6 +248,9 @@ io.on('connection', function(socket) {
             'race': data.race,
             'races': RACES
         };
+
+        // SAVE IN STORE
+        updateStore();
 
         io.sockets.emit('newRaceCreated', obj);
     });
