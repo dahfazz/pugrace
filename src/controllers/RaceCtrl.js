@@ -56,7 +56,7 @@ myApp.controller('RaceCtrl', ['$scope', '$rootScope', '$timeout', '$http', '$int
                 $scope.startButton = false;
             }
 
-            if ($scope.RACE && $scope.RACE.owner.name === $scope.me.name) {
+            if ($scope.RACE && $scope.RACE.owner.name === $scope.me.name && $scope.RACE.state === 'waiting') {
                 $scope.startButton = true;
             }
         });

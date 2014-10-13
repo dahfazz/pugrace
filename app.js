@@ -124,6 +124,10 @@ io.on('connection', function(socket) {
     /* WHEN START GAME */
     socket.on('startRace', function(race_name) {
         RACES[race_name].state = 'playing';
+
+        // SAVE IN STORE
+        updateStore();
+
         io.sockets.emit('raceStarted');
     });
 
@@ -144,6 +148,9 @@ io.on('connection', function(socket) {
     */
     socket.on('raceStarted', function(data) {
         RACES[data.race.name].state = 'playing';
+
+        // SAVE IN STORE
+        updateStore();
     });
 
 
@@ -287,6 +294,10 @@ io.on('connection', function(socket) {
         }
 
         RACES[data.race.name].runnerNb = _runnerNb;
+
+        // SAVE IN STORE
+        updateStore();
+
         io.sockets.emit('newChallenger', RACES[data.race.name]);
         io.sockets.emit('updateRaces', RACES);
     });
