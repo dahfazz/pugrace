@@ -91,12 +91,6 @@ var questions = [
     },
     {
         "type": "open",
-        "options": ["North", "South"],
-        "question": "Where is Antarctica?",
-        "answer": 1
-    },
-    {
-        "type": "open",
         "options": ["Wales", "Scotland", "ireland", "Belgium"],
         "question": "Which country produces Guiness beer?",
         "answer": 2
@@ -142,24 +136,6 @@ var questions = [
         "options": ["Patty", "Alcmene", "Megara", "Gaia"],
         "question": "name of Hercules mother?",
         "answer": 1
-    },
-    {
-        "type": "open",
-        "options": [11,12,13,14],
-        "question": "How many players per Cricket team?",
-        "answer": 0
-    },
-    {
-        "type": "open",
-        "options": ["Portuguese", "French", "Nobody", "Spanish"],
-        "question": "Who expected the spanish inquisition?",
-        "answer": 2
-    },
-    {
-        "type": "open",
-        "options": [11,12,13,14],
-        "question": "How many players per Cricket team?",
-        "answer": 0
     },
     {
         "type": "open",
@@ -232,6 +208,30 @@ var questions = [
         "options": ["290", "389", "648", "798"],
         "question": "Hom many people live in Vatican?",
         "answer": 3
+    },
+    {
+        "type": "open",
+        "options": ["4", "5", "6", "7"],
+        "question": "Hom many different figures in Tetris?",
+        "answer": 2
+    },
+    {
+        "type": "open",
+        "options": ["3", "4", "5", "6"],
+        "question": "Hom many Indiana Jones episodes?",
+        "answer": 1
+    },
+    {
+        "type": "open",
+        "options": ["23", "24", "25", "26"],
+        "question": "How many Simpsons seasons?",
+        "answer": 3
+    },
+    {
+        "type": "open",
+        "options": ["3", "4", "5", "6"],
+        "question": "How many members in the A-Team?",
+        "answer": 1
     }
 ];
 
