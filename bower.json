@@ -18,7 +18,6 @@
     "tests"
   ],
   "dependencies": {
-    "core-elements": "Polymer/core-elements#~0.4.0",
     "angular": "~1.2.25",
     "angular-route": "~1.2.25",
     "angular-sanitize": "~1.2.25",
