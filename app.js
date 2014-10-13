@@ -45,7 +45,7 @@ var ip   = process.env.IP   || conf.ip;
 
 http.listen(port, function(){
     console.log('here we go on ' + ip + ':' + port);
-    initData();
+    //initData();
 });
 
 
