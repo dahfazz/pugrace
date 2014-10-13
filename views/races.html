@@ -9,15 +9,31 @@
             <a class="profile_link" data-ng-click="quit()" id="profileLogout">Quit</a>
         </div>
     </div>
+    <button class="retro_button newraceButton" data-ng-click="showRaceForm = true">New race</button>
 </div>
 
-<form class="createRace_form" data-ng-submit="createRaceSubmit()">
-    
-    <button data-ng-click="goto($event, 'leaderboard')" class="leaderboardLink">Leaderboard...</button>
+<form class="createRace_form" data-ng-submit="createRaceSubmit()" data-ng-class="{'__hidden': !showRaceForm}">
+    <!-- <button data-ng-click="goto($event, 'leaderboard')" class="leaderboardLink">Leaderboard...</button> -->
 
-    <input class="createRace_input" type="text" placeholder="New race name" data-ng-model="newRace_name" />
-    <button class="retro_button" type="submit">Create a race</button>
+    <label class="createRace_label" for="newRaceName">Name:</label>
+    <input class="createRace_input" id="newRaceName" type="text" placeholder="New race name" data-ng-model="newRace_name" />
+
+    <label class="createRace_label">Scene:</label>
+    <ul class="createRace_scenes">
+        <li class="createRace_scene __field" data-ng-class="{'__selected': newRace_scene === 'field'}">
+            <label for="scene_field" class="createRace_scene_img"></label>
+            <input data-ng-model="newRace_scene" type="radio" id="scene_field" name="newRaceScene" value="field">
+        </li>
+        <li class="createRace_scene __moon" data-ng-class="{'__selected': newRace_scene === 'moon'}">
+            <label for="scene_moon" class="createRace_scene_img"></label>
+            <input data-ng-model="newRace_scene" type="radio" id="scene_moon" name="newRaceScene" value="moon">
+        </li>
+    </ul>
+
+    <button class="retro_button" type="submit">Create</button>
 </form>
+
+
 
 <ul class="races">
     <li class="race" data-ng-repeat="race in RACES | orderBy:timestamp" >

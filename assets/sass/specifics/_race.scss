@@ -48,11 +48,16 @@
     display: block;
     width: 1000px;
     height: 338px;
-    background: url('/assets/images/field.jpg') no-repeat top left;
+    background: url('/assets/images/scenes/field.jpg') no-repeat top left;
     background-size: cover;
     border: 10px solid #eee;
     border-radius: 10px;
     float: left;
+
+    &.__moon {
+        background: url('/assets/images/scenes/moon.jpg') no-repeat top left;
+        background-size: cover;
+    }
 }
 
 .runner {

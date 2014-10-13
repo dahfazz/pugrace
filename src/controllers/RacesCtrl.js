@@ -3,6 +3,8 @@ myApp.controller('RacesCtrl', ['$scope', '$rootScope', '$location', '$http',
 
     $scope.me = JSON.parse(localStorage.getItem('pugrunner_me'));
 
+    $scope.newRace_scene = 'field';
+
 
     function init() {
 
@@ -28,10 +30,12 @@ myApp.controller('RacesCtrl', ['$scope', '$rootScope', '$location', '$http',
 
     // Create race
     $scope.createRaceSubmit = function () {
-        var name = $scope.newRace_name;
+        var name = $scope.newRace_name,
+            scene = $scope.newRace_scene;
+
         if (name) {
             $scope.me.steps = 0;
-            var race = new Race(name, $scope.me);
+            var race = new Race(name, $scope.me, scene);
             localStorage.setItem('pugrunner_me', JSON.stringify($scope.me));
             race.runners[$scope.me.name] = $scope.me;
 

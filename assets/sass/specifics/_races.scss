@@ -1,17 +1,75 @@
 .createRace_form {
-    padding: 25px 0;
-    text-align: center;
     background: #222;
+    width: 500px;
+    margin: 30px auto;
+    padding: 20px;
 
+    &.__hidden {
+        display: none;
+    }
 }
+
+.createRace_label {
+    font-family: 'arcade';
+    color: $color-secondary;
+    display: block;
+    text-transform: uppercase;
+    @include remIt('font-size', 26);
+}
+
 .createRace_input {
     padding: 0 15px;
     font-family: 'arcade';
-    @include remIt('font-size', 32);
-    display: inline-block;
+    display: block;
     vertical-align: middle;
-    margin: 5px 10px 0;
+    margin-bottom: 25px;
+    width: 100%;
+    @include remIt('font-size', 32);
 }
+
+.createRace_scenes {
+    margin: 0 0 30px;
+    padding: 0;
+}
+
+.createRace_scene {
+    border: 5px solid transparent;
+    display: inline-block;
+    width: 210px;
+    height: 160px;
+    margin-left: 34px;
+    position: relative;
+
+    &.__selected {
+        border-color: $color-secondary;
+    }
+
+    &:first-child {
+        margin-left: 0;
+    }
+
+    input {
+        display: none;
+    }
+}
+
+.createRace_scene_img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    .__field & {
+        background: url('/assets/images/scenes/field_extract.jpg') no-repeat top left;
+        background-size: cover;
+    }
+    .__moon & {
+        background: url('/assets/images/scenes/moon_extract.jpg') no-repeat top left;
+        background-size: cover;
+    }
+}
+
 .createRace_button {
     @extend %clickable;
     display: inline-block;
@@ -80,5 +138,10 @@
     display: inline-block;
     vertical-align: middle;
     margin-bottom: -10px;
+}
 
+.newraceButton {
+    position: absolute;
+    top: 35px;
+    right: 30px;
 }
