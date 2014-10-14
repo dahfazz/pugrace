@@ -137,16 +137,19 @@
     }
 }
 
-.leaderboardLink {
-    background: none;
-    border: none;
+.leaderboardLink,
+.racesLink {
     font-family: 'arcade';
     color: $color-secondary;
-    @include remIt('font-size', 25);
-    margin-right: 20px;
     display: inline-block;
     vertical-align: middle;
-    margin-bottom: -10px;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    @include remIt('font-size', 30);
+}
+.leaderboardLink {
+    top: 40px;
 }
 
 .newraceButton {
