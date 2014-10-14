@@ -36,15 +36,15 @@
 
 
 <ul class="races">
-    <li class="race" data-ng-repeat="race in RACES | orderBy:timestamp" >
+    <li class="race" data-ng-repeat="race in RACES | orderBy:timestamp">
         <span class="race_name">
             <span class="highlighted">{{race.name}}</span> ({{race.runnerNb}} pugs)</span>
         <button data-ng-if="race.name === myRace" class="race_link leave_button" data-ng-click="leaveRace($event)">Leave</button>
         <span data-ng-if="race.state === 'full'" class="race_state">Full</span>
         
-        <button data-ng-if="race.state !== 'full' && race.name !== myRace" class="race_link __highlighted" data-ng-click="joinRace($event, race)">JOIN</button>
+        <button data-ng-if="race.state === 'waiting' && race.name !== myRace" class="race_link __highlighted" data-ng-click="joinRace($event, race)">JOIN</button>
 
-        <button data-ng-if="race.state !== 'full'" class="race_link" data-ng-click="joinWithPhone($event, race)">Play on my phone</button>
+        <button data-ng-if="race.state === 'waiting'" class="race_link" data-ng-click="joinWithPhone($event, race)">Play on my phone</button>
 
         <button data-ng-if="race.owner.name === me.name" class="race_link" data-ng-click="deleteRace($event, race, me)">Delete</button>
     </li>
