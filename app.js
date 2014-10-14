@@ -150,9 +150,15 @@ io.on('connection', function(socket) {
 
     /* WHEN GO TO NEXT QUESTION
         - race
-        - remainingQuizzSize
     */
     socket.on('nextQuestion', function(data) {
+        setNextQuestion(data);
+    });
+
+
+    function setNextQuestion(data) {
+        RACES[data.race.name].answerNb = 0;
+
         var randomKey   = Math.floor(Math.random() * RACES[data.race.name].questions.ids.length);
         var questionKey = RACES[data.race.name].questions.ids[randomKey];
         var nextquestion = QUESTIONS[questionKey];
@@ -162,8 +168,10 @@ io.on('connection', function(socket) {
             RACES[data.race.name].questions.current = questionKey;
         }
 
+        updateStore();
+
         io.sockets.emit('goToNextQuestion', {'race': data.race, 'question': nextquestion});
-    });
+    }
 
 
 
@@ -178,6 +186,12 @@ io.on('connection', function(socket) {
 
         var goodanswer = (QUESTIONS[RACES[data.race.name].questions.current].answer === data.option_key);
 
+        // Everybody is wrong, go next
+        RACES[data.race.name].answerNb++;
+        if (!goodanswer && RACES[data.race.name].answerNb == RACES[data.race.name].runnerNb) {
+            setNextQuestion(data);
+        }
+
         var obj = {
             'runner': data.runner,
             'race': data.race,
@@ -190,8 +204,6 @@ io.on('connection', function(socket) {
             RUNNERS[data.runner.name].steps += 10;
         }
 
-        if (RACES[data.race.name])
-
         io.sockets.emit('reward', obj);
 
         // Finish line
@@ -201,10 +213,10 @@ io.on('connection', function(socket) {
             io.sockets.emit('finish', obj);
 
             delete RACES[data.race.name];
-
-            // Remove from store
-            updateStore();
         }
+
+        // Remove from store
+        updateStore();
     });
 
 

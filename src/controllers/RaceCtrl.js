@@ -124,6 +124,8 @@ myApp.controller('RaceCtrl', ['$scope', '$rootScope', '$timeout', '$http', '$int
     $scope.sendAnswer = function(event, option_key) {
         event.preventDefault();
 
+        $scope.RACE.runners[$scope.me.name].state = 'answered';
+
         var data = {
             'race':         $scope.RACE,
             'runner':       $scope.me,
@@ -175,7 +177,6 @@ myApp.controller('RaceCtrl', ['$scope', '$rootScope', '$timeout', '$http', '$int
 
             // Wrong answer ...and if it's mine
             if (data.runner.name === $scope.me.name) {
-                $scope.RACE.runners[data.runner.name].state = 'answered';
                 $scope.$apply();
                 socket.emit('runnerUpdated', $scope.me);
             }

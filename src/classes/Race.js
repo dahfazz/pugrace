@@ -11,4 +11,5 @@ function Race(name, owner, scene) {
         current: undefined
     };
     this.runnerNb       = 0;
+    this.answerNb       = 0;
 }
