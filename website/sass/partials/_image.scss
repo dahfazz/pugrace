@@ -8,3 +8,11 @@
 .img {
     width: 100%;
 }
+
+
+ /*  Phone + Landscape  */
+@media only screen and (min-width : #{$break0}px) and (max-width : #{$break1}px) {}
+
+
+// Desktop
+@media only screen and (min-width : #{$break1}px) {}
