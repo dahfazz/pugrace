@@ -24,7 +24,7 @@ myApp.controller('JoinCtrl', ['$scope', '$rootScope', '$location', function($sco
     
     $scope.createRunner = function () {
 
-        var _name       = $scope.name_a.toUpperCase() + $scope.name_b.toUpperCase() + $scope.name_c.toUpperCase();
+        var _name       = $scope.username.toUpperCase();
         var _character  = $scope.character;
         var _pwd        = $scope.join_pwd;
 

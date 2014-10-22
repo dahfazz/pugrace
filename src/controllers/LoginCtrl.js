@@ -14,7 +14,7 @@ myApp.controller('LoginCtrl', ['$scope', '$location', function($scope, $location
     
     $scope.loginSubmit = function(event) {
 
-        var _name       = $scope.login_A.toUpperCase() + $scope.login_B.toUpperCase() + $scope.login_C.toUpperCase();
+        var _name       = $scope.login.toUpperCase();
         var _pwd        = $scope.login_PWD;
         
         var data = {

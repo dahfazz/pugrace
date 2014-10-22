@@ -112,20 +112,12 @@
     display: inline-block;
 }
 
-[class^='join_name_'] {
+.join_name {
     display: inline-block;
-    width: 80px;
+    width: 280px;
     text-align: center;
     @include remIt('font-size', 30);
     @extend %input;
-    
-    &:first-child {
-        margin-left: 0;
-    }
-}
-
-.join_name_b {
-    margin: 0 20px;
 }
 
 .join_pwd {
@@ -133,6 +125,7 @@
     width: 280px;
     padding: 12px 10px 0 10px;
     margin: auto;
+    text-align: center;
     z-index: 10;
     position: relative;
     font-size: 2em;

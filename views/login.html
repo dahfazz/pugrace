@@ -5,9 +5,7 @@
         <form class="loginForm modal_inner" novalidate data-ng-submit="loginSubmit()">
           <div class="join_nameWrapper">
             <div class="join_nameInner">
-                <input data-ng-keyup="nextInput('.join_name_b')" data-ng-model="login_A" title="Letters only" required pattern="[a-zA-Z]" maxlength="1" type="text" class="join_name_a" placeholder="A" />
-                <input data-ng-keyup="nextInput('.join_name_c')" data-ng-model="login_B" title="Letters only" required pattern="[a-zA-Z]" maxlength="1" type="text" class="join_name_b" placeholder="A" />
-                <input data-ng-keyup="nextInput('.join_pwd')"    data-ng-model="login_C" title="Letters only" required pattern="[a-zA-Z]" maxlength="1" type="text" class="join_name_c" placeholder="A" />
+                <input data-ng-model="login" title="Letters only" required pattern="[a-zA-Z]" maxlength="3" type="text" class="join_name" placeholder="AAA" />
             </div>
           </div>
               
