@@ -1,9 +1,13 @@
-myApp.controller('RacesCtrl', ['$scope', '$rootScope', '$location', '$http',
-    function($scope, $rootScope, $location, $http) {
+myApp.controller('RacesCtrl', ['$scope', '$rootScope', '$location', '$http', 'utils',
+    function($scope, $rootScope, $location, $http, utils) {
 
     $scope.me = JSON.parse(localStorage.getItem('pugrunner_me'));
 
     $scope.newRace_scene = 'field';
+
+    $scope.getRaceNb = function() {
+        return utils.sizeof($scope.RACES);
+    }
 
 
     function init() {
@@ -122,6 +126,15 @@ myApp.controller('RacesCtrl', ['$scope', '$rootScope', '$location', '$http',
     $scope.quit = function(event) {
         localStorage.clear();
         $location.path('/');
+    }
+
+
+    $scope.openModal = function() {
+        $scope.showRaceForm = true;
+    }
+
+    $scope.closeModal = function() {
+        $scope.showRaceForm = true;
     }
 
 }]);
