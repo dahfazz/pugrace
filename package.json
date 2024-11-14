@@ -11,8 +11,7 @@
     "socket.io": "^1.1.0"
   },
   "engines": {
-    "node": "0.10.x",
-    "npm": "1.2.x"
+    "node": "4.0.x"
   },
   "scripts": {
     "postinstall": "bower update",
