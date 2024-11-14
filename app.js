@@ -1,14 +1,14 @@
-var express     = require('express');
-var app         = express();
-var http        = require('http').Server(app);
-var io          = require('socket.io')(http);
-var router      = express.Router();
-var fs          = require('fs');
-var conf        = require('./conf');
-var QUESTIONS   = require('./questions');
+var express = require('express');
+var app = express();
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
+var router = express.Router();
+var fs = require('fs');
+var conf = require('./conf');
+var QUESTIONS = require('./questions');
 
 
-var RACES   = {},
+var RACES = {},
     RUNNERS = {};
 
 var finishStep = 80;
@@ -41,57 +41,57 @@ function initData() {
 
 // SERVER
 var port = process.env.PORT || conf.port;
-var ip   = process.env.IP   || conf.ip;
+var ip = process.env.IP || conf.ip;
 
-http.listen(port, function(){
+http.listen(port, function () {
     console.log('here we go on ' + ip + ':' + port);
     initData();
 });
 
 
 /* STATIC ASSETS */
-app.use('/assets',              express.static(__dirname + '/assets'));
-app.use('/src',                 express.static(__dirname + '/src'));
-app.use('/views',               express.static(__dirname + '/views'));
-app.use('/website',             express.static(__dirname + '/website'));
-app.use('/bower_components',    express.static(__dirname + '/bower_components'));
+app.use('/assets', express.static(__dirname + '/assets'));
+app.use('/src', express.static(__dirname + '/src'));
+app.use('/views', express.static(__dirname + '/views'));
+app.use('/website', express.static(__dirname + '/website'));
+app.use('/bower_components', express.static(__dirname + '/bower_components'));
 
 
 /* ROUTES */
 
-router.get('/', function(req, res) {
-    res.sendFile('/index.html', {root: __dirname + '/website/'} , function (err) {});
+router.get('/', function (req, res) {
+    res.sendFile('/index.html', { root: __dirname + '/website/' }, function (err) { });
 });
 
-router.get('/play', function(req, res) {
-    res.sendFile('/index.html', {root: __dirname + '/views/'} , function (err) {});
+router.get('/play', function (req, res) {
+    res.sendFile('/index.html', { root: __dirname + '/views/' }, function (err) { });
 });
 
-router.get('/allraces', function(req, res) {
+router.get('/allraces', function (req, res) {
     res.send(JSON.stringify(RACES));
 });
 
-router.get('/race/:name', function(req, res) {
-    res.send(JSON.stringify(RACES[req.params.name]), {}, function (err) {});
+router.get('/race/:name', function (req, res) {
+    res.send(JSON.stringify(RACES[req.params.name]), {}, function (err) { });
 });
 
-router.get('/allrunners', function(req, res) {
-    res.send(JSON.stringify(RUNNERS), {}, function (err) {});
+router.get('/allrunners', function (req, res) {
+    res.send(JSON.stringify(RUNNERS), {}, function (err) { });
 });
 
-router.get('/runner/:name', function(req, res) {
-    res.send(JSON.stringify(RUNNERS[req.params.name]), {}, function (err) {});
+router.get('/runner/:name', function (req, res) {
+    res.send(JSON.stringify(RUNNERS[req.params.name]), {}, function (err) { });
 });
 
-router.get('/stats', function(req, res) {
+router.get('/stats', function (req, res) {
     var stats = {
         'races': Object.size(RACES),
         'runners': Object.size(RUNNERS)
     }
-    res.send(stats, {}, function (err) {});
+    res.send(stats, {}, function (err) { });
 });
 
-Object.size = function(obj) {
+Object.size = function (obj) {
     var size = 0, key;
     for (key in obj) {
         if (obj.hasOwnProperty(key)) size++;
@@ -105,10 +105,10 @@ app.use('/', router);
 
 
 /* WEB SOCKET COMMUNICATION */
-io.on('connection', function(socket) {
+io.on('connection', function (socket) {
 
     /* WHEN NEW PLAYER SUBMITED */
-    socket.on('askCreateRunner', function(runner) {
+    socket.on('askCreateRunner', function (runner) {
         if (RUNNERS[runner.name]) {
             socket.emit('unavailableName', runner);
         } else {
@@ -122,7 +122,7 @@ io.on('connection', function(socket) {
 
 
     /* WHEN START GAME */
-    socket.on('startRace', function(race_name) {
+    socket.on('startRace', function (race_name) {
         RACES[race_name].state = 'playing';
 
         // SAVE IN STORE
@@ -136,7 +136,7 @@ io.on('connection', function(socket) {
     /* RESTORE KNOWN PLAYER
         - me
     */
-    socket.on('restoreMe', function(data) {
+    socket.on('restoreMe', function (data) {
         RUNNERS[data.me.name] = data.me;
     });
 
@@ -146,7 +146,7 @@ io.on('connection', function(socket) {
         - race
         - remainingQuizzSIze
     */
-    socket.on('raceStarted', function(data) {
+    socket.on('raceStarted', function (data) {
         RACES[data.race.name].state = 'playing';
 
         // SAVE IN STORE
@@ -158,7 +158,7 @@ io.on('connection', function(socket) {
     /* WHEN GO TO NEXT QUESTION
         - race
     */
-    socket.on('nextQuestion', function(data) {
+    socket.on('nextQuestion', function (data) {
         setNextQuestion(data);
     });
 
@@ -166,7 +166,7 @@ io.on('connection', function(socket) {
     function setNextQuestion(data) {
         RACES[data.race.name].answerNb = 0;
 
-        var randomKey   = Math.floor(Math.random() * RACES[data.race.name].questions.ids.length);
+        var randomKey = Math.floor(Math.random() * RACES[data.race.name].questions.ids.length);
         var questionKey = RACES[data.race.name].questions.ids[randomKey];
         var nextquestion = QUESTIONS[questionKey];
 
@@ -177,7 +177,7 @@ io.on('connection', function(socket) {
 
         updateStore();
 
-        io.sockets.emit('goToNextQuestion', {'race': data.race, 'question': nextquestion});
+        io.sockets.emit('goToNextQuestion', { 'race': data.race, 'question': nextquestion });
     }
 
 
@@ -189,7 +189,7 @@ io.on('connection', function(socket) {
         - option_key
         - timestamp
     */
-    socket.on('sendAnswer', function(data) {
+    socket.on('sendAnswer', function (data) {
 
         var goodanswer = (QUESTIONS[RACES[data.race.name].questions.current].answer === data.option_key);
 
@@ -228,7 +228,7 @@ io.on('connection', function(socket) {
 
 
     /* WHEN GAME PLAYER LIST CHANGE */
-    socket.on('runnerUpdated', function(runner) {
+    socket.on('runnerUpdated', function (runner) {
         RUNNERS[runner.name] = runner;
 
         // SAVE IN STORE
@@ -241,7 +241,7 @@ io.on('connection', function(socket) {
         - race
         - owner
     */
-    socket.on('askNewRace', function(data) {
+    socket.on('askNewRace', function (data) {
 
         if (RACES[data.race.name]) {
             socket.emit('duplicatedRacename');
@@ -280,7 +280,7 @@ io.on('connection', function(socket) {
         - race
         - runner
     */
-    socket.on('tryDeleteRace', function(data) {
+    socket.on('tryDeleteRace', function (data) {
         if (RACES[data.race.name] && RACES[data.race.name].owner.name === data.runner.name) {
             delete RACES[data.race.name]
         };
@@ -293,7 +293,7 @@ io.on('connection', function(socket) {
         - runner
         - race
      */
-    socket.on('joinRace', function(data) {
+    socket.on('joinRace', function (data) {
 
         RACES[data.race.name].runners[data.runner.name] = data.runner;
         var _runnerNb = 0;
@@ -316,7 +316,8 @@ io.on('connection', function(socket) {
 
 
     /* WHEN LOGIN SUBMITED */
-    socket.on('tryLogin', function(data) {
+    socket.on('tryLogin', data => {
+        console.log('RECEIVED', data)
         if (RUNNERS[data.name] && RUNNERS[data.name].pwd === data.password) {
             socket.emit('logginOK', RUNNERS[data.name]);
         }

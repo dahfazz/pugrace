@@ -51,6 +51,7 @@ myApp.controller('RaceCtrl', ['$scope', '$rootScope', '$timeout', '$http', '$int
         }).success(function(race){
 
             $scope.RACE = race;
+            console.log('___', race)
 
             if ($scope.RACE && $scope.RACE.state !== 'waiting') {
                 $scope.startButton = false;

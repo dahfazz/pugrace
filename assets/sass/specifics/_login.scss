@@ -11,6 +11,11 @@
     @include remIt('font-size', 32);
 }
 
+.loginForm {
+    width: 600px;
+    margin: 5rem auto 0;
+}
+
 .loginForm_button {
     @include remIt('font-size', 28);
     background: white;

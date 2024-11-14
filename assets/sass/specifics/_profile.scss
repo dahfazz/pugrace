@@ -1,11 +1,14 @@
 .profile {
     @extend %box;
-    padding: 10px 0;
-    text-align: center;
+    padding: 1rem;
+    justify-content: space-between;
+    align-items: center;
+    border: none;
+    display: flex;
 }
 
 .profile_inner {
-    display: inline-block;
+    
 }
 
 .profile_imgWrapper {

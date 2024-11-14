@@ -1,21 +1,26 @@
-
 <div data-ng-controller="LoginCtrl">
-    <div data-ng-class="{'__opened': loginModal}">
-      <div class="modal">
-        <form class="loginForm modal_inner" novalidate data-ng-submit="loginSubmit()">
-          <div class="join_nameWrapper">
-            <div class="join_nameInner">
-                <input data-ng-model="login" title="Letters only" required pattern="[a-zA-Z]" maxlength="3" type="text" class="join_name" placeholder="AAA" />
-            </div>
+  <div data-ng-class="{'__opened': loginModal}">
+    <div class="modal">
+      <form class="loginForm modal_inner" novalidate data-ng-submit="loginSubmit()">
+        <div class="join_nameWrapper">
+          <div class="join_nameInner">
+            <input data-ng-model="login" title="Letters only" required pattern="[a-zA-Z]" maxlength="3" type="text"
+              class="join_name" placeholder="AAA" />
           </div>
-              
-          <input title="6 alphanumerics minimum" required pattern="[a-zA-Z0-9]{6,}" type="password" data-ng-model="login_PWD" class="join_pwd" placeholder="Password" />
+        </div>
+        <div class="join_nameWrapper">
+          <div class="join_nameInner">
+            <input title="6 alphanumerics minimum" required pattern="[a-zA-Z0-9]{6,}" type="password"
+              data-ng-model="login_PWD" class="join_pwd" placeholder="Password" />
+          </div>
+        </div>
 
-          <div class="join_section">
-              <button type="submit" class="loginForm_button join-button">LOG IN</button>
-              <button type="button" class="loginForm_button __minor join-button" data-ng-click="closeLoginModal()">Close</button>
-          </div>
-        </form>
-      </div>
+        <footer>
+          <button type="submit" class="loginForm_button join-button">LOG IN</button>
+          <button type="button" class="loginForm_button __minor join-button"
+            data-ng-click="closeLoginModal()">Close</button>
+        </footer>
+      </form>
+    </div>
   </div>
 </div>

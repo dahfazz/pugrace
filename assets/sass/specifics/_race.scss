@@ -58,6 +58,10 @@
         background: url('/assets/images/scenes/moon.jpg') no-repeat top left;
         background-size: cover;
     }
+    &.__court {
+        background: url('/assets/images/scenes/court.jpg') no-repeat top left;
+        background-size: cover;
+    }
 }
 
 .runner {
@@ -98,29 +102,31 @@
 }
 
 .runner_anime {
-    text-align: center;
-    font-weight: bold;
-    font-size: 18px;
-    padding: 28px 0 0 0;
-    text-indent: 68px;
-    font-family: 'arcade';
+  background: blue;
+  color: white;
+  height: 123px;
+  width: 123px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 32px;
+  padding: 23px 0 0 0;
+  font-family: 'arcade';
+  display: block;
+  float: left;
+  width: 70px;
+  height: 70px;
+  position: relative;
+  transition: margin-left .6s linear;
+  margin: 0;
+  z-index: 1;
+  position: absolute;
 
-    display: block;
-    float: left;
-    width: 70px;
-    height: 70px;
-    position: relative;
-    transition: margin-left .6s linear;
-    margin: 0;
-    z-index: 1;
-    position: absolute;
-    
-    &.__whitepug  { background-image: url('/assets/images/freezed/whitepug.png'); background-size: cover; }
-    &.__blackpug  { background-image: url('/assets/images/freezed/blackpug.png'); background-size: cover;}
-    &.__pig       { background-image: url('/assets/images/freezed/pig.png'); background-size: cover;}
-    &.__guinea    { background-image: url('/assets/images/freezed/guinea.png'); background-size: cover;}
-    &.__mj        { background-image: url('/assets/images/freezed/mj.png'); background-size: cover;}
-    &.__ufo       { background-image: url('/assets/images/freezed/ufo.png'); background-size: cover;}
+  @each $player in $players {
+    &.runner__#{$player} {
+        background-image: url('/assets/images/characters/#{$player}.png');
+        background-size: cover;
+    }
+  }
 }
 
 .__animated {

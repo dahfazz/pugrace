@@ -1,11 +1,18 @@
 
 /*  FACES */
 .characters_wrapper {
-    text-align: center;
     margin: 30px auto 0;
     position: relative;
-    width: 300px;
-    z-index: 10;
+    display: flex;
+    flex-wrap: wrap;
+    
+    .character {
+        margin-bottom: 1rem;
+        margin-left: 1rem;
+        &:nth-child(5n + 1) {
+            margin-left: 0;
+        }
+    }
 }
 
 .characters_nav {
@@ -28,30 +35,6 @@
     }
 }
 
-.characters_inner {
-    overflow: hidden;
-    text-align: left;
-    margin: 0;
-    position: relative;
-    overflow: hidden;
-}
-
-.characters {
-    margin: 0;
-    padding: 0 50px 0 0;
-    overflow: hidden;
-    display: inline-block;
-    word-spacing: 10px;
-    white-space: nowrap;
-    transition: all .6s linear;
-    font-size: 0;
-
-    .registered & {
-        width: 150px;
-    }
-}
-
-
 [data-page="0"] {
   .characters_nav:first-child {
       display: none;
@@ -69,12 +52,6 @@
     }
 }
 
-.character {
-    display: inline-block;
-    padding: 0;
-    margin-right: 55px;
-}
-
 .character_button {
     border: 6px solid $color-main-light;
     background: none;
@@ -87,28 +64,9 @@
         border-color: $color-secondary;
         background-color: white;
     }
-}
 
-.__blackpug {
-    background-image: url('/assets/images/characters/blackpug.png');
-}
-
-.__whitepug {
-    background-image: url('/assets/images/characters/whitepug.png');
-}
-
-.__mj {
-    background-image: url('/assets/images/characters/mj.png');
-}
-
-.__guinea {
-    background-image: url('/assets/images/characters/guinea.png');
-}
-
-.__pig {
-    background-image: url('/assets/images/characters/pig.png');
-}
-
-.__ufo {
-    background-image: url('/assets/images/characters/ufo.png');
+    @each $player in $players {
+        &.__#{$player} { background-image: url('/assets/images/characters/#{$player}.png'); }
+    }
+    
 }

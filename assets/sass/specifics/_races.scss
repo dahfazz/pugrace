@@ -73,6 +73,10 @@
         background: url('/assets/images/scenes/moon_extract.jpg') no-repeat top left;
         background-size: cover;
     }
+    .__court & {
+        background: url('/assets/images/scenes/court_extract.jpg') no-repeat top left;
+        background-size: cover;
+    }
 }
 
 .createRace_button {
@@ -153,9 +157,7 @@
 }
 
 .newraceButton {
-    position: absolute;
-    top: 35px;
-    right: 30px;
+    background-color: black;
 }
 
 .noraces {

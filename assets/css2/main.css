@@ -1,0 +1,1586 @@
+/*!
+========== INIT
+*/
+/*! normalize.css v3.0.1 | MIT License | git.io/normalize */
+/**
+ * 1. Set default font family to sans-serif.
+ * 2. Prevent iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+html {
+  font-family: sans-serif; /* 1 */
+  -ms-text-size-adjust: 100%; /* 2 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+}
+
+/**
+ * Remove default margin.
+ */
+body {
+  margin: 0;
+}
+
+/* HTML5 display definitions
+   ========================================================================== */
+/**
+ * Correct `block` display not defined for any HTML5 element in IE 8/9.
+ * Correct `block` display not defined for `details` or `summary` in IE 10/11 and Firefox.
+ * Correct `block` display not defined for `main` in IE 11.
+ */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+  display: block;
+}
+
+/**
+ * 1. Correct `inline-block` display not defined in IE 8/9.
+ * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
+ */
+audio,
+canvas,
+progress,
+video {
+  display: inline-block; /* 1 */
+  vertical-align: baseline; /* 2 */
+}
+
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+/**
+ * Address `[hidden]` styling not present in IE 8/9/10.
+ * Hide the `template` element in IE 8/9/11, Safari, and Firefox < 22.
+ */
+[hidden],
+template {
+  display: none;
+}
+
+/* Links
+   ========================================================================== */
+/**
+ * Remove the gray background color from active links in IE 10.
+ */
+a {
+  background: transparent;
+}
+
+/**
+ * Improve readability when focused and also mouse hovered in all browsers.
+ */
+a:active,
+a:hover {
+  outline: 0;
+}
+
+/* Text-level semantics
+   ========================================================================== */
+/**
+ * Address styling not present in IE 8/9/10/11, Safari, and Chrome.
+ */
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+
+/**
+ * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
+ */
+b,
+strong {
+  font-weight: bold;
+}
+
+/**
+ * Address styling not present in Safari and Chrome.
+ */
+dfn {
+  font-style: italic;
+}
+
+/**
+ * Address variable `h1` font-size and margin within `section` and `article`
+ * contexts in Firefox 4+, Safari, and Chrome.
+ */
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+/**
+ * Address styling not present in IE 8/9.
+ */
+mark {
+  background: #ff0;
+  color: #000;
+}
+
+/**
+ * Address inconsistent and variable font size in all browsers.
+ */
+small {
+  font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+/* Embedded content
+   ========================================================================== */
+/**
+ * Remove border when inside `a` element in IE 8/9/10.
+ */
+img {
+  border: 0;
+}
+
+/**
+ * Correct overflow not hidden in IE 9/10/11.
+ */
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/* Grouping content
+   ========================================================================== */
+/**
+ * Address margin not present in IE 8/9 and Safari.
+ */
+figure {
+  margin: 1em 40px;
+}
+
+/**
+ * Address differences between Firefox and other browsers.
+ */
+hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+}
+
+/**
+ * Contain overflow in all browsers.
+ */
+pre {
+  overflow: auto;
+}
+
+/**
+ * Address odd `em`-unit font size rendering in all browsers.
+ */
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+/* Forms
+   ========================================================================== */
+/**
+ * Known limitation: by default, Chrome and Safari on OS X allow very limited
+ * styling of `select`, unless a `border` property is set.
+ */
+/**
+ * 1. Correct color not being inherited.
+ *    Known issue: affects color of disabled elements.
+ * 2. Correct font properties not being inherited.
+ * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.
+ */
+button,
+input,
+optgroup,
+select,
+textarea {
+  color: inherit; /* 1 */
+  font: inherit; /* 2 */
+  margin: 0; /* 3 */
+}
+
+/**
+ * Address `overflow` set to `hidden` in IE 8/9/10/11.
+ */
+button {
+  overflow: visible;
+}
+
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.
+ * Correct `select` style inheritance in Firefox.
+ */
+button,
+select {
+  text-transform: none;
+}
+
+/**
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ * 3. Improve usability and consistency of cursor style between image-type
+ *    `input` and others.
+ */
+button,
+html input[type=button],
+input[type=reset],
+input[type=submit] {
+  -webkit-appearance: button; /* 2 */
+  cursor: pointer; /* 3 */
+}
+
+/**
+ * Re-set default cursor for disabled elements.
+ */
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+
+/**
+ * Remove inner padding and border in Firefox 4+.
+ */
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/**
+ * Address Firefox 4+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+input {
+  line-height: normal;
+}
+
+/**
+ * It's recommended that you don't attempt to style these elements.
+ * Firefox's implementation doesn't respect box-sizing, padding, or width.
+ *
+ * 1. Address box sizing set to `content-box` in IE 8/9/10.
+ * 2. Remove excess padding in IE 8/9/10.
+ */
+input[type=checkbox],
+input[type=radio] {
+  box-sizing: border-box; /* 1 */
+  padding: 0; /* 2 */
+}
+
+/**
+ * Fix the cursor style for Chrome's increment/decrement buttons. For certain
+ * `font-size` values of the `input`, it causes the cursor style of the
+ * decrement button to change from `default` to `text`.
+ */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+ * 1. Address `appearance` set to `searchfield` in Safari and Chrome.
+ * 2. Address `box-sizing` set to `border-box` in Safari and Chrome
+ *    (include `-moz` to future-proof).
+ */
+input[type=search] {
+  -webkit-appearance: textfield; /* 1 */
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box; /* 2 */
+  box-sizing: content-box;
+}
+
+/**
+ * Remove inner padding and search cancel button in Safari and Chrome on OS X.
+ * Safari (but not Chrome) clips the cancel button when the search input has
+ * padding (and `textfield` appearance).
+ */
+input[type=search]::-webkit-search-cancel-button,
+input[type=search]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+ * Define consistent border, margin, and padding.
+ */
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+
+/**
+ * 1. Correct `color` not being inherited in IE 8/9/10/11.
+ * 2. Remove padding so people aren't caught out if they zero out fieldsets.
+ */
+legend {
+  border: 0; /* 1 */
+  padding: 0; /* 2 */
+}
+
+/**
+ * Remove default vertical scrollbar in IE 8/9/10/11.
+ */
+textarea {
+  overflow: auto;
+}
+
+/**
+ * Don't inherit the `font-weight` (applied by a rule above).
+ * NOTE: the default cannot safely be changed in Chrome and Safari on OS X.
+ */
+optgroup {
+  font-weight: bold;
+}
+
+/* Tables
+   ========================================================================== */
+/**
+ * Remove most spacing between table cells.
+ */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+td,
+th {
+  padding: 0;
+}
+
+/*!
+========== BASE
+*/
+/* ===== UTILS ===== */
+/* _____ SYSTEM TOOLS _____ */
+/* _____ MIXINS _____ */
+/* _____ UNIVERSAL HELPERS _____ */
+/* ===== PROJECT ===== */
+/* _____ VARIABLES _____ */
+/* _____ FONTS _____ */
+@font-face {
+  font-family: "arcade";
+  src: url("fonts/arcade.eot");
+  src: url("fonts/arcade.eot?#iefix") format("embedded-opentype"), url("fonts/arcade.woff") format("woff"), url("fonts/arcade.ttf") format("truetype"), url("fonts/arcade.svg#arcade") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "arcade";
+  src: url("/assets/fonts/arcade/arcade.eot");
+  src: url("/assets/fonts/arcade/arcade.eot?#iefix") format("embedded-opentype"), url("/assets/fonts/arcade/arcade.woff") format("woff"), url("/assets/fonts/arcade/arcade.ttf") format("truetype"), url("/assets/fonts/arcade/arcade.svg#Sri-TSCRegular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+/* _____ GLOBAL DEFAULTS _____ */
+*,
+:before,
+:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+ul {
+  list-style: none;
+}
+
+/* _____ LAYOUT _____ */
+body {
+  background: black;
+  font-size: 100%;
+}
+
+.registered .gamepad {
+  display: block;
+}
+.registered #joinButton {
+  display: none;
+}
+
+/* _____ PROJECT HELPERS _____ */
+.profile {
+  background: #00f;
+  border-top: 10px solid #fff;
+  border-bottom: 5px solid #000;
+}
+
+.createRace_button, .retro_button {
+  display: inline-block;
+  font-family: "arcade";
+  color: #d7c72a;
+  border: none;
+  background: none;
+  outline: none;
+}
+
+.join_name,
+.join_pwd {
+  padding: 10px 0;
+  font-family: "arcade";
+  font-size: 3em;
+  text-transform: uppercase;
+}
+
+/*!
+========== COMPONENTS
+*/
+/*!
+========== SPECIFICS
+*/
+/*  FACES */
+.characters_wrapper {
+  margin: 30px auto 0;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+}
+.characters_wrapper .character {
+  margin-bottom: 1rem;
+  margin-left: 1rem;
+}
+.characters_wrapper .character:nth-child(5n+1) {
+  margin-left: 0;
+}
+
+.characters_nav {
+  content: "b";
+  position: absolute;
+  left: -50px;
+  top: 50%;
+  width: 32px;
+  height: 25px;
+  margin-top: -12px;
+  border: none;
+  outline: none;
+  text-indent: -999999999px;
+  background: url("/assets/images/prev.png") no-repeat;
+}
+.characters_nav:last-child {
+  left: auto;
+  right: -40px;
+  background: url("/assets/images/next.png") no-repeat;
+}
+
+[data-page="0"] .characters_nav:first-child {
+  display: none;
+}
+
+[data-page="1"] .characters {
+  margin-left: -392px;
+}
+[data-page="1"] .characters_nav:last-child {
+  display: none;
+}
+
+.character_button {
+  border: 6px solid #fff;
+  background: none;
+  display: block;
+  padding: 0;
+  width: 123px;
+  height: 123px;
+  background-repeat: no-repeat;
+}
+.character_button.__selected {
+  border-color: #d7c72a;
+  background-color: white;
+}
+.character_button.__lebron {
+  background-image: url("/assets/images/characters/lebron.png");
+}
+.character_button.__kobe {
+  background-image: url("/assets/images/characters/kobe.png");
+}
+.character_button.__embiid {
+  background-image: url("/assets/images/characters/embiid.png");
+}
+.character_button.__kd {
+  background-image: url("/assets/images/characters/kd.png");
+}
+.character_button.__curry {
+  background-image: url("/assets/images/characters/curry.png");
+}
+.character_button.__wade {
+  background-image: url("/assets/images/characters/wade.png");
+}
+.character_button.__iverson {
+  background-image: url("/assets/images/characters/iverson.png");
+}
+.character_button.__simmons {
+  background-image: url("/assets/images/characters/simmons.png");
+}
+.character_button.__harden {
+  background-image: url("/assets/images/characters/harden.png");
+}
+.character_button.__ja {
+  background-image: url("/assets/images/characters/ja.png");
+}
+
+.__winner:before, .__looser:before {
+  content: "";
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+}
+.__winner:after, .__looser:after {
+  content: "";
+  width: 300px;
+  height: 320px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  z-index: 90;
+  color: white;
+  font-size: 40px;
+  text-align: center;
+  background-position: center 20px;
+  background-repeat: no-repeat;
+}
+.cssremunit .__winner:after, .cssremunit .__looser:after {
+  font-size: 2.5rem;
+}
+
+.__winner:before {
+  background: rgba(39, 174, 96, 0.9);
+}
+.__winner:after {
+  content: "YOU WON";
+  background-image: url("/assets/images/winner.png");
+  background-size: cover;
+}
+
+.__looser:before {
+  background: rgba(231, 76, 60, 0.9);
+}
+.__looser:after {
+  content: "YOU LOST";
+  background-image: url("/assets/images/looser.png");
+  background-size: cover;
+}
+
+.gamepad {
+  background: #00f;
+  border: 10px solid #fff;
+  padding: 30px;
+  margin: 20px;
+  position: relative;
+}
+
+.gamepad_question {
+  text-align: center;
+  width: 100%;
+  font-family: "arcade";
+  font-size: 3em;
+  color: white;
+}
+.gamepad_question img {
+  height: 70px;
+  margin: auto;
+  border: 5px solid #fff;
+}
+
+.gamepad_options {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.gamepad_option {
+  text-align: center;
+  border-bottom: 2px solid #fff;
+}
+
+.gamepad_button {
+  display: block;
+  text-align: center;
+  width: 100%;
+  padding: 10px 0;
+  font-family: "arcade";
+  font-size: 2em;
+  color: #d7c72a;
+  border: none;
+  background: none;
+  outline: none;
+}
+.gamepad_button[disabled] {
+  color: #000;
+}
+
+.gamepad_timer {
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  margin-left: -30px;
+  font-family: "arcade";
+  font-size: 3.2em;
+  color: white;
+  width: 100px;
+  height: 60px;
+  text-align: center;
+  background-color: #00f;
+  border: 10px solid #fff;
+}
+
+.join {
+  background: #00f;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  background-image: url("/assets/images/arena.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  padding-top: 60px;
+}
+
+@-webkit-keyframes run {
+  0% {
+    left: -200px;
+  }
+  100% {
+    left: 130%;
+  }
+}
+@keyframes run {
+  0% {
+    left: -200px;
+  }
+  100% {
+    left: 130%;
+  }
+}
+.join_header {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  font-size: 1.2em;
+  padding: 1rem;
+  background: #000;
+  overflow: hidden;
+  border-bottom: 5px solid white;
+}
+
+.mainTitle {
+  font-family: "arcade";
+  color: white;
+  float: left;
+  margin: 10px 0 0 10px;
+}
+
+.login {
+  float: right;
+  margin: 10px 10px 0;
+  font-size: 1em;
+}
+
+.login_label {
+  font-family: "arcade";
+  color: white;
+  font-size: 1.8em;
+  margin-right: 5px;
+  display: inline-block;
+}
+
+.login_button {
+  font-family: "arcade";
+  color: #d7c72a;
+  font-size: 1.8em;
+  display: inline-block;
+  border: none;
+  background: none;
+}
+
+.join_section {
+  width: 800px;
+  margin: 5rem auto 0;
+  padding: 2rem;
+  background-color: black;
+  text-align: center;
+}
+
+.join-label {
+  font-family: "arcade";
+  font-size: 2.5em;
+  color: #fff;
+  z-index: 10;
+  position: relative;
+}
+
+.join_nameWrapper {
+  margin: 30px auto 20px;
+  font-size: 0;
+  text-align: center;
+  z-index: 10;
+}
+
+.join_nameInner {
+  display: inline-block;
+}
+
+.join_name,
+.join_pwd {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  font-size: 30px;
+}
+.cssremunit .join_name,
+.cssremunit .join_pwd {
+  font-size: 1.875rem;
+}
+
+.retro_button {
+  z-index: 10;
+  position: relative;
+  font-size: 2.5em;
+  vertical-align: top;
+  padding: 1rem 2rem;
+  background: #00f;
+  color: white;
+}
+.boxshadow .retro_button {
+  -webkit-box-shadow: 5px 5px 0 0 #fff;
+  box-shadow: 5px 5px 0 0 #fff;
+}
+.join_section .retro_button {
+  background: #00f;
+}
+.boxshadow .join_section .retro_button {
+  -webkit-box-shadow: 5px 5px 0 0 #000;
+  box-shadow: 5px 5px 0 0 #000;
+}
+.retro_button:active {
+  margin: 0 -5px -5px 0;
+}
+.boxshadow .retro_button:active {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.leaderboard {
+  width: 600px;
+  margin: 40px auto;
+  font-family: "arcade";
+}
+
+.leaderboard_title {
+  color: #d7c72a;
+  font-size: 50px;
+  text-align: center;
+}
+.cssremunit .leaderboard_title {
+  font-size: 3.125rem;
+}
+
+.leaderboard_item {
+  color: white;
+  font-size: 34px;
+  padding: 5px 0;
+  border-bottom: 1px solid #333;
+  overflow: hidden;
+}
+.cssremunit .leaderboard_item {
+  font-size: 2.125rem;
+}
+
+.leaderboard_img {
+  width: 60px;
+  height: 60px;
+  border: 3px solid #fff;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.leaderboard_rank {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+.leaderboard_rank:after {
+  content: ".";
+}
+
+.leaderboard_name {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.leaderboard_score {
+  display: inline-block;
+  vertical-align: middle;
+}
+.leaderboard_score:after {
+  content: "pts";
+}
+
+.loading {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 255, 0.9);
+  z-index: -1;
+  visibility: hidden;
+}
+
+.spinner {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  width: 70px;
+  height: 50px;
+  text-align: center;
+}
+
+.spinner > div {
+  width: 18px;
+  height: 18px;
+  background-color: #fff;
+  border-radius: 100%;
+  display: inline-block;
+  -webkit-animation: bouncedelay 1.4s infinite ease-in-out;
+  animation: bouncedelay 1.4s infinite ease-in-out;
+  /* Prevent first frame from flickering when animation starts */
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.spinner .bounce1 {
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+
+.spinner .bounce2 {
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+
+@-webkit-keyframes bouncedelay {
+  0%, 80%, 100% {
+    -webkit-transform: scale(0);
+  }
+  40% {
+    -webkit-transform: scale(1);
+  }
+}
+@keyframes bouncedelay {
+  0%, 80%, 100% {
+    transform: scale(0);
+    -webkit-transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
+    -webkit-transform: scale(1);
+  }
+}
+.login_nameWrapper {
+  width: 300px;
+  margin: 30px auto;
+}
+
+.login_pwd {
+  width: 390px;
+  margin: 30px auto;
+  display: block;
+  font-size: 32px;
+}
+.cssremunit .login_pwd {
+  font-size: 2rem;
+}
+
+.loginForm {
+  width: 600px;
+  margin: 5rem auto 0;
+}
+
+.loginForm_button {
+  font-size: 28px;
+  background: white;
+}
+.cssremunit .loginForm_button {
+  font-size: 1.75rem;
+}
+.loginForm_button.__minor {
+  background: #000;
+  color: #d7c72a;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.modal {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  background: rgba(0, 0, 0, 0.7);
+  font-family: "arcade";
+  z-index: 90;
+  display: none;
+  transition: all 0.6s linear;
+}
+.__opened .modal {
+  display: block;
+}
+
+.modal_inner {
+  background: #000;
+  z-index: 30;
+  padding: 20px;
+  box-shadow: 10px 10px #fff;
+}
+
+.modal_title {
+  text-align: center;
+  border-bottom: 5px solid #fff;
+  color: #d7c72a;
+  padding-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.profile {
+  padding: 1rem;
+  justify-content: space-between;
+  align-items: center;
+  border: none;
+  display: flex;
+}
+
+.profile_imgWrapper {
+  border: 10px solid #000;
+  background: #fff;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.profile_img {
+  height: 60px;
+}
+
+.profile_user {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 15px;
+  text-align: left;
+}
+
+.profile_name {
+  color: #fff;
+  font-family: "arcade";
+  font-size: 40px;
+}
+.cssremunit .profile_name {
+  font-size: 2.5rem;
+}
+
+.profile_link {
+  margin-right: 10px;
+  padding-right: 10px;
+  border-right: 2px solid #d7c72a;
+  color: #d7c72a;
+  font-family: "arcade";
+  text-decoration: underline;
+  font-size: 36px;
+}
+.cssremunit .profile_link {
+  font-size: 2.25rem;
+}
+.profile_link:last-child {
+  border-right: none;
+}
+
+.qrCode {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.9);
+  display: none;
+}
+.qrCode.__visible {
+  display: block;
+}
+
+.qrCode .qrcode {
+  width: 200px;
+  height: 200px;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -100px;
+  margin-left: -100px;
+}
+
+.qrCode_closer {
+  position: fixed;
+  bottom: 40px;
+  left: 0;
+  right: 0;
+  width: 200px;
+  padding: 20px 10px;
+  margin: auto;
+  font-size: 25px;
+}
+.cssremunit .qrCode_closer {
+  font-size: 1.5625rem;
+}
+
+.running_area {
+  overflow: hidden;
+}
+
+.race_exit_button {
+  position: fixed;
+  bottom: 40px;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  margin: auto;
+  width: 200px;
+  padding: 20px;
+  font-size: 40px;
+}
+.cssremunit .race_exit_button {
+  font-size: 2.5rem;
+}
+
+.race_header {
+  background: #00f;
+  border-bottom: 5px solid #000;
+  overflow: hidden;
+  padding: 10px 20px 5px 20px;
+  margin-bottom: 20px;
+}
+
+.race_title {
+  float: left;
+  font-family: "arcade";
+  color: white;
+  font-size: 2em;
+}
+
+.start-button {
+  display: inline-block;
+  text-align: center;
+  float: right;
+  font-family: "arcade";
+  font-size: 2em;
+  color: #d7c72a;
+  border: none;
+  background: none;
+  outline: none;
+}
+
+.runners {
+  margin: 0;
+  padding: 159px 0 0;
+  display: block;
+  width: 1000px;
+  height: 338px;
+  background: url("/assets/images/scenes/field.jpg") no-repeat top left;
+  background-size: cover;
+  border: 10px solid #eee;
+  border-radius: 10px;
+  float: left;
+}
+.runners.__moon {
+  background: url("/assets/images/scenes/moon.jpg") no-repeat top left;
+  background-size: cover;
+}
+.runners.__court {
+  background: url("/assets/images/scenes/court.jpg") no-repeat top left;
+  background-size: cover;
+}
+
+.runner {
+  display: block;
+  padding: 0;
+  position: relative;
+  height: 21px;
+}
+
+.runner:nth-child(1) .runner_anime {
+  bottom: -5px;
+  left: 109px;
+}
+
+.runner:nth-child(2) .runner_anime {
+  bottom: -6px;
+  left: 96px;
+}
+
+.runner:nth-child(3) .runner_anime {
+  bottom: -3px;
+  left: 83px;
+}
+
+.runner:nth-child(4) .runner_anime {
+  bottom: 1px;
+  left: 72px;
+}
+
+.runner:nth-child(5) .runner_anime {
+  bottom: 3px;
+  left: 59px;
+}
+
+.runner:nth-child(6) .runner_anime {
+  bottom: 6px;
+  left: 48px;
+}
+
+.runner_anime {
+  background: blue;
+  color: white;
+  height: 123px;
+  width: 123px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 32px;
+  padding: 23px 0 0 0;
+  font-family: "arcade";
+  display: block;
+  float: left;
+  width: 70px;
+  height: 70px;
+  position: relative;
+  transition: margin-left 0.6s linear;
+  margin: 0;
+  z-index: 1;
+  position: absolute;
+}
+.runner_anime.runner__lebron {
+  background-image: url("/assets/images/characters/lebron.png");
+  background-size: cover;
+}
+.runner_anime.runner__kobe {
+  background-image: url("/assets/images/characters/kobe.png");
+  background-size: cover;
+}
+.runner_anime.runner__embiid {
+  background-image: url("/assets/images/characters/embiid.png");
+  background-size: cover;
+}
+.runner_anime.runner__kd {
+  background-image: url("/assets/images/characters/kd.png");
+  background-size: cover;
+}
+.runner_anime.runner__curry {
+  background-image: url("/assets/images/characters/curry.png");
+  background-size: cover;
+}
+.runner_anime.runner__wade {
+  background-image: url("/assets/images/characters/wade.png");
+  background-size: cover;
+}
+.runner_anime.runner__iverson {
+  background-image: url("/assets/images/characters/iverson.png");
+  background-size: cover;
+}
+.runner_anime.runner__simmons {
+  background-image: url("/assets/images/characters/simmons.png");
+  background-size: cover;
+}
+.runner_anime.runner__harden {
+  background-image: url("/assets/images/characters/harden.png");
+  background-size: cover;
+}
+.runner_anime.runner__ja {
+  background-image: url("/assets/images/characters/ja.png");
+  background-size: cover;
+}
+
+.__animated .__whitepug {
+  background-image: url("/assets/images/animated/whitepug.gif");
+  background-size: cover;
+}
+.__animated .__blackpug {
+  background-image: url("/assets/images/animated/blackpug.gif");
+  background-size: cover;
+}
+.__animated .__pig {
+  background-image: url("/assets/images/animated/pig.gif");
+  background-size: cover;
+}
+.__animated .__guinea {
+  background-image: url("/assets/images/animated/guinea.gif");
+  background-size: cover;
+}
+.__animated .__mj {
+  background-image: url("/assets/images/animated/mj.gif");
+  background-size: cover;
+}
+.__animated .__ufo {
+  background-image: url("/assets/images/animated/ufo.gif");
+  background-size: cover;
+}
+
+[data-steps="10"] .runner_anime {
+  margin-left: 10%;
+}
+
+[data-steps="20"] .runner_anime {
+  margin-left: 20%;
+}
+
+[data-steps="30"] .runner_anime {
+  margin-left: 30%;
+}
+
+[data-steps="40"] .runner_anime {
+  margin-left: 40%;
+}
+
+[data-steps="50"] .runner_anime {
+  margin-left: 50%;
+}
+
+[data-steps="60"] .runner_anime {
+  margin-left: 60%;
+}
+
+[data-steps="70"] .runner_anime {
+  margin-left: 70%;
+}
+
+[data-steps="80"] .runner_anime {
+  margin-left: 81%;
+}
+
+.racerunners {
+  background: #00f;
+  border: 10px solid #fff;
+  overflow: hidden;
+  padding: 15px 0 10px 65px;
+  width: 250px;
+  height: 338px;
+  float: left;
+  margin: 0 20px;
+}
+
+.racerunners_line {
+  font-family: "arcade";
+  font-size: 1.8em;
+}
+.racerunners_line.__waiting {
+  color: white;
+}
+.racerunners_line.__rewarded, .racerunners_line.__animated {
+  color: #d7c72a;
+}
+.racerunners_line.__answered {
+  color: #000;
+}
+
+.createRace_form {
+  background: #222;
+  width: 500px;
+  margin: 30px auto;
+  padding: 20px;
+}
+.createRace_form.__hidden {
+  display: none;
+}
+.createRace_form .__close {
+  float: right;
+  color: white;
+}
+
+.createRace_label {
+  font-family: "arcade";
+  color: #d7c72a;
+  display: block;
+  text-transform: uppercase;
+  font-size: 26px;
+}
+.cssremunit .createRace_label {
+  font-size: 1.625rem;
+}
+
+.createRace_input {
+  padding: 0 15px;
+  font-family: "arcade";
+  display: block;
+  vertical-align: middle;
+  margin-bottom: 25px;
+  width: 100%;
+  font-size: 32px;
+}
+.cssremunit .createRace_input {
+  font-size: 2rem;
+}
+
+.createRace_scenes {
+  margin: 0 0 30px;
+  padding: 0;
+}
+
+.createRace_scene {
+  border: 5px solid transparent;
+  display: inline-block;
+  width: 210px;
+  height: 160px;
+  margin-left: 34px;
+  position: relative;
+}
+.createRace_scene.__selected {
+  border-color: #d7c72a;
+}
+.createRace_scene:first-child {
+  margin-left: 0;
+}
+.createRace_scene input {
+  display: none;
+}
+
+.createRace_scene_img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.__field .createRace_scene_img {
+  background: url("/assets/images/scenes/field_extract.jpg") no-repeat top left;
+  background-size: cover;
+}
+.__moon .createRace_scene_img {
+  background: url("/assets/images/scenes/moon_extract.jpg") no-repeat top left;
+  background-size: cover;
+}
+.__court .createRace_scene_img {
+  background: url("/assets/images/scenes/court_extract.jpg") no-repeat top left;
+  background-size: cover;
+}
+
+.createRace_button {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 15px;
+  font-size: 32px;
+}
+.cssremunit .createRace_button {
+  font-size: 2rem;
+}
+
+.races {
+  padding: 0;
+  margin: 0;
+}
+
+.race {
+  padding: 8px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  overflow: hidden;
+}
+
+.race_name {
+  font-family: "arcade";
+  color: #fff;
+  font-size: 25px;
+}
+.cssremunit .race_name {
+  font-size: 1.5625rem;
+}
+.race_name .highlighted {
+  text-transform: uppercase;
+  color: white;
+}
+
+.race_state {
+  font-family: "arcade";
+  color: #000;
+  font-size: 25px;
+}
+.cssremunit .race_state {
+  font-size: 1.5625rem;
+}
+.race_state:before {
+  content: " - ";
+}
+
+.race_link {
+  font-family: "arcade";
+  color: #d7c72a;
+  font-size: 25px;
+  float: right;
+  border: none;
+  background: none;
+  border-right: 1px solid #444;
+  padding-right: 25px;
+  margin-right: 25px;
+}
+.cssremunit .race_link {
+  font-size: 1.5625rem;
+}
+.race_link:nth-child(2) {
+  border-right: none;
+  padding-right: 0;
+  margin-right: 0;
+}
+.race_link.__highlighted {
+  color: white;
+}
+
+.leaderboardLink,
+.racesLink {
+  font-family: "arcade";
+  color: #d7c72a;
+  display: inline-block;
+  vertical-align: middle;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  font-size: 30px;
+}
+.cssremunit .leaderboardLink,
+.cssremunit .racesLink {
+  font-size: 1.875rem;
+}
+
+.leaderboardLink {
+  top: 40px;
+}
+
+.newraceButton {
+  background-color: black;
+}
+
+.noraces {
+  font-family: "arcade";
+  padding: 40px 0 0;
+  color: white;
+  text-align: center;
+  font-size: 40px;
+}
+.cssremunit .noraces {
+  font-size: 2.5rem;
+}
+
+body:before {
+  font-size: 60px;
+  content: "";
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  background: red;
+  color: white;
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-device-width: 490px) {
+  .running_area {
+    display: none;
+  }
+}
+/* Smartphones (landscape) ----------- */
+/* Smartphones (portrait) ----------- */
+@media only screen and (max-device-width: 390px) {
+  .gamepad {
+    margin-top: 100px;
+  }
+  .gamepad_question {
+    font-size: 6em;
+  }
+  .gamepad_options {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  .gamepad_button {
+    padding: 30px 0;
+    font-size: 5em;
+  }
+  .gamepad_button[disabled] {
+    color: #000;
+  }
+  .gamepad_timer {
+    font-size: 6em;
+    top: -90px;
+    margin-left: -75px;
+    width: 150px;
+    height: 90px;
+  }
+}
+/* iPads (portrait and landscape) ----------- */
+@media only screen and (min-device-width: 768px) and (max-device-device-width: 1024px) {
+  /* Styles */
+}
+/* iPads (landscape) ----------- */
+@media only screen and (min-device-width: 768px) and (max-device-device-width: 1024px) and (orientation: landscape) {
+  /* Styles */
+}
+/* iPads (portrait) ----------- */
+@media only screen and (min-device-width: 768px) and (max-device-device-width: 1024px) and (orientation: portrait) {
+  /* Styles */
+}
+/* Desktops and laptops ----------- */
+@media only screen and (min-device-width: 1224px) {
+  /* Styles */
+}
+/* Large screens ----------- */
+@media only screen and (min-device-width: 1824px) {
+  /* Styles */
+}
+
+/*# sourceMappingURL=main.css.map */

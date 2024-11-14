@@ -1,7 +1,6 @@
-
 <header class="race_header">
-  <div class="race_title" data-ng-bind="RACE.name"></div>
-  <button class="start-button" data-ng-if="startButton" data-ng-click="startRace($event)">Start</button>
+    <div class="race_title" data-ng-bind="RACE.name"></div>
+    <button class="start-button" data-ng-if="startButton" data-ng-click="startRace($event)">Start</button>
 </header>
 
 
@@ -10,20 +9,17 @@
 <div class="running_area">
     <!-- RANKING -->
     <ol class="racerunners">
-      <li class="racerunners_line __{{data.state}}"
-          data-ng-repeat="data in RACE.runners | toArray | orderBy:'steps':true">{{data.name}}</li>
+        <li class="racerunners_line __{{data.state}}"
+            data-ng-repeat="data in RACE.runners | toArray | orderBy:'steps':true">{{data.name}}</li>
     </ol>
 
 
     <!-- TRACK -->
     <ul class="runners __{{RACE.scene}}">
-        <li data-ng-repeat="runner in RACE.runners" 
-            class="runner __{{runner.state}}"
-            id="runner-{{runner.name}}"
-            data-steps="{{runner.steps}}"
-        >
-            <span class="runner_anime __{{runner.character}}">{{runner.name}}</span>
-            <img hidden data-ng-src="assets/images/anime/{{runner.character}}.gif" alt="runner">
+        <li data-ng-repeat="runner in RACE.runners" class="runner __{{runner.state}}" id="runner-{{runner.name}}"
+            data-steps="{{runner.steps}}">
+            <span class="runner_anime runner__{{runner.character}}">{{runner.name}}</span>
+            <!-- <img hidden data-ng-src="assets/images/anime/{{runner.character}}.gif" alt="runner"> -->
         </li>
     </ul>
 </div>

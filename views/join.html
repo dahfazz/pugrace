@@ -5,26 +5,33 @@
     <div class="join_header">
         <h1 class="mainTitle" data-ng-bind="appTitle"></h1>
         <div class="login">
-            <span class="login_label" for="player_name">Already a pug ?</span>
+            <span class="login_label" for="player_name">Already a baller ?</span>
             <button type="button" class="login_button" data-ng-click="openLoginModal()">Log in</button>
         </div>
     </div>
 
     <form novalidate class="join_section" data-ng-submit="createRunner()">
-        <label class="join-label" for="player_name">Create your runner</label>
-        
+        <label class="join-label" for="player_name">Create your baller</label>
+
         <div data-ng-include="'/views/characters.html'"></div>
 
         <div class="join_nameWrapper">
             <div class="join_nameInner">
-                <input data-ng-model="username" title="Letters only" required pattern="[a-zA-Z]" maxlength="3" type="text" class="join_name" placeholder="AAA" />
+                <input data-ng-model="username" title="Letters only" required pattern="[a-zA-Z]" maxlength="3"
+                    type="text" class="join_name" placeholder="AAA" />
             </div>
         </div>
-        
-        <input title="6 alphanumerics minimum" required pattern="[a-zA-Z0-9]{6,}" type="password" class="join_pwd" data-ng-model="join_pwd" placeholder="Password" />
-        
-        <div class="join_section">
-            <button  type="submit" class="retro_button">Create</button>
+
+        <div class="join_nameWrapper">
+            <div class="join_nameInner">
+                <input title="6 alphanumerics minimum" required pattern="[a-zA-Z0-9]{6,}" type="password"
+                    class="join_pwd" data-ng-model="join_pwd" placeholder="Password" />
+            </div>
         </div>
+
+
+        <footer>
+            <button type="submit" class="retro_button">Create</button>
+        </footer>
     </form>
 </div>
