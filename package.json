@@ -16,7 +16,8 @@
   "scripts": {
     "postinstall": "bower update",
     "watch:js": "nodemon ./app.js localhost 8080",
-    "watch:scss": "sass assets/sass:assets/css2 -w -c"
+    "watch:scss": "sass assets/sass:assets/css2 -w -c",
+    "build": "sass assets/sass:assets/css2"
   },
   "main": "Gulpfile.js",
   "repository": {
