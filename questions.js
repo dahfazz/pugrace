@@ -83,6 +83,18 @@ var questions = [
         "question": "Combien de fois Curry a été All-Star",
         "answer": 1
     },
+    {
+        "type": "open",
+        "options": [2010, 2013, 2014, 2017],
+        "question": "En quelle année la NBA teste les maillots à manches",
+        "answer": 1
+    },
+    {
+        "type": "open",
+        "options": ["Charlotte", "Atlanta", "Chicago",, "Cleveland"],
+        "question": "Où a eu lieu le all-star game 2020",
+        "answer": 2
+    },
     
 ];
 
