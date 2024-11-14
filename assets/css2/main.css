@@ -808,6 +808,15 @@ body {
   box-shadow: none;
 }
 
+.home-qr {
+  position: fixed;
+  background-color: black;
+  bottom: 1rem;
+  left: 1rem;
+  z-index: 10;
+  width: 223px;
+}
+
 .leaderboard {
   width: 600px;
   margin: 40px auto;

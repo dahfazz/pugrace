@@ -120,3 +120,12 @@
         margin: 0 -5px -5px 0;
     }
 }
+
+.home-qr {
+    position: fixed;
+    background-color: black;
+    bottom: 1rem;
+    left: 1rem;
+    z-index: 10;
+    width: 223px;
+}

@@ -6,7 +6,7 @@
         <div data-ng-controller="AppCtrl">
 
         <div class="qrCode" data-ng-class="{'__visible': qrCode}">
-            <qrcode class="qrCode_img" size="200" data="http://pugrace.herokuapp.com/play/#/race/{{qr.race}}/{{qr.runner}}"></qrcode>
+            <qrcode class="qrCode_img" size="200" data="https://pugrace.onrender.com/play/#/race/{{qr.race}}/{{qr.runner}}"></qrcode>
                 <button class="qrCode_closer" data-ng-click="qrClose($event)">Close</button>
         </div>
             <div data-ng-view></div>
